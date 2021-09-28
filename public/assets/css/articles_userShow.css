@@ -1,0 +1,16 @@
+/***** Articles index **************************************************************************/
+/***** marge */
+.profilAuteur{
+    padding-top: 70px;
+}
+
+/****** lire la suite bordure */
+.lireSuiteAbo {
+    border : 5px solid var(--couleurBleu);
+}
+
+/****** lien auteur */
+.nomUser:hover {
+    text-decoration: none!important;
+}
+

@@ -1,0 +1,87 @@
+{% extends 'base_no_pole_button.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/art_retourExp_new.css')}}">
+{% endblock %}
+
+{% block title %}Ajouter un nouveau retour d'expérience{% endblock %}
+    
+{% form_theme form _self %}
+
+{% block body %}
+    <div class="container newArticle" >
+        <h2 class="text-center">             
+            {#<img src="{{ asset('img/articles_publications/experiments.png')}}" alt="experience" width="100px">#}
+            Nouveau retour d'experience
+        </h2>
+        
+        {{ form_start(form, {'attr': {'class':'px-lg-5', 'onsubmit':"contentCheck(event)"}}) }} 
+            <hr class="hrNewArt">
+
+            {# Titre #}
+            <div class="mx-auto">
+                {{ form_row(form.titrePublication, {'label':"Titre*",'attr': {'class':"form-control w-100 inputBorder" ,'minlength':'2','maxlength':'50'}} ) }}
+            </div>
+            
+            {# Accroche #}
+            <div class="mx-auto">
+                {{ form_row(form.accroche, {'label':"Accroche*",'attr': {'class':"form-control w-100 inputBorder",'minlength':'10','maxlength':'255'}} ) }}
+            </div>
+
+            {# Intro #}
+            <div class="mx-auto">
+                {{ form_row(form.intro, {'label':"Introduction*",'attr': {'style':'height:100px', 'class':"form-control w-100 inputBorder",'minlength':'10','maxlength':'700'}} ) }}
+            </div>
+
+            {# Contenu #}
+            <div class="mx-auto">
+                {{ form_row(form.contenu, {'label':"Contenu*",'attr': {'style':'height:150px', 'class':"form-control w-100 inputBorder",'minlength':'10'}} ) }}
+            </div>
+
+            {# Video #}
+            <div class="mx-auto">
+                {{ form_row(form.video, {'label':"Ajouter une vidéo",'attr': {'class':"form-control w-100 inputBorder"}} ) }}
+            </div>
+
+            {# Image de l'article #}
+            <div class="mx-auto">
+                <small>Cette image représente votre article</small>
+                {{ form_row(form.imgRetourExp, {'label':"Image de votre article",'attr': {'class':"form-control w-100 inputBorder" ,'minlength':'2','maxlength':'50'}} ) }}
+            </div>
+
+            {# Photo #}
+            <div class="mx-auto">
+                <small>Ici, vous pouvez ajouter des images pour expliquer le contenu de votre retour d'experience </small>
+                {{ form_row(form.images, {'label':"Ajouter des images",'attr': {'class':"form-control w-100"}} ) }}
+            </div>
+
+            {# Accepter les conditions #}
+            <div class="checkbox text-center mt-5">
+                <label><input type="checkbox" value="" required> En rédigeant cette publication, vous acceptez les <a target="_blank" href="/docs/CharteGB.pdf" class="lienCharte">conditions générales</a> la concernant</label>
+            </div>
+
+            <div class="row align-items-center flex-column my-3"> 
+                {# Publier #}
+                <div class="col-12 text-center">
+                    <button type="submit" class="mb-3 btn btnRed"><i class="fas fa-plus"></i> {{ button_label|default('Publier') }}</button>
+                </div>
+
+                {# Retour #}
+                <div class="col-12 text-center">
+                    <a href="{{ path('experience') }}" class="retour"><i class="fas fa-undo-alt"></i> Retour a la liste des retours</a>  
+                </div>
+                
+            </div>
+        {{ form_end(form) }} 
+    </div>
+{% endblock %}    
+    
+{% block javascripts %}
+    <script>
+        //Input chargement D'image affichage des images saisis
+        $(document).on('change', '.custom-file-input', function () {
+            let fileName = $(this).val().replace(/\\/g, '/').replace(/.*\//, '');
+            $(this).parent('.custom-file').find('.custom-file-label').text(fileName);
+        });
+    </script>
+{% endblock %}

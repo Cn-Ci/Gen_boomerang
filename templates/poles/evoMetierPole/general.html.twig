@@ -1,0 +1,45 @@
+{% extends 'basePoleMetier.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/pole_evolutionsMetier.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/a_general_pole.css')}}">
+
+{% endblock %}
+
+{% block title %}general {% endblock %}
+
+{% block body %}
+{# {% include "partials/header_poles.html.twig" with {"logo": "metiers2",
+"color":"rgba(44, 60,77,0.828)"}
+%} #}
+
+
+<div class="row align-items-center  ">
+    <div class="col-2">
+        <img class=" banniere-general sectionPole" src="{{ asset('img/poles/icones/generale_roue_left.png') }}"
+            alt="banniere design" style="width:100px;height:70px;">
+    </div>
+    <div class="col-9 ">
+        <h4> LES INFOS GENERALES DU POLE METIER</h4>
+    </div>
+</div>
+
+
+<div class="container text-center ">
+    <div class="row mb-4 ml-4 align-items-start">
+        {% for item in 1..6 %}
+        <div class="pan col-12 col-lg-3">
+            <h4>texte</h4>
+            <img class="logo_bn" src="{{ asset('img/poles/icones/interGeneration.png') }}">
+            <p>
+                lorem ipsum dolor sit amet,sdffgjh
+                lorepsus
+
+            </p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+{% endblock %}

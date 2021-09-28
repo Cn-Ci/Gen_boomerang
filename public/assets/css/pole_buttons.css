@@ -1,0 +1,71 @@
+.logoPolefixed
+{
+    width: 100% !important;
+}
+.text_hover
+{
+    opacity: 0;
+    transition: 0.5s;
+
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+.btnPolefixed
+{
+    width: 4%;
+    position: fixed;
+    left: 30px;
+    z-index: 3;
+}
+.btnPolefixed img
+{
+    transition: 0.5s;
+}
+.btnPolefixed:hover img
+{
+    opacity: 0.1;
+}
+.btnPolefixed:hover p
+{
+    opacity: 1 !important;
+}
+.detailsPole1
+{
+    top: 20%;
+}
+.detailsPole2
+{
+    top: 33%;
+    background-color: transparent;
+}
+.detailsPole3
+{
+    top: 45%;
+}
+.detailsPole4
+{
+    top: 57%;
+}
+.detailsPole5
+{
+    top: 69%;
+}
+.detailsPole6
+{
+    top: 81%;
+}
+#bg
+{
+    position: relative;
+    z-index: 2;
+}
+@media screen and (max-width: 1199px)
+{
+    .btnPolefixed
+    {
+        display: none;
+    }
+}

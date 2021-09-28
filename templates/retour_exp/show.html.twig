@@ -1,0 +1,275 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/art_retourExp_show.css')}}">
+{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <a href="{{ path('experience') }}" class="btn btnRed m-3">Retour à la liste des retours d'experiences</a>
+
+    <div class="text-center">
+        {% if publication.imgRetourExp.imageRExp is not null %}
+        <img src="/uploads/retourExp/{{ publication.imgRetourExp.imageRExp }}" alt="experience" width="400px"
+            class="img-fluid mb-3" style="border-radius:5px">
+        {% else %}
+        <img src="{{ asset('uploads/retourExp/retourExpDefault.jpg')}}" alt="experience" width="500px"
+            class="img-fluid mb-3" style="border-radius:5px">
+        {% endif %}
+        <p class="text-center text-uppercase italic font-weight-bold" style="font-size:25px">
+            {{ publication.titrePublication }}
+        </p>
+        <p class="my-2">
+            <i class="fas fa-calendar-alt"></i> Publié le {{ publication.createdAt|date('d/m/Y') }} à {{
+            publication.createdAt|date('h:m') }}
+        </p>
+    </div>
+
+    <hr class="hrArticles w-50">
+
+    {# Profil de l'auteur #}
+    <div class="my-5">
+        <div class="mx-auto text-center">
+            {% if app.user.imgUserAvatar is not null %}
+            <img src="/uploads/userAvatar/{{ app.user.imgUserAvatar.userAvatar }}" alt="experience" width="100px"
+                class="img-fluid mb-3" style="border-radius:5px">
+            {% else %}
+            <img src="{{ asset('uploads/userAvatar/avatarVide.jpg')}}" alt="experience" width="100px"
+                class="img-fluid mb-3" style="border-radius:5px">
+            {% endif %}
+        </div>
+
+        {% if app.user %}
+        <div class="my-1 text-center">
+            <a href="{{ path('user_show', {id:publication.author.id}) }}">
+                <h4 class="nomUser"><i class="fas fa-user"></i> {{ publication.author.firstname }} {{
+                    publication.author.lastname }}</h4>
+            </a>
+
+            <p>
+                {% if type == 'SansEmploi' and publication.author.searchedJob %}
+                <i class="fas fa-briefcase"></i>Demandeur d'emploi |
+                Emploi recherché : {{ publication.author.searchedJob }}
+                {% elseif type == 'Entrepreneur' and publication.author.company %}
+                <i class="fas fa-briefcase"></i> Entrepreneur |
+                Activité : {{ publication.author.company.nom }}
+                {% elseif type == 'Etudiant' and publication.author.domainStudies %}
+                <i class="fas fa-briefcase"></i> Etudiant |
+                Domaine étudié : {{ publication.author.domainStudies }}
+                {% elseif type == 'Salarié' and publication.author.currentJob %}
+                <i class="fas fa-briefcase"></i> Salarié |
+                Emploi actuel : {{ publication.author.currentJob }}
+                {% elseif type == 'Retraité' and publication.author.PrecedentJobs %}
+                <i class="fas fa-briefcase"></i> Retraité |
+                Emploi précedent : {{ publication.author.PrecedentJobs}}
+                {% elseif type == 'ProfessionLiberale' and publication.author.currentJob %}
+                <i class="fas fa-briefcase"></i> Profession Libérale |
+                Emploi actuel : {{ publication.author.currentJob}}
+                {% endif %}
+            </p>
+
+            {% if app.user and app.user == publication.author or app.user.roles[0] == 'ROLE_ADMIN' %}
+            <div class="my-1">
+                <a type="submit" class="btn btnRed" href="{{ path('experience_edit', {'slug':publication.slug}) }} "><i
+                        class="fas fa-edit"></i> Editer</a>
+                <a type="submit" class="btn btnRed" href="{{ path('experience_delete', {'slug':publication.slug}) }}"><i
+                        class="fas fa-trash-alt"></i> Supprimer</a> <br>
+                <a type="submit" class="btn btnRed my-2" href="{{ path('experience_new') }}"><i class="fas fa-plus"></i>
+                    Ajouter un retour d'experience</a>
+            </div>
+            {% endif %}
+        </div>
+        {% else %}
+        <div class="anonyme">
+            <div class="my-1">
+                <img class="avatar avatar-mini" src="/uploads/userAvatar/avatarVide.jpg"
+                    alt="Avatar de {{ app.user.fullName }}" style="border-radius:5px" width="200px">
+            </div>
+            <p class="h4 text-center">
+                <i class="fas fa-user"></i> Utilisateur anonyme
+            </p>
+        </div>
+        {% endif %}
+    </div>
+
+    {# Contenu Article #}
+    {% if app.user %}
+    {% if app.user and app.user.isVerified == 1 %}
+    <div class="Abonne mx-5">
+        <p class="h4 text-center ">"{{ publication.accroche}}"</p>
+        <p class="text-justify mx-auto w-50">{{ publication.intro }}</p>
+
+        {% if app.user.abonnement %}
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6">
+                <div class="w-100 my-3">
+                    {# Carousel image de l'article #}
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            {% if publication.images | length > 0 %}
+                            {% for img in publication.images %}
+                            <li data-target="#carouselExampleControls" data-slide-to="{{ loop.index0 }}" {% if
+                                loop.first %} class="active" {% endif %}></li>
+                            {% endfor %}
+                            {% else %}
+                            <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
+                            {% endif %}
+                        </ol>
+                        <div class="carousel-inner">
+                            {% if publication.images | length > 0 %}
+                            {% for img in publication.images %}
+                            <div class="carousel-item {% if loop.first %} active {% endif %}" height="350px">
+                                <img class="d-block w-50 mx-auto" src="/uploads/carousel/{{ img.images }}"
+                                    alt="First slide" width="150px" style="border-radius:5px">
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="carousel-item active" height="350px">
+                                <img class="d-block w-50 mx-auto" src="{{ asset('uploads/retourExp/experience.jpeg')}}"
+                                    alt="First slide" width="165px" height="200px" style="border-radius:5px">
+                            </div>
+                            {% endif %}
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <p class="text-justify my-4">{{ publication.contenu}}</p>
+            </div>
+        </div>
+
+        <hr class="hrArticles">
+
+        {# Articles Com, like ... #}
+        <div class="row  align-items-center text-center mt-5 alert alert-secondary">
+            {# Vues #}
+            <div class="col-4">
+                <i class="far fa-eye" style="color:#008000; font-size:25px"></i><span
+                    class="px-2">{{publication.views}}</span>
+            </div>
+
+            {# like #}
+            <div class="col-4">
+                {% if app.user in publication.usersLikers %}
+                <i id="thumbs" style="color:#4169E1; font-size:1.58em;" class="fas fa-thumbs-up ml-2" aria-hidden="true"
+                    data-liked="true" data-id="{{publication.id}}"></i>
+                {% else %}
+                <i id="thumbs" style="color:#383d41; font-size:1.58em;" class="fas fa-thumbs-up ml-2" aria-hidden="true"
+                    data-liked="false" data-id="{{publication.id}}"></i>
+                {% endif %}
+                <span id="js-likes">{{publication.likes}}</span>
+            </div>
+
+            {# Note #}
+            <div class="col-4 com py-1">
+                {% if publication.avgRatings | length > 0 %}
+                {% include 'partials/rating.html.twig' with {'rating' : publication.avgRatings} %}
+                <br>
+                <small>(Calculée sur {{ publication.commentaire|length }} avis)</small>
+                {% else %}
+                <small>Pas encore noté</small>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="commentaire my-5 p-5">
+            {% if publication.commentaire | length > 0 %}
+            <h4>Commentaire de la publication {{ publication.titrepublication }}</h4>
+
+            {% for com in publication.commentaire|reverse %}
+            <div class="row comments commentsToggled">
+                <div class="col-9">
+                    <p class="mx-3 my-2">
+                        <strong> {{ com.userCommentaire.firstName }}</strong> a dit :
+                    </p>
+
+                    <p id="commContent" class="font-italic mx-5">
+                        {{ com.contenu }}
+                    </p>
+                </div>
+
+                <div class="col-3">
+                    <strong>Note : </strong> {% include 'partials/rating.html.twig' with {'rating': com.rating} %}
+                </div>
+
+                {% if app.user and app.user == publication.author %}
+                <div class="mx-5">
+                    <small>{{ com.createdAt | date('d/m/y \\à H:i', "Europe/Paris")}}</small>
+                    <span class="options modifComm" onclick="modifyComment(event, {{com.id}} )">Modifier</span>
+                    <span> | </span>
+                    <form method="post" action="{{ path('comm_delete',{'id': com.id}) }}"
+                        onsubmit="return confirm('Êtes vous sûr de vouloir supprimer ce commentaire ?')"
+                        style="display:inline;">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete-comm' ~ com.id) }}" />
+                        <button class="options rounded">Supprimer</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <p id="showMoreComments" class="text-center mt-5 mb-3">
+                Voir plus <i class="bi bi-arrow-bar-down"></i>
+            </p>
+            {% else %}
+            <div class="alert alert-danger text-center my-3">
+                <p class="h4"><i class="fas fa-exclamation-triangle"></i> Ce retour d'expérience n'a pas encore de
+                    commentaires ! </p>
+            </div>
+            {% endif %}
+
+            {{ form_start(form) }}
+            <div class="row align-items-center mx-5">
+                <div class="col-10">
+                    {{ form_row(form.contenu, {'label':"Ajouter un commentaire",'attr': {'style':'height:150px',
+                    'class':"form-control w-100 inputBorder" ,'minlength':'2','maxlength':'255'}} ) }}
+                </div>
+
+                <div class="col-2 mx-auto mt-2">
+                    {{ form_row(form.rating, {'label':"Note",'attr': {'class':"form-control w-100 inputBorder" }} ) }}
+                    <button type="submit" class="btn btnRed p-1 rounded ">Envoyer</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+        {% else %}
+        <div class="lireSuiteAbo w-50 text-center mx-auto py-3 my-5">
+            <p>
+                <u>Pour lire la suite de cet publication </u><br>
+                <strong><i class="fas fa-exclamation-triangle"></i> Un abonnement est nécéssaire !</strong>
+            </p>
+
+            <a class="btn btnRed " href="{{path('abonnements_index')}}">Consulter nos offres</a>
+        </div>
+        {% endif %}
+        {% else %}
+        <div class="alert alert-danger my-3 text-center">
+            <p class="h4"><i class="fas fa-exclamation-triangle"></i> Vous devez confirmer votre compte pour pouvoir
+                lire cette publication !</p>
+        </div>
+        {% endif %}
+    </div>
+    {% else %}
+    <div class="alert alert-danger my-3 text-center">
+        <p class="h4"><i class="fas fa-exclamation-triangle"></i> Vous devez être inscrit pour pouvoir lire cette
+            publication !</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('assets/js/art_retourExp.js') }}"></script>
+{% endblock %}

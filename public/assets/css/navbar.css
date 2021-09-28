@@ -1,0 +1,531 @@
+/***** Code commun Pole Contact **************************************************************************/
+/****** marge */
+.sectionPole {
+    margin-top: 250px;
+}
+
+/****** entete grise (haut de page) */
+.entete{
+    background-color: var(--couleurGrisFond);
+    width           : 100%;
+}
+
+/****** taille des icones sociaux sur la barre grise */
+.mw7{
+    max-width: 90px;
+}
+
+/****** text icones poles (bas de page) */
+.txtCarres{
+    font-weight   : bolder;
+    text-align    : center;
+    font-size     : 1em;
+    text-transform: uppercase;
+}
+
+/****** Intitulé des cartes caroussel */
+.card-title{
+    font-size  : 1.3em;
+    font-weight: bolder;
+}
+
+/****** cartes défilantes dans le caroussel */
+.carreCaroussel {
+    border    : 2px solid var(--couleurNoir);
+    min-height: 400px;
+}
+
+/****** zone vide en haut des cartes caroussel */
+.size-max{
+    max-height: 250px;
+}
+
+/****** hr du haut dans les cartes caroussel */
+.hrContact{
+    border: 1px solid var(--couleurNoir);
+}
+
+/****** Couleur etoile rating */
+i.fas.fa-star{
+    color: var(--couleurJaune);
+}
+
+/****** couleur etoile rating */
+i.fas.fa-star:hover{
+    color: var(--couleurJaune);
+}
+
+/***** hauteur de texte */
+.lienUrl {
+    text-decoration: none;
+    font-weight    : bold;
+    text-transform : uppercase;
+    color          : var(--couleurBleu);
+}
+
+/***** hauteur de texte */
+.lienUrl:hover {
+    text-decoration: underline;
+    color          : var(--couleurRouge);
+}
+
+
+/************************************************************************************************/
+/****** propriété navbar complete */
+#navDef1 {
+    position        : fixed;
+    top             : 40px ;
+    z-index         : 10;
+    width: 100%;
+    /*background-color: rgba(0,0,0,0.555) !important;*/
+    background-color:var(--couleurHome);
+    /*box-shadow        : 0px 5px 8px -2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 5px 8px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow   : 0px 5px 8px -2px rgba(0,0,0,0.75);*/
+    height:80px;
+    transition:all 0.3s;
+}
+/* ********** pour le navbar poles  */
+#navDefPole {
+    position        : fixed;
+    top             : 40px ;
+    z-index         : 10;
+    width: 100%;
+/*     background-color:var(--couleurHomePole); */
+    height:80px;
+    transition:all 0.3s;
+}
+
+a.nav-link-pole{
+    width: 100%;
+    margin-right: 30px;
+}
+
+
+/* ********** pour les poles  */
+#navDef1 .navbar{
+    justify-content:flex-start;
+    position:relative;
+    height:80px;
+}
+
+/****** logo */
+.logo{
+    padding:0;
+    margin:0;
+    z-index:10;
+}
+
+.logo img{
+    width:167px;
+    height:60px;
+}
+
+/****** Propriétés navAccessibilite*/
+#navAccessibilite{
+    position: fixed;
+    width   : 100%;
+    top     : 0;
+    z-index : 10;
+    height:40px;
+    transition:all 0.3s;
+}
+.navAccess{
+    display:flex;
+}
+.navAccess p{
+    display:block;
+    margin:0;
+}
+.first_nav
+{
+    height: 100%;
+}
+#navAccessibilite .fas{
+    align-self:center;
+    margin-right:5px;
+}
+
+#navbarSupportedContent
+{
+    height: 80px;
+}
+.dropdown_padding
+{
+    margin-bottom: 0 !important;
+    padding-bottom: 20px;
+}
+/***** Ecriture dropdown */
+#navDef1 .dropdown-menu{
+    padding:0 .5rem .5rem;
+}
+ .dropdown-item {
+    font-size     : 15px;
+    font-weight    : bold;
+    color         : var(--couleurBlanc)!important;
+    text-transform: uppercase;
+    border-radius:5px;
+    
+}
+.dropdown-item:hover{
+    color           : var(--couleurRouge)!important;
+    background-color: #3C4857!important ;
+   
+}
+.dropdown:hover .dropdown-menu
+    {
+        display: block;
+    }
+    
+.dropdown-menu
+    {
+        margin-top: 0 !important;
+    }
+.open
+    {
+        display: block !important;
+    }
+
+/***** menus dropdown */
+.dropdown-menu {
+    /*background-color: #717171 !important;*/
+    background-color:var(--couleurHome);
+    border          : none;
+    border-radius:0 0 5px 5px;
+}
+#navbarSupportedContent .dropdown-menu{
+    top:57px;
+}
+#navDef1 form .dropdown-menu{
+    top:78px;
+    right: 0px;
+}
+.pr-1, .px-1{
+    padding-right: 0!important;
+}
+
+/***** Effet sous lien */
+.underline {
+    color          : inherit;
+    text-decoration: none;
+    background     : linear-gradient(
+        to top,
+        var(--couleurBlanc) 0%,
+        var(--couleurBlanc) 10%,
+        transparent 10.01%
+    )
+    no-repeat left bottom / 0 100%;
+    transition: all 0.3s;
+}
+
+
+/***** Ecriture des liens, Ecriture de l'interieur des dropdown */
+.navPrincipal{
+    font-size      : 15px;
+    font-weight    : bold;
+    color          : var(--couleurBlanc)!important;
+    text-transform : uppercase;
+    border         : none;
+    text-decoration:  none;
+    border-radius   : 5px;
+    transition: all 0.3s;
+}
+
+
+/***** Ecriture des liens sur passage de souris */
+.navPrincipal:hover{
+    color           : var(--couleurRouge)!important;
+       border          : none;
+    text-decoration : none;
+ }
+ .navPrincipal:hover i{
+     color:var(--couleurRouge)!important;
+ }
+
+/***** Bouton barre de recherche */
+#btnSearch 
+{
+    transition:all 0.3s;
+    margin-bottom:0 !important;
+}
+
+#btnSearch:hover i.fas.fa-search {
+    color: var(--couleurRouge);
+
+}
+
+/***** largeur barre de recherche */
+.form-control {
+    width: auto;
+   
+}
+
+/***** couleur logo loupe */
+i.fas.fa-search {
+    color: var(--couleurBlanc);
+    transition:all 0.3s;
+}
+
+/****** fleche du menu de connexion */
+/*#arrow::after{
+    margin-right:-5vw;
+}*/
+
+/****** propriétés qui tiennent les éléments en place */
+/****** apparence du bouton de menu burger */
+#navDef1 .navbar-toggler{
+    padding:0;
+    border:0;
+    margin:0;
+}
+#navDef1 .navbar-toggler::after{
+    margin:0;
+    position:absolute;
+    top:37px;
+    left:42px;
+}
+
+#navDef1 .navbar-toggler-icon{
+    background-image:url("../../img/poles/menu/cube.png");
+    height:40px;
+    width:40px;
+}
+
+/** Image de profil */
+.profil{
+    height:50px;
+    width:50px;
+    padding:0;
+    position:relative;
+    left:-5px;
+}
+.avatar {
+    border-radius: 50%;
+    width        : 50px;
+    height:50px;
+}
+
+/** notifications */
+.badge {
+    border-radius: 50%;
+    position     : absolute;
+    font-size    : 0.9em;
+    bottom:0;
+    right:0;
+    text-align:center;
+    height:22px;
+    width:22px;
+}
+.fa-bell {
+    position: relative;
+}
+
+/****** espace utilisateur */
+#arrow{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    height:80px;
+}
+/* corrections dues au bouton "connexion" */
+#navDef1 form ul > li > .navPrincipal{
+    position:fixed;
+    top:60px;
+    right:0;
+    width: auto;
+}
+#navDef1 form ul > li{
+    width:250px;
+    height:80px;
+}/* très important, ces tailles permettent au menu utilisateur de se placer correctement lorsqu'on n'est pas connecté,
+le dernier parent en position:relative; de cet élément n'ayant pas de contenu hors connexion.*/
+
+/****** affichage du nom de l'utilisateur */
+.nomMobile{
+    display:none;
+}
+#arrow .row{
+    margin:0 !important;
+}
+.nomDesktop{
+    display:block;
+    margin:0;
+    padding:0;
+}
+.nomDesktop p{
+    margin:0;
+    padding:0 5px;
+}
+
+/****** affichage du bouton de connexion */
+#navbarDropdown3{
+    display:flex;
+    align-items:center;
+    padding-left:10px;
+    padding-right:10px;
+}
+#navbarDropdown3 span{
+    margin:0 !important;
+}
+#navbarDropdown3 i{
+    display:none;
+}
+
+/****** Quand l'ecran est en dessous de 1200px */
+@media (max-width: 1199px) {
+
+    .first_nav
+    {
+        height: auto;
+    }
+    .dropdown_padding
+    {
+        padding-bottom: 0px;
+    }
+
+    /****** affichage de l'espace utilisateur */
+    #navDef1 .dropdown-menu{
+        padding:.3rem;;
+    }
+    #navDef1 form > ul > li .dropdown-menu{
+        width:60vw;
+        position:fixed;
+        left:40vw;
+        top:118px;
+        text-align:right !important;
+       
+    }
+    .nomMobile{
+        display:block;
+    }
+    .nomDesktop{
+        display:none;
+    }
+
+    /****** nav1 */
+    #navDef1 {
+        position        : fixed;
+        width           : 100%;
+        top             : 40px ;
+        z-index         : 10;
+    }
+
+    #navDef1 .navbar-toggler{
+        position:absolute;
+        outline: none;
+    }
+    #navDef1 .navbar-toggler::after{
+        top:19px;
+    }
+
+    /****** propriétés qui tiennent en place les éléments en format mobile */
+    #navbarSupportedContent{
+        position:absolute;
+    }
+    #navbarSupportedContent ul{
+        background:var(--couleurHome);
+        width:100vw;
+        position:fixed;
+        left:0;
+        top:120px;
+        align-items:flex-start;
+        border-radius:0 0 5px 5px;
+    }
+    #navbarSupportedContent ul > li{
+        position: relative;
+    }
+    #navbarSupportedContent .dropdown-toggle::after{
+        transform:rotate(-90deg);
+    }
+    #navbarSupportedContent .dropdown-menu{
+        position:absolute;
+        top:0;
+        left:101%;
+        border-left:solid 3px var(--couleurBlanc);
+        border-radius:3px;
+    }
+    #navbarSupportedContent .dropdown-menu a{
+        padding:0 0 0 7px;
+    }
+    #navDef1 form > ul{
+        position:absolute;
+        right:0;
+        top:0;
+    }
+
+    /****** petit décalage du logo */
+    .logo{
+        margin:auto;
+    }
+
+    /****** navAccessibilite */
+    #navAccessibilite {
+        position        : fixed;
+        width           : 100%;
+        top             : 0 ;
+        z-index         : 11;
+    }
+
+    /***** Ecriture des liens, Ecriture de l'interieur des dropdown, bouton search */
+    a.nav-link{
+        width: 100%;
+    }
+
+    /***** Ecriture des liens sur passage de souris */
+    a.nav-link:hover{
+        padding-left: 0;
+        width       : 100%;
+    } 
+}
+
+/****** Quand l'ecran est en dessous de 767px */
+@media (max-width: 767px) {
+    /****** propriété navbar complete */
+    .navbar-light .navbar-toggler{
+        margin-right:2.5vw;
+    }
+    .navAccess span{
+        display:none;
+    }
+}
+
+/****** Quand l'ecran est en dessous de 575px */
+@media (max-width: 575px) {
+    /****** propriété navbar complete */
+    .navbar-light .navbar-toggler{
+        margin-right:2.9vw;
+    }
+}
+
+/****** sous les 400px, remplaçage de "connexion" par un petit picto, par souci de mise en page, et changement de taille de police */
+@media (max-width: 504px) {
+    #navbarDropdown3 i{
+        display:block;
+        font-size:38.5px;
+    }
+    #navbarDropdown3{
+        padding-top:0;
+        padding-bottom:0;
+    }
+    #navbarDropdown3 span{
+        display:none;
+    }
+    #navbarDropdown3::after{
+        display:none;
+    }
+    #navDef1 .navPrincipal, #navDef1 .dropdown-item{
+        font-size:13px;
+        text-align: right;
+    }
+
+}
+
+/****** ajustement position du menu cube au-dessus de 400px */
+@media (min-width: 401px){
+    .navbar-toggler-icon{
+        margin-left:10px;
+    }
+    .navbar-toggler::after{
+        left:52px !important;
+    }
+}

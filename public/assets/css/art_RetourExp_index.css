@@ -1,0 +1,134 @@
+/***** publication *********************************************************/
+#card-showcase {
+    padding: 0% 0% 0% 0% !important;
+}
+
+/***** titre */
+h2{
+    display:flex;
+    align-items:center;
+}
+h2 img{
+    height: 80px !important;
+    width: auto !important;
+}
+
+/***** barres recherche tri et bouton ajout */
+h2 ~ .row{
+    padding:0 15px;
+    margin-top:10px;
+}
+h2 ~ .row div{
+    padding:0;
+    height:38px;
+}
+h2 ~ .row a.btnRed{
+    height:38px;
+    line-height:100%;
+}
+
+/****** cartes */
+.card-header{
+    border-bottom:0px solid #fff0 !important;
+}
+.card-header > div > div.col-2{
+    padding:0;
+}
+
+.lienSlug.h4 p{
+    margin: 0px 5px 10px 5px ;
+}
+.likeCom{
+    display:flex;
+    justify-content:space-around;
+}
+.editSuppr{
+    display:flex;
+    justify-content:space-around;
+}
+.editSuppr .btnRed{
+    padding:5px 7px;
+    font-size:0.9rem;
+}
+.imageRetourExp img{
+    max-width:100%;
+    max-height:150px;
+}
+.card-bodyPub > .row{
+    max-width:100%;
+}
+
+/****** */
+.hrMonCompte{
+    border: 2px solid var(--couleurBleu);
+}
+
+/****** bordure des carte */
+.card-header{
+    border: 1px solid var(--couleurBleu);
+}
+
+/****** bordure des carte */
+.card-bodyPub {
+    border: 1px solid var(--couleurBleu);
+}
+
+/****** couleur noir du texte */
+.likeCom, .tailleText {
+    color: var(--couleurNoir);
+}
+
+/****** */
+.lienSlug {
+    color :var(--couleurBleu);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/****** */
+.lienSlug:hover {
+    color :var(--couleurRouge);
+    text-decoration: none;
+}
+
+/***** couleur com, like */
+i.fas.fa-thumbs-up, i.far.fa-eye {
+    color:var(--couleurRouge);
+}
+
+/***** couleur texte carte */
+a.card-text {
+    text-decoration: none;
+    color:var(--couleurNoir);
+}
+
+/***** couleur texte carte */
+a.card-text:hover {
+    color:var(--couleurBleu);
+}
+
+/***** hauteur de texte */
+.hauteurText.mb-1 {
+    min-height:50px;
+    text-decoration:none;
+    font-weight: normal;
+    color: black!important;;
+}
+.hauteurText:hover{
+    color:var(--couleurRouge);
+}
+.card-bodyPub
+{
+    position: relative;
+    height: 650px !important;
+}
+#retourexp_bottom
+{
+    position: absolute;
+    bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}

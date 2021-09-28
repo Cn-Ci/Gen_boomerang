@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/home_partenaire.css')}}">
+    <script src="{{ asset('assets/js/partenaire_ModernJs.js')}}"></script>
+{% endblock %}
+
+{% block title %}Nos partenaires{% endblock %}
+
+{% block body %}
+    <div class="container partenaire p-0 mx-auto">
+    	<h1 class="text-center">Nos Partenaires</h1>
+		<p class="text-center">Parce que nous partageons une vision et des engagements communs, ces institutions nous font confiance et nous accompagnent.</p>
+
+        <ul class="grid cs-style-4">
+			<li>
+				<figure>
+					<img src="{{ asset('img/navbar/1.png')}}" alt="img01" height="265px" style="border-radius:5px">
+					<figcaption>
+						<h3>Sponsor 1</h3>
+						<span>Exemple</span>
+						<a href="http://dribbble.com/shots/1115632-Camera">Visiter leur site</a>
+					</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="{{ asset('img/navbar/2.png')}}" alt="img02" height="265px" style="border-radius:5px">
+					<figcaption>
+						<h3>Sponsor 2</h3>
+						<span>Exemple</span>
+						<a href="http://dribbble.com/shots/1115960-Music">Visiter leur site</a>
+					</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="{{ asset('img/aPropos/buildings1.png')}}" alt="img02" height="265px" style="border-radius:5px">
+					<figcaption>
+						<h3>Sponsor 3</h3>
+						<span>Exemple</span>
+						<a href="http://dribbble.com/shots/1115960-Music">Visiter leur site</a>
+					</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="{{ asset('img/aPropos/banniere-paralaxe.jpg')}}" alt="img02" height="265px" style="border-radius:5px">
+					<figcaption>
+						<h3>Sponsor 4</h3>
+						<span>Exemple</span>
+						<a href="http://dribbble.com/shots/1115960-Music">Visiter leur site</a>
+					</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure>
+					<img src="{{ asset('img/aPropos/par-linnovation.jpg')}}" alt="img02" height="265px" style="border-radius:5px">
+					<figcaption>
+						<h3>Sponsor 5</h3>
+						<span>Exemple</span>
+						<a href="http://dribbble.com/shots/1115960-Music">Visiter leur site</a>
+					</figcaption>
+				</figure>
+			</li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('assets/js/partenaire.js')}}"></script>
+{% endblock %}

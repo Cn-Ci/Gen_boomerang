@@ -1,0 +1,259 @@
+{% extends 'base_no_pole_button.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/account_profil.css')}}">
+{% endblock %}
+
+{% block title %}Mon Compte {% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <h3 class="text-center py-5">Informations Personnelles</h3>
+
+    {{form_start(form)}}
+    <div class="row mt-3" onchange="showPreview(event)">
+        <div class="col-12">
+            <div class="row form-group mb-3">
+                <div class="col">
+                    <div class="preview p-3" style="text-align:center;">
+                        {% if app.user.imgUserAvatar %}
+                        <img class="m-auto file-ip-1-preview"
+                            src="/uploads/userAvatar/{{ app.user.imgUserAvatar.userAvatar}}"
+                            style="text-align:center;height:auto;">
+                        {% else %}
+                        <img class="avatar avatar-mini file-ip-1-preview" src="{{ asset('img/navbar/avatarVide.jpg') }}"
+                            alt="Avatar de {{ app.user.fullName }}" style="border-radius:25px" width="60px">
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form_widget(form.imgUserAvatar, {'attr': {'id':'file-ip-1','label': 'Modifier photo' }}) }}
+                    </div>
+
+                    <small class="couleurFormat text-center my-2">Format: .jpg, jepg, .png, Poids: 10 MO maximum</small>
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.firstName, 'Prénom*') }}
+                    {{ form_widget(form.firstName, {'attr': {'class': 'shadow inputBorder w-100 inputBorder
+                    form-control-plaintext my-2'}}) }}
+
+                    {{ form_label(form.lastName, 'Nom*') }}
+                    {{ form_widget(form.lastName, {'label':'Prénom', 'attr': {'class': 'shadow inputBorder w-100
+                    inputBorder form-control-plaintext my-2'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.email, 'Adresse e-mail*') }}
+                {{ form_widget(form.email, {'attr': {'class': 'shadow inputBorder inputBorder form-control-plaintext
+                w-100 my-2' }}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.telephone, 'Numéro de téléphone') }}
+                {{ form_widget(form.telephone, {'type' : 'tel', 'attr': {'class': 'shadow inputBorder
+                form-control-plaintext w-100 my-2'}}) }}
+            </div>
+
+            <div class="row form-group">
+                <div class="col">
+                    <label>Civilité*</label>
+                    {{ form_widget(form.civilite, {'type' : 'tel', 'attr': {'class': 'form-control-plaintext w-100
+                    my-2'}}) }}
+                </div>
+
+                <div class="col">
+                    <label>Date de naissance</label>
+                    {{ form_widget(form.birthdate, {'type' : 'tel', 'attr': {'class': 'form-control-plaintext w-100
+                    my-2'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.description, 'Description de profil') }}
+                {{ form_widget(form.description, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+                my-2'}}) }}
+            </div>
+
+            {% if app.user.type == 'Sans Emploi' %}
+
+            <h3 class="text-center py-5">Informations relatives au statut de demandeur d'emploi</h3>
+            <div class="row">
+                <div class="col">
+                    {{ form_label(form.searchedJob, 'Emploi actuel') }}
+                    {{ form_widget(form.searchedJob, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+                    my-2 px-3'}}) }}
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.documents, 'Justificatif') }}
+                    {{ form_widget(form.documents, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+                    my-3 px-3'}}) }}
+                </div>
+            </div>
+
+            {% elseif app.user.type == 'Profession Liberale' %}
+
+            <h3 class="text-center py-5">Informations relatives au statut d'entrepreneur</h3>
+            {{ form_label(form.currentJob , 'Emploi actuel') }}
+            {{ form_widget(form.currentJob, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100 my-2
+            px-3'}}) }}
+
+            {{ form_label(form.company.nom , 'Nom de votre entreprise') }}
+            {{ form_widget(form.company.nom, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100 my-2
+            px-3'}}) }}
+
+            {{ form_label(form.company.activite, 'Activité de votre entreprise') }}
+            {{ form_widget(form.company.activite, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+            my-2 px-3'}}) }}
+
+            <h3 class="text-center py-5">Adresse de l'entreprise</h3>
+            <div class="row">
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.numeroRue , 'Numéro de rue') }}
+                    {{ form_widget(form.company.adresse.numeroRue, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}}) }}
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.company.adresse.nomRue , 'Nom de rue') }}
+                    {{ form_widget(form.company.adresse.nomRue, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.codePostal , 'Code postal') }}
+                    {{ form_widget(form.company.adresse.codePostal, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}}) }}
+                </div>
+                <div class="col">
+                    {{ form_label(form.company.adresse.ville , 'Ville') }}
+                    {{ form_widget(form.company.adresse.ville, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}}) }}
+                </div>
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.region , 'Region') }}
+                    {{ form_widget(form.company.adresse.region, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}}) }}
+                </div>
+            </div>
+
+            {% elseif app.user.type == 'Retraite'%}
+
+            <h3 class="text-center py-5">Informations relatives à votre statut de retraité</h3>
+            {{ form_label(form.precedentJobs , 'Décrivez votre parcour professionel en quelques lignes') }}
+            {{ form_widget(form.precedentJobs, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+            my-2'}}) }}
+
+            {% elseif app.user.type == 'Salarie'%}
+
+            <h3 class="text-center py-5">Informations relatives à votre statut de salarié</h3>
+            <div class="row">
+                <div class="col">
+                    {{ form_label(form.currentJob, 'Emploi actuel') }}
+                    {{ form_widget(form.currentJob, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+                    my-2'}}) }}
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.companyName, 'Nom de l\'entreprise') }}
+                    {{ form_widget(form.companyName, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+                    my-2'}}) }}
+                </div>
+            </div>
+
+            {% elseif app.user.type == 'Etudiant' %}
+
+            <h3 class="text-center py-5">Informations relatives au statut d'étudiant</h3>
+
+            <div class="form-group">
+                {{ form_label(form.schoolName, 'Nom de l\'établissement') }}
+                {{ form_widget(form.schoolName, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+                my-2'}}) }}
+            </div>
+
+            <div class="row form-group">
+                <div class="col">
+                    {{ form_label(form.lvlOfStudies, 'Niveau d\'étude') }}
+                    {{ form_widget(form.lvlOfStudies, {'attr': {'class': 'shadow inputBorder form-control-plaintext
+                    w-100 my-2'}}) }}
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.domainStudies, 'Domaine d\'étude') }}
+                    {{ form_widget(form.domainStudies, {'attr': {'class': 'shadow inputBorder form-control-plaintext
+                    w-100 my-2'}}) }}
+                </div>
+            </div>
+
+            {% elseif app.user.type == 'Entrepreneur'%}
+
+            <h3 class="text-center py-5">Informations relatives à votre statut d'entrepreneur</h3>
+            {{ form_label(form.company.nom , 'Nom de votre entreprise') }}
+            {{ form_widget(form.company.nom, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100 my-2
+            px-3'}}) }}
+
+            {{ form_label(form.company.activite, 'Activité de votre entreprise') }}
+            {{ form_widget(form.company.activite, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+            my-2 px-3'}}) }}
+
+            <h3 class="text-center py-5">Adresse de l'entreprise</h3>
+            <div class="row">
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.numeroRue , 'Numéro de rue') }}
+                    {{ form_widget(form.company.adresse.numeroRue, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}}) }}
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.company.adresse.nomRue , 'Nom de rue') }}
+                    {{ form_widget(form.company.adresse.nomRue, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.codePostal , 'Code postal') }}
+                    {{ form_widget(form.company.adresse.codePostal, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}}) }}
+                </div>
+                <div class="col">
+                    {{ form_label(form.company.adresse.ville , 'Ville') }}
+                    {{ form_widget(form.company.adresse.ville, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}}) }}
+                </div>
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.region , 'Region') }}
+                    {{ form_widget(form.company.adresse.region, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}}) }}
+                </div>
+            </div>
+
+            {% endif %}
+
+            <div class="my-5 text-center">
+                <button type="submit" class="btn btnRed">{{ button_label|default('Sauvegarder les modifications')
+                    }}</button>
+            </div>
+        </div>
+    </div>
+    {{form_end(form)}}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    /* function showPreview(event) {
+         if (event.target.files.length > 0) {
+             var src = URL.createObjectURL(event.target.files[0]);
+             var preview = document.getElementById("file-ip-1-preview");
+
+             preview.src = src;
+             preview.style.display = "block";
+         }
+     }*/
+
+</script>
+{% endblock %}

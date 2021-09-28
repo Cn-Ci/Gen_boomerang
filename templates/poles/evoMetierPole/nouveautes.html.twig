@@ -1,0 +1,75 @@
+{% extends 'basePoleMetier.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/pole_evolutionsMetier.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/a_general_pole.css')}}">
+
+<!-- Voir par la suite si nécessité de pages séparées ou page commune comme médiathèque
+vincent 17.08.21 -->
+
+{% endblock %}
+
+{% block title %}Nouveautes {% endblock %}
+
+{% block body %}
+{# {% include "partials/header_poles.html.twig" with {"logo": "metiers2",
+"color":"rgba(44, 60,77,0.828)"}
+%} #}
+
+
+<div class="row align-items-center  ">
+    <div class="col-2">
+        <img class=" banniere-general sectionPole" style="height: 60px;width:90px;"
+            src="{{ asset('img/poles/icones/quoiNeuf.png') }}" alt="banniere design">
+    </div>
+    <div class="col-9 text-center ">
+        <h4> Les nouveautés du mois ...</h4>
+
+    </div>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-default table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center" colspan="3">
+                            Liste des évenements du mois dernier
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for item in 1..3 %}
+                    <tr>
+                        <td>
+                            <div class="row">
+                                <div class="col-10 ml-4 font_medium">
+                                    <a href="">
+                                        <div class="inner_text" data-id='{{ text }}'>
+
+                                        </div>
+                                    </a>
+
+                                </div>
+                                <div class=" col-1 m-0">
+                                    <img class="logo_table" src="{{ asset('img/poles/icones/generale_roue_left.png') }}"
+                                        alt=""><br>
+                                    <small class="font_little">date : 02/02/02</small>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('assets/js/pole_metier.js')}}"></script>
+<script src="{{ asset('assets/js/script.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/notFound_accesDenied.css')}}">
+{% endblock %}
+
+{% block title %}Page non trouvé ! {% endblock %}
+
+{% block body %}
+    <div class="container notFoundPage mb-5">
+        <h1 class="mt-5 text-center">Page non trouve !</h1>
+
+        <div class="text-center">
+            <img class="flicker-in-1" src="{{ asset('img/notFound/browser.png') }}" alt="" width="200px">
+            <p class="h3 my-5 text-flicker-in-glow">Oups <i class="fas fa-exclamation"></i> La page que vous recherchez n'existe pas !</p>
+            <p>Une erreur est apparue, vous pouvez retouner à l'accueil de notre portail !</p> 
+         </div>
+
+        <div class="text-center my-5">
+            <a href="{{ path('home')}}" class="btn btnRed rounded w-50">Retour a l'accueil</a>
+        </div>
+    </div>
+{% endblock %}

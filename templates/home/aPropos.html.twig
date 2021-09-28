@@ -1,0 +1,322 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/apropos.css')}}">
+{% endblock %}
+
+{% block title %}A Propos {% endblock %}
+
+{% block body %}
+
+<!-- CONSTAT ou notre vision -->
+<div class="my-5">
+    <div class="mx-auto text-center">
+        {# <h1 class="text-center my-5">Le constat</h1> #}
+        <h1 class="text-center my-5">Notre vision</h1>
+
+        <p class="textAPropos">
+            Il existe aujourd'hui une vraie fracture entre les aînés et les jeunes qui
+            s'isolent de plus en plus. C'est pourquoi nous avons mis en place la plateforme collaborative
+            <strong>«GENERATION BOOMERANG»©</strong>, afin de rassembler toutes les générations
+            et d'apprendre à mieux communiquer, échanger et vivre ensemble.
+        </p>
+    </div>
+</div>
+
+<div class="conteneurVideo">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/uz7rXpmamoY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<!-- CITATION -->
+<div class="focus-in-expand citationBg text-center py-3">
+    <p class="h3 font-weight-bold ">"Ce qui est important ce n'est pas d'ajouter des annees a la vie, </br> mais
+        d'ajouter de la vie aux annees."</p><br>
+    <p class="h3 mb-5 font-weight-bold">John Fitzgerald Kennedy</p>
+</div>
+
+<div class="container">
+
+    <!-- NOTRE PROPOSITION -->
+    <div class="row my-5">
+        <div class="col-12 col-lg-6">
+            <img class="imgSize inline-photo show-on-scroll" src="{{ asset('img/aPropos/notre-proposition.jpg') }}"
+                alt="Image de New-York">
+        </div>
+
+        <div class="col-12 col-lg-6 mt-1 pl-5 text-right">
+            <h2 class="my-5">Qui sommes nous ? </h2>
+
+            <p class="textAPropos">
+                L'association Building Seniors est impliquée dans divers domaines tel que par exemple, les techniques
+                liées à
+                la recherche, le développement ou l’innovation.
+            </p>
+
+            <p class="textAPropos">
+                Elle fût crée à l'origine afin de réfléchir à l'accompagnement des personnes dans leur parcours
+                d'insertion sociale et professionnelle tout en s’appuyant sur l’expérience des ainés ainsi que
+                sur les compétences des jeunes générations.
+            </p>
+        </div>
+    </div>
+
+  
+    <!-- POUR QUI ? -->
+    <div class="row my-5">
+        <div class="col-12 col-lg-6 mt-1 text-left pr-5">
+            <h2 class="my-5">Notre objectif</h2>
+
+            <p class="textAPropos">
+                Le partage étant au coeur de nos préoccupations, nous avons creer cette plateforme collaborative dont
+                l’objectif est de crée, ainsi que de faire vivre, une communauté intergenerationnelle tout en favorisant
+                les
+                échanges ainsi que l'accompagnement de personnes ou de projets collectifs.
+            </p>
+        </div>
+
+        <div class="col-12 col-lg-6 pl-5">
+            <img class="imgSize inline-photo show-on-scroll" src="{{ asset('img/aPropos/pour-qui.jpg') }}"
+                alt="Image de ---">
+        </div>
+    </div>
+    <hr class="hrAPropos my-5">
+
+    <!-- COMMENT ? -->
+    <h1 class="text-center my-5">Comment ?</h1>
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <img class="imgSize inline-photo show-on-scroll" src="{{ asset('img/aPropos/par-linnovation.jpg') }}"
+                alt="Image de ---">
+        </div>
+
+        <div class="col-12 col-lg-6 mt-1 text-right pl-5">
+            <h2 class="my-5">Par l'innovation</h2>
+
+            <p class="textAPropos">
+                Mettre l’innovation au service de tous.
+                L’expérience et la vision du
+                savoir au service d’une société inclusive
+                pour mieux vivre ensemble.
+            </p>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-12 col-lg-6 mt-1 text-left pr-5 pl-4">
+                <h2 class="mt-5">Par l'acces numerique</h2>
+
+                <p class="textAPropos">
+                    Faire du numérique la passerelle entre
+                    le savoir des aînés et les compétences
+                    des nouvelles générations grâce au portail
+                    <strong>«GENERATION BOOMERANG»©</strong>
+                </p>
+            </div>
+
+            <div class="col-lg-6 pl-5">
+                <img class="imgSize inline-photo show-on-scroll"
+                    src="{{ asset('img/aPropos/par-lacces-numerique.jpg') }}" alt="Image de ---">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- NOTRE MISSION ? -->
+<div class="row no-gutters">
+    <div class="col-12 sectionMission p-4">
+        <div class="row left-center">
+            <div class="col-12 col-lg-6 text-center">
+                <p class="h2 titreMission mb-3">
+                    <strong>Association Building Seniors</strong><br>
+                    Notre mission
+                </p>
+
+                <div class="row text-center ">
+                    <div class="col-12 col-lg-4 textMission">
+                        <img class="mx-auto my-3 img-fluid" src="{{ asset('img/icones/smartphone.svg') }}" width="150px"
+                            alt="Icone d'une main qui tient un mobile">
+                        <p class="font-weight-bold ">Générer du lien social grâce au numérique.</p>
+                    </div>
+
+                    <div class="col-12 col-lg-4 textMission">
+                        <img class="mx-auto my-3 img-fluid" src="{{ asset('img/icones/save-energy.svg') }}"
+                            width="150px" alt="Icone de deux mains qui tienne une representation d'énergie">
+                        <p class="font-weight-bold ">Fédérer les énergies pour accompagner la prévention sur l'ensemble
+                            de la population.</p>
+                    </div>
+
+                    <div class="col-12 col-lg-4 textMission ">
+                        <img class="mx-auto my-3 img-fluid" src="{{ asset('img/icones/discussion.svg') }}" width="150px"
+                            alt="Icone d'un mobile " srcset="">
+                        <p class="font-weight-bold">Ouvrir un nouvel espace en utilisant le savoir-faire des seniors et
+                            les compétences des jeunes générations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {#
+            <div class="row">
+                <div class="col-12 col-lg-6 text-center">
+                    <a href="{{path('poles_index')}}" class="btn btnRed px-5 py-3 mt-5">Voir les poles</a>
+                </div>
+            </div>
+        #}
+    </div>
+</div>
+
+<!-- L'ÉQUIPE -->
+<div class="sectionEquipe p-4">
+    <h2 class="text-center font-weight-bold">L'equipe</h2>
+
+    <div class="container mt-5">
+        <ul class="row one text-center">
+            <div class="col-12 col-lg-4">
+                <li>
+                    <div class="wrapper transition"> <img class="transition"
+                            src="{{ asset('img/poles/experts/patrick.jpg') }}" alt="Patrick Vignon">
+                        <ul class="social">
+                            <li>Révolution numérique, progression par l'innovation</li>
+                            <li><a class="transition" href="#"><img src="{{ asset('img/iconePole/innovation.png') }}"
+                                        alt="pole Inovation"></a></li>
+                            <li><a class="transition" href="#"><img
+                                        src="http://dooreight.com/codepen/people/behance.svg" alt="behance"></a></li>
+                            <li><a class="transition" href="#"><img
+                                        src="http://dooreight.com/codepen/people/facebook.svg" alt="facebook"></a></li>
+                            <li><a class="transition" href="#"><img src="http://dooreight.com/codepen/people/skype.svg"
+                                        alt="skype"></a></li>
+                        </ul>
+                        <span class="transition" id="couleur_innovation">
+                            <h3>Patrick Vrignon<em>Innovation &amp; Nouvelles technos</em></h3>
+                            <i class="fas fa-angle-down" style="font-size: 3em;color:white"></i>
+                        </span>
+                    </div>
+                </li>
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <li>
+                    <div class="wrapper transition"><img class="transition"
+                            src="{{ asset('img/poles/experts/xavierMini.png') }}" alt="Xavier Tournillon">
+                        <ul class="social">
+                            <li>Le leadership, la transmission et les missions</li>
+                            <li><a href="#"><img src="{{ asset('img/iconePole/savoirs.png') }}"
+                                        alt="pole Evolution des Savoirs"></a></li>
+                            <li><a class="transition" href="#"><img
+                                        src="http://dooreight.com/codepen/people/behance.svg" alt="behance"></a></li>
+                            <li><a class="transition" href="#"><img
+                                        src="http://dooreight.com/codepen/people/facebook.svg" alt="facebook"></a></li>
+                            <li><a class="transition" href="#"><img src="http://dooreight.com/codepen/people/skype.svg"
+                                        alt="skype"></a></li>
+                        </ul>
+                        <span class="transition" id="couleur_evolution_savoir">
+                            <h3>Xavier Tournillon<em>Evolution des savoirs</em></h3>
+                            <i class="fas fa-angle-down" style="font-size: 3em;color:white"></i>
+                        </span>
+                    </div>
+                </li>
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <li>
+                    <div class="wrapper transition"> <img class="transition"
+                            src="{{ asset('img/poles/experts/francisMini.png') }}" alt="Francis Descamps">
+                        <ul class="social">
+                            <li>La formation, l'éthique et le management durable en entreprise</li>
+                            <li><a class="transition" href="#"><img src="{{ asset('img/iconePole/metier.png') }}"
+                                        alt="pole Evolution des metiers"></a></li>
+                            <li><a class="transition" href="#"><img
+                                        src="http://dooreight.com/codepen/people/behance.svg" alt="behance"></a></li>
+                            <li><a class="transition" href="#"><img
+                                        src="http://dooreight.com/codepen/people/facebook.svg" alt="facebook"></a></li>
+                            <li><a class="transition" href="#"><img src="http://dooreight.com/codepen/people/skype.svg"
+                                        alt="skype"></a></li>
+                        </ul>
+                        <span class="transition" id="couleur_evolution_metiers">
+                            <h3>Francis Descamps<em>Evolution des metiers</em></h3>
+                            <i class="fas fa-angle-down" style="font-size: 3em;color:white"></i>
+                        </span>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </div>
+
+    <div class="container">
+        <ul class="one text-center row">
+            <div class="col-sm-12 col-lg-4">
+                <li>
+                    <div class="wrapper transition"> <img class="transition"
+                            src="{{ asset('img/poles/experts/jeanYvesMini.png') }}" alt="Jean Yves Prodel">
+                        <ul class="social">
+                            <li>Adaptabilité du logement, résidences inter-générationnelles</li>
+                            <li><a class="transition" href="#"><img src="{{ asset('img/iconePole/design.png') }}"
+                                        alt="pole design"></a></li>
+                            <li><a class="transition" href="#"><img
+                                        src="http://dooreight.com/codepen/people/behance.svg" alt="behance"></a></li>
+                            <li><a class="transition" href="#"><img
+                                        src="http://dooreight.com/codepen/people/facebook.svg" alt="facebook"></a></li>
+                            <li><a class="transition" href="#"><img src="http://dooreight.com/codepen/people/skype.svg"
+                                        alt="skype"></a></li>
+                        </ul>
+                        <span class="transition" id="couleur_autonomie_universal">
+                            <h3>Jean-Yves Prodel<em>Autonomie &amp; Universal Design</em></h3>
+                            <i class="fas fa-angle-down" style="font-size: 3em;color:white"></i>
+                        </span>
+                    </div>
+                </li>
+            </div>
+            <div class="col-12 col-lg-4">
+                <li>
+                    <div class="wrapper transition"> <img class="transition"
+                            src="{{ asset('img/poles/experts/alainMini.png') }}" alt="Alain Bechade">
+                        <ul class="social">
+                            <li>Préparer la nouvelle génération à mieux comprendre l'immobilier
+                            </li>
+                            <li><a class="transition" href="#"><img src="{{ asset('img/iconePole/immobilier.png') }}"
+                                        alt="pole immobilier"></a></li>
+                            <li><a class="transition" href="#"><img
+                                        src="http://dooreight.com/codepen/people/behance.svg" alt="behance"></a></li>
+                            <li><a class="transition" href="#"><img
+                                        src="http://dooreight.com/codepen/people/facebook.svg" alt="facebook"></a></li>
+                            <li><a class="transition" href="#"><img src="http://dooreight.com/codepen/people/skype.svg"
+                                        alt="skype"></a></li>
+                        </ul>
+                        <span class="transition" id="couleur_immobilier">
+                            <h3>Alain Bechade<em>Immobilier &amp; Silver Experience</em></h3>
+                            <i class="fas fa-angle-down" style="font-size: 3em;color:white"></i>
+                        </span>
+                    </div>
+                </li>
+            </div>
+            <div class="col-12 col-lg-4">
+                <li>
+                    <div class="wrapper transition"> <img class="transition"
+                            src="{{ asset('img/poles/experts/anneMarie.jpg') }}" alt="Anne Marie Pinsolle">
+                        <ul class="social">
+                            <li>Relations internationales, partenariats</li>
+                            <li><a class="transition" href="https://www.facebook.com/profile.php?id=100015302073425"><i
+                                        title="facebook" class="fab fa-facebook"></i></a></li>
+                            <li><a class="transition" href="https://twitter.com/ampinsolle?s=09"><i title="twitter"
+                                        class="fab fa-twitter"></i></a></li>
+                            <li><a class="transition" href="https://www.linkedin.com/in/anne-marie-pinsolle-a43a5711"><i
+                                        title="linkedin" class="fab fa-linkedin"></i></a></li>
+                            <li><a class="transition" href="https://www.instagram.com/annemariepinsolle/?hl=fr"><i
+                                        title="instagram" class="fab fa-instagram"></i></a></li>
+                            <li><a class="transition" href=""><i title="skype live:annemariepinsolle"
+                                        class="fab fa-skype"></i></a></li>
+                        </ul>
+                        <span class="transition" id="couleur_communication">
+                            <h3>Anne-M. Pinsolle <em>Communication et R&amp;D</em></h3>
+                            <i class="fas fa-angle-down" style="font-size: 3em;color:white"></i>
+                        </span>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('assets/js/apropos.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,114 @@
+<div id="cardDiv" class="col-10 col-md-6 col-lg-4 mx-auto px-0">
+    <div class="card m-3">
+        <div class="card-header text-center my-auto">
+
+            {# Icone + pôle #}
+            {% if art.pole != NULL %}
+                <div class="row align-items-center"> 
+                    <div class="col-2">
+                        <img src="
+                        {% if art.pole == "Innovation" %}
+                            {{ asset ('images/folderHomePage/kit_icones2/Innovation.svg')}}                        
+                        {% elseif art.pole == "Com Recherche et developpement" %}
+                            {{ asset ('images/folderHomePage/kit_icones2/Com_Rech_Dev.svg')}}                        
+                        {% elseif art.pole == "Evolution des savoirs" %}
+                            {{ asset ('images/folderHomePage/kit_icones2/Evo_Savoirs.svg')}}                        
+                        {% elseif art.pole == "Evolution des metiers" %}
+                            {{ asset ('images/folderHomePage/kit_icones2/Evo_Metiers.svg')}}                        
+                        {% elseif art.pole == "Immobilier & Silver Experience" %}
+                            {{ asset ('images/folderHomePage/kit_icones2/Immobilier.svg')}}                        
+                        {% elseif art.pole == "Universal design & inclusive design" %}
+                            {{ asset ('images/folderHomePage/kit_icones2/Uni_Inc_Design.svg')}}
+                        {% endif %}" alt="iconePole logo" class="pt-1 pl-1" style="width:50px; float:left; border-radius:5px"> 
+                    </div> 
+                    <div class="col-10">
+                        {% if art.pole == "Innovation" %}
+                            <a href="{{path('innovation') }}"><p class="h6 lienPole">{{art.pole}}</p></a>                         
+                        {% elseif art.pole == "Com Recherche et developpement" %}
+                            <a href="{{path('commRechercheDev') }}"><p class="h6 lienPole">{{art.pole}}</p></a>                              
+                        {% elseif art.pole == "Evolution des savoirs" %}
+                            <a href="{{path('evolutionSavoirs') }}"><p class="h6 lienPole">{{art.pole}}</p></a>                         
+                        {% elseif art.pole == "Evolution des metiers" %}
+                            <a href="{{path('evolutionsMetier') }}"><p class="h6 lienPole">{{art.pole}}</p></a>                        
+                        {% elseif art.pole == "Immobilier & Silver Experience" %}
+                            <a href="{{path('immobilier') }}"><p class="h6 lienPole">{{art.pole}}</p></a>                         
+                        {% elseif art.pole == "Universal design & inclusive design" %}
+                            <a href="{{path('design') }}"><p class="h6 lienPole">{{art.pole}}</p></a>  
+                        {% endif %}           
+                    </div>           
+                </div>       
+            {% endif %}
+         </div>       
+
+        <div class="card-bodyPub text-center"  >
+            <a class="lienSlug" href="{{ path('article_show', {'slug':art.slug}) }}">
+                {% if art.imgArticle  %}
+                    <img src="/uploads/articles/{{ art.imgArticle.imageArt }}" alt="experience"  width="165px" class="imgArticle img-fluid my-3" style="border-radius:5px" >
+                {% else %} 
+                    <img src="{{ asset('uploads/retourExp/retourExpDefault.jpg')}}" alt="experience"  width="300px" class="img-fluid my-3" style="border-radius:5px" >
+                {% endif %}
+            </a>
+
+            <a class="lienSlug" href="{{ path('user_show', {id:art.author.id}) }}">
+                <p><i class="fas fa-user"></i> {{art.author.firstName}} {{art.author.lastname }}</p> 
+            </a>
+            
+            <a class="lienSlug h4" href="{{ path('article_show', {'slug':art.slug}) }}">
+               <p class="text-center">{{art.titreArticle}}</p> 
+            </a>
+
+            <div class="hauteurText mb-1">
+                <p class="text-center px-3">{{art.accroche}}</p>
+            </div>
+
+            <div id="card_bottom">
+             <hr class="hrArticles text-center">
+                {# Like Com Date #}
+                <div class="likeCom text-center">
+                    {# Vues #}
+                    <div class="view">
+                        <i class="far fa-eye px-2 my-auto" ></i><span class="my-auto" id="counter">{{art.views}}</span>
+                    </div>
+
+                    {# Like #}
+                    <div class="like">
+                        {% if art.likes | length > 0 %}
+                            <a class="px-2 my-auto"><i class="fas fa-thumbs-up my-auto"></i> </a>{{art.likes}}
+                        {% else %}
+                            <small>Pas encore liké</small>
+                        {% endif %}   
+                    </div>
+
+                    {# Avis #}
+                    <div class="com">
+                        {% if art.commentaire | length > 0 %}
+                            {% include 'partials/rating.html.twig' with {'rating' : art.avgRatings} %}
+                            <br>
+                            <small>(Calculée sur {{ art.commentaire|length }} avis)</small>
+                        {% else %}
+                            {% include 'partials/rating.html.twig' with {'rating' : art.avgRatings} %}
+                            <br>
+                            <small>Pas encore noté</small>
+                        {% endif %}   
+                    </div>
+                </div>
+                {# Date #}
+                <small>Créé le {{art.createdAt|date('d/m/Y')}}</small>
+
+                {# Btn Auteur ou non #}
+                <div class="mb-3 editSuppr">
+                    {% if app.user and app.user.roles[0] == "ROLE_ADMIN" or app.user and app.user == art.author %} 
+                        <div class="self-align-center">
+                            <a type="submit"class="btn btnRed edit" href="{{ path('article_edit', {'slug':art.slug}) }}"><i class="fas fa-edit"></i> Editer</a>
+                            <a type="submit"class="btn btnRed suppr" href="{{ path('article_delete', {'slug':art.slug}) }}"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                        </div>  
+                    {% endif %} 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block javascripts %}
+	<script src="{{ asset('assets/js/art_retourExp.js')}}"></script>
+{% endblock %}

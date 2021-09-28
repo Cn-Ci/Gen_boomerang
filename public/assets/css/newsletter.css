@@ -1,0 +1,52 @@
+body{
+    margin:0;
+    padding:0;
+}
+.titles{
+    color: var(--couleurJauneCube); 
+}
+.fondGauche{
+    background-color:beige;
+    border-radius:5px 0 0 5px;
+}
+
+.fondDroite{
+    background-color: var(--couleurGrisPale);
+    border-radius:0 5px 5px 0 ;
+    color: var(--couleurGris);
+}
+
+.nomPole{
+    color: var(--couleurGris);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.nomPole:hover{
+    color: var(--couleurRouge);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.detailsPole{
+    color: var(--couleurBlanc);
+    font-size: 12px!important;
+
+}
+
+.logoPole{
+    max-width: 90px;
+}
+
+.hide{
+    display: none;
+}
+.red{
+    background-color:var(--couleurGris);
+    color           : var(--couleurBlanc);
+    text-transform  : uppercase;
+    font-weight     : bold;
+    border-radius   : 5px;
+    transition:all 0.3s;
+}

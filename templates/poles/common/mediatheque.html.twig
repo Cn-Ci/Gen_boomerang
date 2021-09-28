@@ -1,0 +1,88 @@
+{% extends 'basePoleMetier.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/pole_evolutionsMetier.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/a_general_pole.css')}}">
+
+
+
+{% endblock %}
+
+{% block title %}Médias {% endblock %}
+
+{% block body %}
+{# {% include "partials/header_poles.html.twig" with {"logo": "metiers2",
+"color":"rgba(44, 60,77,0.828)"}
+%}#}
+
+{% if couleurPole == "blue" %}
+{% set bnCol = "btnBlue" %}
+{% endif %}
+
+<div class="row align-items-center  ">
+    <div class="col-2">
+        <img class=" banniere-general sectionPole" style="height: 70px;width:100px;"
+            src="{{ asset('img/poles/icones/mediatheque.png') }}" alt="banniere design">
+    </div>
+    <div class="col-9 text-center ">
+        <h4> DES LIVRES DES VIDEOS SUR NOTRE POLE</h4>
+        <div style="font-size:small">a renseigner avec les datas de la table des médias....</div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-12 col-lg-4 mb-2 mb-lg-0 pr-lg-1">
+            <form>
+                <div class="input-group">
+                    <input id="searchBar" type="search" placeholder="Rechercher..." aria-describedby="button-addon5"
+                        class="form-control">
+
+                    <div class="input-group-append">
+                        <button id="button-addon5" type="submit" class="btn {{bnCol}} "><i
+                                class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-12 col-lg-4 mb-2 mb-lg-0 pr-lg-1">
+            <div class="form-group trierArticles">
+                <select class="form-control w-100" id="selectOrderBy" placeholder="trier">
+                    <option name="none">Trier par...</option>
+                    <option name="latest">Les plus récents</option>
+                    <option name="oldest">Les plus anciens</option>
+                </select>
+            </div>
+        </div>
+
+        {% if (medias is not empty) and (app.user and app.user.roles[0] == "ROLE_ADMIN") %}
+        <a href="{{path('article_new')}}" class="btn {{bnCol}}  col-12 col-lg-4"><i class="fas fa-plus"></i> Nouveau
+            média</a>
+        {% endif %}
+
+        <div id="card-showcase" class="container mb-5">
+            {% if app.user and medias | length > 0 %}
+            <div id="dataOrderBy" class="row mb-5 pb-5 justify-content-center card-pole">
+                {% for i in 0..6 %}
+                {% include "poles/common/_medias.html.twig" %}
+                {% endfor %}
+
+                {# pagination #}
+
+            </div>
+
+            {% else %}
+            <p class="alert alert-danger text-center"><i class="fas fa-exclamation-triangle"></i> Vous devez être
+                inscrit
+                pour pouvoir accéder à la médiathèque</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('assets/js/pole_metier.js')}}"></script>
+<script src="{{ asset('assets/js/script.js') }}"></script>
+{% endblock %}

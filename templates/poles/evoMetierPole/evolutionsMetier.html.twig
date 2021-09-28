@@ -1,0 +1,523 @@
+{% extends 'basePoleMetier.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/pole_evolutionsMetier.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/a_general_pole.css')}}">
+
+
+{% endblock %}
+
+{% block title %}Presentation {% endblock %}
+
+{% block body %}
+{# {% include "partials/header_poles.html.twig" with {"logo": "metiers2",
+"color":"rgba(44, 60,77,0.828)"}
+%} #}
+
+<img class="banniere-size sectionPole" src="{{ asset('img/poles/pole_metiers/banniere_metiers2.jpg') }}"
+    alt="banniere design">
+
+<div id="contact" class="text-center mt-3">
+    <a class="btn btnContact w-50" href="{{path('contactEvolutionsMetier')}}">Fiche contact</a>
+</div>
+
+<div class="container">
+    {# BLOCK DE PRESENTATION DU POLE #}
+    <div id="presentationPole " class="text-center">
+        <h3 class="colorEvolutionMetier  my-4 outline">En bref...</h3>
+
+        <h4 class="colorBlack text-center mb-2">Vocation :</h4>
+        <p class="typeText w-75 mx-auto">
+            Être un centre de réflexion et de proposition concernant tous les nouveaux besoins, métiers ; créer de
+            l’emploi et de la valeur en plaçant l’Homme et ses valeurs au cœur de l’entreprise.
+        </p>
+
+        <h4 class="colorBlack mt-5 mb-2">Conviction</h4>
+        <p class="typeText w-75 mx-auto">
+            Regrouper des personnes de bonne volonté afin de partager nos expériences en vue de
+            développer une plateforme d’information sur les innovations technologiques, l’évolution de la société et
+            les nouveaux besoins qui en découlent. Cibles : les jeunes et les aînés car nous sommes dans une société
+            inter générationelle. Les besoins : Ils sont communs et découlent de l’analyse faite sur les innovations
+            technologiques et l’évolution de la société. = Mettre en place le process et les outils transversaux
+            adaptés...
+        </p>
+    </div>
+
+
+    {# BLOCK DE PRESENTATION DU MEMBRE FONDATEUR #}
+    <div id="membreFondateur" class="mb-5">
+        <h2 class="text-center colorEvolutionMetier mt-5 mb-2 outline ombre">Presentation du membre fondateur</h2>
+
+        <section class="mx-auto w-75 my-3">
+            {# <aside class="m-4"><img class="photoMembre mr-3" src="/img/poles/equipe_pole/Francis_grande.png"
+                    alt="photo"></aside> #}
+            <aside class="m-4"><img class="photoMembre mr-4" src="/img/poles/experts/Francis.png" alt="photo"></aside>
+
+            <article class="typeText">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisienim ad minim veniam,
+                quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+                dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praes
+                ent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
+                cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+                aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing
+                elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+                enim ad minim veniam, quis nostrud exerci tation ullamcor. Lorem ipsum dolor sit amet, consectetuer
+                adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                Ut wisienim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
+                ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+                consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim
+                qui blandit praes ent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum
+                dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+                magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisienim ad minim veniam, quis
+                nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
+                vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu
+                feugiat
+                nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praes ent luptatum zzril
+                delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer
+                adipiscing
+                elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            </article>
+        </section>
+    </div>
+
+
+    {# CAROUSSEL BOOTSTRAP DES MEMBRES CONNECTES AU POLE #}
+    {#<div id="membreConnectes">
+        <h2 class="text-center colorEvolutionMetier mt-5 mb-2 ">Les membres connectes au pole</h2>
+        <div id="carouselExampleIndicators" class="carousel slide mb-4" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row m-5 text-center">
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/jeanYvesMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Jean-Yves Prodel</h4>
+                            <p class="font-weight-bold">Design</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/patrick.jpg') }}" alt="First slide">
+                            <h4 class="colorBlack">Patrick Vrignon</h4>
+                            <p class="font-weight-bold">Innovation</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/xavierMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Xavier Tournillon</h4>
+                            <p class="font-weight-bold">Evolution des savoirs</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row m-5 text-center">
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/francisMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Francis DESCAMPS</h4>
+                            <p class="font-weight-bold">Evolution des métiers</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/anneMarie.jpg') }}" alt="First slide">
+                            <h4 class="colorBlack">Anne-Marie Pinsolle</h4>
+                            <p class="font-weight-bold">Communication R&amp;D</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4 ">
+                            <img class="p-4" src="{{ asset('img/poles/experts/alainMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Alain Bechade</h4>
+                            <p class="font-weight-bold">Immobilier</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>#}
+
+
+    {# BLOCK EVOLUTION DES METIERS SELON FRANCIS DESCAMPS #}
+    <div id="poleSelon">
+        <h2 class="text-center colorEvolutionMetier mt-5 mb-2 outline ombre">L'évolution des metiers selon francis
+            descamps</h2>
+        <p class="typeText w-75 mx-auto my-3">
+            L’Evolution des Métiers doit répondre aux besoins des jeunes et des aînés, car nous sommes dans une société
+            intergénérationnelle;
+            également à l’analyse faite sur les innovations technologiques et l’évolution de la société.
+            Francis Descamps souhaite animer un centre de réflexion et de proposition concernant tous les nouveaux
+            besoins, métiers;
+            créer de l’emploi et de la valeur en plaçant l’Homme et ses valeurs au cœur de l’entreprise; regrouper des
+            personnes de bonne
+            volonté afin de partager expériences, informations sur les innovations technologiques, l’évolution de la
+            société et les nouveaux
+            besoins qui en découlent.
+        </p>
+    </div>
+
+
+    {# BLOCK DES TRAVAUX DE FRANCIS DESCAMPS #}
+    {#<div id="travauxDe">
+        <h2 class="text-center colorEvolutionMetier mt-5 mb-2">Les travaux de francis descamps</h2>
+
+        <p class="typeText w-75 mx-auto my-3">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+            suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+            vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
+            accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait
+            nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod
+            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+            tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
+            consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+            aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+            molestie consequat, vel illum dolore eu feugiat nulla
+        </p>
+    </div>#}
+
+
+    {# BLOCK DE CARRES DES TRAVAUX DE FRANCIS DESCAMPS #}
+    <!--<div class="container">
+            <div class="row">
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorEvolutionMetier">Titre presentation 1</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorEvolutionMetier">Titre presentation 1</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorEvolutionMetier">Titre presentation 1</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorEvolutionMetier">Titre presentation 1</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+
+    {# CAROUSSEL BOOTSTRAP DES PARTENAIRES DE FRANCIS DESCAMPS#}
+    {# <div id="partenaireDe">
+        <h2 class="text-center colorEvolutionMetier mt-5 mb-2 ">Les partenaires de Francis Descamps</h2>
+        <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row m-5 text-center">
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/francisMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Francis DESCAMPS</h4>
+                            <p class="font-weight-bold">Evolution des métiers</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/anneMarie.jpg') }}" alt="First slide">
+                            <h4 class="colorBlack">Anne-Marie Pinsolle</h4>
+                            <p class="font-weight-bold">Communication R&D</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/alainMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Alain Bechade</h4>
+                            <p class="font-weight-bold">Immobilier</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row m-5 text-center">
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/jeanYvesMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Jean-Yves Prodel</h4>
+                            <p class="font-weight-bold">Design</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/patrick.jpg') }}" alt="First slide">
+                            <h4 class="colorBlack">Patrick Vrignon</h4>
+                            <p class="font-weight-bold">Innovation</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/xavierMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Xavier Tournillon</h4>
+                            <p class="font-weight-bold">Evolution des savoirs</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div> #}
+
+
+    {# BLOCK DE L'EVOLUTION DES METIERS #}
+    {#<div id="evolution">
+        <h2 class="text-center colorEvolutionMetier mt-5 mb-2">L'evolution des metiers</h2>
+
+        <p class="typeText w-75 mx-auto my-3">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
+            quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+            dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
+            praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit
+            amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+            aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+            lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing
+            elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+            enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
+            commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+            consequat, vel illum dolore eu feugiat nulla
+        </p>
+    </div>#}
+
+    {# BLOCK DE CARRES DE L'EVOLUTION DES METIERS #}
+    <!--<div class="container">
+            <div class="row">
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorEvolutionMetier">Organisation</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3 colorEvolutionMetier">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorEvolutionMetier">Management</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3 colorEvolutionMetier">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorEvolutionMetier">Technique</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3 colorEvolutionMetier">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorEvolutionMetier">Produit</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+
+    {# BLOCK DES SECTEURS D'ACTIVITE #}
+    <div id="secteur">
+        <h2 class="text-center colorEvolutionMetier mt-5 mb-2 outline ombre">Les secteurs d'activites</h2>
+
+        <p class="typeText w-75 mx-auto my-3">
+            Préparer le futur : les jeunes sont l’innovation de demain : présenter une équipe dédiée en associant à son
+            pôle
+            l’EBTP : 30-32 rue de la Paix et 18-18bis rue Belfort – 94307 Vincennes ...http://ledoux-ebtp.com/
+            <br><br>
+            Créée en 1948 par M. André Oudin, l’Ecole du Bâtiment et des Travaux Publics avait pour vocation de former
+            des
+            jeunes dans les métiers du BTP dans une France en pleine reconstruction.
+            <br><br>
+            L’EBTP s’est développée et devient le « Lycée Claude Nicolas Ledoux – EBTP » avec la création d’un pôle
+            dédié au
+            métiers artistiques en 2002 et au développement durable en 2011, tout en ayant intégré des classes
+            d’enseignement
+            général « S » et « ES », illustrant une volonté toujours plus grande de répondre et d’anticiper les besoins
+            des
+            entreprises. Labellisé Lycée des « Métiers de la construction et de son Environnement » depuis 2006, le
+            lycée Claude
+            Nicolas Ledoux- EBTP est un établissement d’enseignement privé reconnu par l’Etat, sous contrat
+            d’association avec
+            l’Etat et regroupe aujourd’hui 1200 étudiants et une centaine d’enseignants. En 2018, nous avons obtenu le
+            label
+            Eco-Lycée, garantie de l’engagement de l’ensemble des équipes et des élèves dans une démarche Responsable.
+            <br><br>
+            L’établissement permet l’accessibilité aux personnes en situation de handicap.
+            <br><br>
+            L’apprentissage ; le BTS Bâtiment, le BTS Travaux Publics (TP) et le BTS Métiers du Topographe Géomètre et
+            de
+            la Modélisation Numérique (MGTMN) et bientôt une 4 ème formation le BTS Etudes et Economie de la
+            Construction
+            (déjà proposée en formation initiale). L’équipe pédagogique est constituée d’une vingtaine de formateurs,
+            également
+            enseignants pour la formation initiale.
+        </p>
+    </div>
+
+
+    {# BLOCK DE CARRES DES SECTEURS D'ACTIVITE #}
+    <!--<div class="container">
+            <div class="row">
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3">Titre Fiche Metier 1</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3">Titre Fiche Metier 2</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3">Titre Fiche Metier 3</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3">Titre Fiche Metier 4</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+
+
+</div>
+{% endblock %}

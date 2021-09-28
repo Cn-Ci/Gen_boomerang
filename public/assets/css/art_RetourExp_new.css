@@ -1,0 +1,30 @@
+/***** formulaire ajouter articles *********************************************************/
+
+/****** bordure input */
+.inputBorder{
+    border: 1px solid var(--couleurBleu);
+    border-radius: 5px;  
+    padding: 5px 15px 10px 15px;
+}
+
+/****** Lien Charte */
+.lienCharte{
+    color: var(--couleurRouge);
+}
+
+/****** lien retour à la liste */
+.retour{
+    color:var(--couleurBleu);
+}
+.retour:hover{
+    color:var(--couleurRouge);
+}
+
+/****** formulaire */
+#articles_pole_nomPole, .custom-file-label{
+    border:1px solid var(--couleurBleu);
+}
+
+#articles_pole_nomPole{
+    width:100%;
+}

@@ -1,0 +1,194 @@
+/****** marge */
+.sectionPole{
+    margin-top:0 !important;
+}
+.messageError{
+    margin-top:120px !important;
+}
+
+
+/****** dimension de la bannière */
+
+@media (max-width: 720px){
+    .banniere-size{
+       display:none !important;
+    }
+    }
+    .banniere-size{    
+        width: 100%;
+        height: 350px;
+}
+
+/***** tous les poles */
+body{
+    font-size: .8rem;
+}
+.title_art{
+    font-size:1.2rem;
+    color: var(--couleurNoir);
+}
+
+
+/****** bouton pole */
+.btnPole {
+    background-color: var(--couleurBleuPole) ;
+    color: var(--couleurBlanc) ;
+    border-radius: 5px ;
+    text-transform: uppercase ;
+    font-weight: bold ;
+}
+
+/****** Couleur button */
+.btnBlue{
+    background-color: var(--couleurBleuPole);
+    color           : var(--couleurBlanc);
+    text-transform  : uppercase;
+    font-weight     : bold;
+    border-radius   : 5px;
+    transition:all 0.3s;
+    max-height: 2.3rem;
+}
+
+/****** media */
+.card-pole{
+    border: none !important;
+}
+
+/****** general*/
+.banniere-general{
+    height: 100px;
+    margin-left: 1rem;
+}
+
+/****** general*/
+@media (max-width: 720px){
+    .banniere-general{
+        height: 60px;
+        left:0;
+        margin-left:0;
+        padding-left:0;
+
+    }
+}
+/****** general*/
+@media (max-width: 520px){
+    .banniere-general{
+        height: 60px;
+        left:0;
+        margin-left:0;
+        padding-left:0;
+    }
+}
+
+    /******/
+/****** couleur noir titre */
+.colorTitre {
+    color: var(--couleurNoir);
+}
+
+/****** texte justifié */
+.typeText {
+    text-align: justify;
+}
+
+/****** cadre de carte */
+.card{
+    background-color: var(--couleurBlanc);
+    border: 1px solid var(--couleurBleu);
+}
+
+/****** Photo du membre */
+.photoMembre {
+    float: left;
+    height:200px;
+    width: 200px;
+    border-radius:50%;
+    shape-outside:circle();
+    max-width:25vw;
+    max-height:25vw;
+    min-height:100px;
+    min-width:100px;
+    margin-left:-2.5rem;
+    margin-bottom:0.5rem;
+}
+
+/****** correction de variation de hauteur des carrousels, arrondi des nouvelles images */
+.carousel-item img.photoSize{
+    height:248px;
+    width:248px;
+    border-radius:50%;
+}
+
+/****** bouton precedent */
+a.carousel-control-prev {
+    padding-right: 100px;
+}
+
+/****** bouton suivant */
+a.carousel-control-next {
+    padding-left: 100px;
+}
+
+/****** couleur noir */
+.colorBlack {
+    color: var(--couleurNoir);
+}
+
+/****** chiffres des notifs */
+.nbr{
+    font-weight: bolder;
+    color: var(--couleurRouge);
+}
+
+/****** correction de variation de hauteur des carrousels, arrondi des nouvelles images */
+.carousel-item img.p-4{
+    height:200px !important;
+    width:200px !important;
+    border-radius:50%;
+}
+
+@media (max-width: 380px){
+    .txt-comm{
+        font-size: 1.5em !important;
+    }
+}
+
+/****** Quand l'ecran est en dessous de 992px */
+@media (max-width: 992px) { 
+    /****** bouton precedent */
+    a.carousel-control-prev {
+        padding-right: 0px;
+    }
+    
+    /****** bouton suivant */
+    a.carousel-control-next {
+        padding-left: 0px;
+    }
+
+    /****** correction de variation de hauteur des carrousels, arrondi des nouvelles images */
+    .carousel-item img.photoSize{
+        height:150px;
+        width:150px;
+        border-radius:50%;
+    }
+
+    /****** Photo du membre */
+    .photoMembre {
+        height:100px;
+        width: 100px;
+    }
+    
+    /****** btn fiche contact */
+    .btnContact{
+        padding: 10px;
+        font-size: 15px;
+    }
+    /****** bouton suivant precedent */
+    span.carousel-control-prev-icon, span.carousel-control-next-icon{
+        padding: 5px;
+    }
+    /****** couleur du pole */
+    .colorComm {
+        font-size:1em;
+    }
+}

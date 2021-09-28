@@ -1,0 +1,26 @@
+/***** Reseau Detail Membre **************************************************************************/
+/****** mise en page des photos */
+.imgSize{
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    border: 3px solid var(--couleurBleu);
+}
+
+/****** taille des logos rouge */   
+.logoSize{
+    width: 3em;
+}
+
+/****** texte */
+.grey{
+    color: var(--couleurGris);
+    font-size: 1.5em;
+}
+
+/****** intitulés */
+.intitules{
+    font-weight: bolder;
+    color: var(--couleurGris);
+    font-size: 1.5em;
+}

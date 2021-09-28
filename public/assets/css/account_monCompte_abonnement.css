@@ -1,0 +1,26 @@
+/***** account / monCompte abonnement **************************************************************************/
+/***** couleur tableau */
+th {
+    color : var(--couleurBleu);
+}
+
+/***** enleve les bordures du tableau */
+.table th, .table td{
+    border:none;
+}
+
+/***** longueur du texte motif de resiliation */
+#resiliation {
+    padding:80px;
+}
+
+/***** lien condition generale */
+.conditionsGeneral{
+    color: var(--couleurRouge);
+}
+
+/***** lien condition generale passage de souris */
+.conditionsGeneral:hover{
+    color: var(--couleurBleu);
+    text-decoration: none;
+}

@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/changerDeVie_poste.css')}}">
+{% endblock %}
+
+{% block title %}Evolutions des Metiers {% endblock %}
+
+{% block body %}
+    <div class="container changerDeViePoste"> 
+        <form>
+            {# SECTION CONCERNANT LE CONTRAT #}
+            <div class="mt-4 text-center">
+                <h1 class="mb-5 text-center orange">Ajouter une annonce</h1>
+            </div>
+
+            <div class="row justify-content-center m-5">
+                <div class="col-12 col-sm-6 mt-5">
+                    <label class="titleGrey h4 mb-4">Intitulé du poste</label>
+                    <input type="text" class="input form-control w-75" placeholder="Entrez le nom du poste">
+                </div>
+
+                <div class="col-12 col-sm-6 mt-5">
+                    <label class="titleGrey h4 mb-4">Date de début</label>
+                    <input type="text" class="input form-control w-75" placeholder="Entrez la date du début de contrat">
+                </div>
+
+                <div class="col-12 col-sm-6 mt-5">
+                    <label class="titleGrey h4 mb-4">Type de contrat</label>
+                    <input type="text" class="input form-control w-75" placeholder="Entrez le type de contrat">
+                </div>
+
+                <div class="col-12 col-sm-6 mb-4 mt-5">
+                    <label class="titleGrey h4 mb-4">Région</label>
+                    <input type="text" class="input form-control w-75" placeholder="Entrez le lieu de la structure">
+                </div>
+            </div>
+
+            <hr class="hrPoste">
+
+            {# TEXTAREA D'ENTREPRISE #}
+            <div class="ml-5 mr-4">
+                <div>
+                    <div class="titleGrey h4 mb-4 text-uppercase mt-5 ml-3">l'entreprise</div>
+
+                    <div class="col-12 mt-3">
+                        <textarea class="input w-100 h-15 form-control" placeholder="Décrivez votre entreprise ..."></textarea>
+                    </div>
+                </div>
+
+                {# TEXTAREA DE RECHERCHE #}
+                <div>
+                    <div class="titleGrey h4 mb-4 text-uppercase mt-5 ml-3">profil recherché</div>
+
+                    <div class="col-12 mt-3">
+                        <textarea class="input w-100 h-15 form-control" placeholder="Décrivez le profil que vous recherchez..."></textarea>
+                    </div>
+                </div>
+
+                {# TEXTAREA VOS MISSIONS #}
+                <div>
+                    <div class="titleGrey h4 mb-4 text-uppercase mt-5 ml-3">vos missions</div>
+
+                    <div class="col-12 mt-3">
+                        <textarea class="input w-100 h-15 form-control" placeholder="Décrivez les missions qui seront réalisées..."></textarea>
+                    </div>
+                </div>
+
+                {# TEXTAREA INFOS COMPLEMENTAIRES #}
+                <div>
+                    <div class="titleGrey h4 mb-4 text-uppercase mt-5 ml-3">informations complémentaires</div>
+
+                    <div class="col-12 mt-3">
+                        <textarea class="input w-100 h-15 form-control" placeholder="Ajoutez les informations complémentaire (horaires, télétravail, avantages, etc)..."></textarea>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center mt-5 mb-5">
+                    <button type="submit" class="btn btnRed">Publier</button>
+                </div>
+            </div>
+        </form> 
+    </div>
+{% endblock %}

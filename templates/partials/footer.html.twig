@@ -1,0 +1,103 @@
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/footer.css')}}">
+{% endblock %}
+
+{# margin top du footer #}
+<div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+{#-------------------------------------#}
+
+{% if origin != "pole"%}
+
+<div class="row flex-wrap boutonsPoles mb-1 p-0 px-lg-5 justify-content-center">
+    <div class="d-flex justify-content-center mt-1">
+        <a href="{{ ('../poles/commRechercheDev') }}" class="btnPole btnCom btn">Communication R&amp;D</a>
+    </div>
+    <div class="d-flex justify-content-center m-1">
+        <a href="{{ ('../poles/evolutionSavoirs') }}" class="btnPole btnSavoir btn">Evolution des savoirs</a>
+    </div>
+    <div class="d-flex justify-content-center m-1">
+        <a href="{{  path('evo_metier_pole_index')  }}" class="btnPole btnMetier btn">Evolution des metiers</a>
+    </div>
+    <div class="d-flex justify-content-center m-1">
+        <a href="{{ ('../poles/innovation') }}" class="btnPole btnIno btn">Innovation</a>
+    </div>
+    <div class="d-flex justify-content-center m-1">
+        <a href="{{ ('../poles/immobilier') }}" class="btnPole btnImmo btn ">Immobilier &amp; Silver Exp</a>
+    </div>
+    <div class="d-flex justify-content-center m-1">
+        <a href="{{ ('../poles/design') }}" class="btnPole btnDesign btn">Universal Design</a>
+    </div>
+</div>
+
+
+{% endif %}
+
+
+
+<div id="bg" class="px-2 px-lg-5">
+    <div class="row mt-1 mt-lg-5">
+        <div class="col-12 col-lg-3 align-self-end mx-auto my-auto text-center">
+            <a href="{{ path('home') }}">
+                <img class="img-fluid" src="{{ asset('img/navbar/logo4.png')}}" width="100%" alt="logo">
+            </a>
+        </div>
+
+        <div class="col-12 col-lg-6 align-self-center mx-auto my-lg-3">
+            <div class="row ">
+                <a class="col-12 col-md-6 text-center lienFooter underline"
+                    href="{{ path('newsletter_index') }}">Newsletters</a> {#<a
+                    class="col-12 col-md-3 text-center lienFooter underline" href="/register}">Devenir Membre</a>#}
+                <a class="col-12 col-md-6 text-center lienFooter underline" href="{{path('aideContact')}}">Aide et
+                    Contact</a>
+                {#<a class="col-12 col-md-3 text-center lienFooter underline"
+                    href="{{path('mon_compte')}}">Informations</a>#}
+            </div>
+            <hr class="hrFooter">
+        </div>
+
+        <div class="col-12 col-lg-3 align-self-center mx-auto text-center my-lg-3">
+            <a class="follow mx-auto mb-2">Suivez-nous</a>
+            <div class="text-center mx-auto">
+                <a href="https://www.facebook.com/Association-Building-Seniors-105912975029190/?ref=pages_you_manage"><i
+                        class="fab fa-facebook"></i></a>
+                {#<a href="#"><i class="fab fa-instagram"></i></a>#}
+                {#<a href="#"><i class="fab fa-twitter"></i></a>#}
+                <a href="https://www.linkedin.com/company/association-building-seniors/about/?viewAsMember=true"><i
+                        class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-auto text-center mt-3">
+        <p id="textFoot">L’Association «BUILDING SENIORS»©, créée en septembre 2015, a
+            pour objet de grouper des personnes physiques ou morales
+            dont l’activité professionnelle concerne, directement ou
+            indirectement, les domaines de l’immobilier, du bâtiment,
+            de l'environnement.</p>
+    </div>
+
+    {# Mention Obligatoire pour utilisation de Flaticon #}
+    <div class="text-center">
+        Icons made by
+        <a class="flaticon" href="https://www.freepik.com/" title="Freepik">
+            Freepik
+        </a>
+
+        from
+
+        <a class="flaticon" href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+        </a>
+    </div>
+
+    <div class="text-center mt-2 mt-lg-5">
+        <p id="textFoot2">&copy; COPYRIGHT 2020 - ASSOCIATION BUILDING SENIORS - GENERATION BOOMERANG - TOUS DROITS
+            RESERVES</p>
+    </div>
+</div>

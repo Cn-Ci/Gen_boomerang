@@ -1,0 +1,66 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Nouveau modèle</title>
+    <!--[if (mso 16)]>
+<style type="text/css">
+a {text-decoration: none;}
+</style>
+<![endif]-->
+    <!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+    <!--[if gte mso 9]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG></o:AllowPNG>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+    {% block title %}Nous suivre {% endblock %}
+
+</head>
+{% block body %}
+{% set desc_subject = '' %}
+{% set prenom = name | split(' ')[0] %}
+{% if subject == 'inscription' %}
+{% set desc_subject = 'Merci de vous etre inscrit à la newsletter ' %}
+{% elseif subject == 'desinscription'%}
+{% set desc_subject = 'Vous êtes désinscrit de la newsletter ' %}
+{% endif %}
+
+
+<body>
+    <div class="row">
+        <div class="col-12">
+            Bonjour {{prenom}}
+        </div>
+        {# <div>
+            <img align="center" border="0" src="{{ email.image('@imgs/poles/cube-3d/metiers2.svg') }}">
+        </div> #}
+        <div class="col-6 text-center mb-5">
+            <h4>{{desc_subject}}{{pole}} </h4>
+        </div>
+        <div class="col-6 text-center mb-6">
+            <img align="center" border="0" style="width:50px;"
+                src="{{ email.image('@imgs/poles/poles_png/'~ pole_img) }}" alt="Logo">
+        </div>
+        <br>
+        <div class="col-12 text-center mb-5">
+            <div>
+                <img align="center" border="0" src="{{ email.image('@imgs/logo/LOGO-GENERATION-BOOMERANG-PNG3.png') }}"
+                    alt="Logo">
+            </div>
+            <div class="col-12 text-center mb-5">
+                <img src="" alt="">
+            </div>
+        </div>
+</body>
+{% endblock %}

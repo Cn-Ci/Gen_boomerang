@@ -1,0 +1,317 @@
+/***** aPropos index **************************************************************************/
+/***** vidéo */
+.container h2{
+    font-size:2.9rem;
+}
+.conteneurVideo{
+    margin:auto;
+    width:70vw;
+    min-width:320px;
+    max-width:1280px;
+    height:39.375vw;
+    min-height:180px;
+    max-height:720px;
+}
+iframe{
+    width:70vw;
+    min-width:320px;
+    max-width:1280px;
+    height:39.375vw;
+    min-height:180px;
+    max-height:720px;
+}
+
+/***** mage page par rapport a la navbar */
+.citationBg {
+    background-color: rgb(233, 230, 230);
+    text-transform: uppercase;
+    color: var(--couleurGris);
+    margin-top:4rem;
+    margin-bottom:4rem;
+}  
+
+/***** Taille img */
+.imgSize{
+    height       : auto;
+    max-width    : 100%;
+    border-radius: 10px;
+}
+
+/***** texte */
+.textAPropos {
+    justify-content: left;
+    font-size      : 1.4em;
+    margin-left: 13%;
+    margin-right: 13%;
+}
+
+/******************** Mission ********************/
+/***** Taille Notre mission */
+.sectionMission{
+    width            : 100%;
+    color            : rgba(0, 0, 0, 0.7);
+    background-image: url(../../img/aPropos/buildings1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index:1;
+}
+
+/***** titre mission */
+.titreMission {
+    text-transform: uppercase;
+    color: var(--couleurRouge);
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-shadow: 5px 2px 5px var(--couleurGrisFond);
+}
+
+/***** text mission */
+.textMission{
+    font-size: 1.2rem;
+}
+
+/******************** Equipe ********************/
+/***** animation equipe */
+.transition {
+    transition: .3s cubic-bezier(.3, 0, 0, 1.3);
+    padding: 0px;
+}
+
+/***** liste equipe fait par les anciens dev */
+.one {
+    list-style: none;
+    padding   : 0;
+}
+.one > div{
+    padding:0;
+}
+.one > div > li {
+    border         : 1px solid rgba(150, 150, 150, 0.29);
+    -moz-box-shadow: 0px 0px 18px 0px rgba(103, 85, 85, 0.39);
+    box-shadow     : 0px 0px 18px 0px rgba(103, 85, 85, 0.39);
+    width          : 300px;
+    height         : 430px;
+    display        : inline-block;
+    margin         : 0 20px;
+    text-align     : center;
+}
+.one > div > li img {
+    margin-top: 10%;
+    width     : 150px;
+    height:150px;
+    border-radius:50%;
+}
+.one > div > li:hover img {
+    margin-top: 10px;
+}
+.one > div > li:hover {
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    box-shadow     : 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+}
+.one > div > li:hover span {
+    border-radius        : 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius   : 0;
+    bottom               : -400px;
+}
+.one > div > li:hover h3 {
+    color     : rgba(255, 255, 255, 1);
+    margin-top: 25px;
+}
+.one > div > li .wrapper {
+    overflow: hidden;
+    position: absolute;
+    width   : 300px;
+    height  : 430px;
+}
+.one > div > li .wrapper h3{
+    margin-top:40px;
+    margin-bottom:20px;
+}
+.one > div > li span {
+    border-radius        : 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius   : 50%;
+    height               : 500px;
+    width                : 500px;
+    
+    display              : block;
+    position             : absolute;
+    bottom               : -300px;
+    left                 : -100px;
+}
+#couleur_innovation
+{
+    background-color: #FECC38;
+}
+#couleur_evolution_savoir
+{
+    background-color: #FF5356;
+}
+#couleur_evolution_metiers
+{
+    background-color: #2172B3;
+}
+#couleur_autonomie_universal
+{
+    background-color: #7E5DA4;
+}
+#couleur_immobilier
+{
+    background-color: #61C855;
+}
+#couleur_communication
+{
+    background: var(--couleurRouge);
+}
+.one > div > li span img {
+    margin-top: 10px;
+    width     : 50px;
+}
+.one > div > li span:hover {
+    background: var(--couleurRouge);
+}
+.one > div > li h3 {
+    font-size:1.5rem;
+    margin-top: 40px;
+    color: rgba(255, 255, 255, 1);
+}
+.one > div > li h3 em {
+    display       : block;
+    font-style    : normal;
+    text-transform: uppercase;
+    font-weight   : 300;
+    font-size     : 12px;
+    margin-top    : 5px;
+}
+.one>div .social {
+    list-style: none;
+    text-align: center;
+    margin    : 10px 0 0 0;
+    padding   : 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.one .social li {
+    opacity: 0;
+    display: inline-block;
+    padding: 5px;
+    color: var(--couleurNoir)
+}
+.one > div > li:hover .social li {
+    opacity: 0.9;
+}
+.one .social li a {
+    cursor : pointer;
+    display: block;
+}
+.one .social li a:hover {
+    opacity: 0.5;
+}
+.one .social li img{
+    width: 30px;
+    height:30px;
+}
+.one .social li i{
+    color:var(--couleurHome);
+    font-size:30px;
+}
+
+.left-center
+{
+    margin-left: 10%;
+}
+/*******************************************************************************************/
+/***** Animations **************************************************************************/
+/*******************************************************************************************/
+
+/***** effet Citation */
+.focus-in-expand {
+	-webkit-animation: focus-in-expand 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: focus-in-expand 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+ @-webkit-keyframes focus-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes focus-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+/***** effet photo */
+.inline-photo {
+    border: 1em solid #fff;
+    border-bottom: 4em solid #fff;
+    border-radius: .25em;
+    box-shadow: 1em 1em 2em .25em rgba(0,0,0,.2);
+    margin: 2em auto;
+    opacity: 0;
+    transform: translateY(4em) rotateZ(-5deg);
+    transition: transform 4s .25s cubic-bezier(0,1,.3,1),
+                opacity .3s .25s ease-out;
+    max-width: 600px;
+    width: 90%;
+    will-change: transform, opacity;
+}
+
+/***** effet photo */
+.inline-photo.is-visible {
+    opacity: 1;
+    transform: rotateZ(-2deg);
+}
+
+/*******************************************************************************************/
+/*******************************************************************************************/
+/****** ajustements format mobile **********************************************************/
+
+@media (max-width:575px){
+    .h3{
+        font-size:1rem;
+    }
+    .titreMission{
+        font-size:1.75rem;
+    }
+    .one > div > li{
+        margin:0;
+        width:250px;
+    }
+    .one > div > li .wrapper{
+        width:250px;
+    }
+    .one > div > li .wrapper h3{
+        font-size:1.25rem;
+    }
+    .one > div > li .wrapper span{
+        width:450px;
+    }
+    body{
+        overflow-x:hidden;
+    }
+}
+@media screen and (max-width: 991px)
+{
+    .left-center
+    {
+        margin-left: 0;
+    }
+}

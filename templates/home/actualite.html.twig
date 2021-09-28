@@ -1,0 +1,184 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/home_actualite.css')}}">
+{% endblock %}
+
+{% block title %}Actualite{% endblock %}
+
+{% block body %}
+	<div class="container menuCompte pb-1">
+		<h1 class="text-center">Actualite</h1>
+		<p class="text-center">
+			Ne pensez-vous pas qu’il est essentiel d'être à la page des nouvelles informations ?<br>
+			Ici c’est le cas on vous propose de connaître l'article le plus vu, le plus aimé et peut être celui que vous attendez.
+		</p>
+		{# image Actualité #}
+		<div class="text-center">
+			<img class="slide-top" src="{{ asset('img/test/news6.jpg') }}" alt="logo du pole">
+		</div>
+
+		<hr class="hrActu w-50 w-lg-75 mt-5">
+		{# tab content #}
+		<div class="row text-center px-3 conteneurBouton">
+			<div class="col-12 col-lg-6 bouton d-flex align-items-center justify-content-center">
+				<img src="../img/actualite/articles.svg">
+				<a onclick="openMenu('article')" href="javascript:void(0)" data-toggle="tab" class="lienMenuCompte btnRed col-4">
+					Articles
+				</a>
+			</div>
+			<div class="col-12 col-lg-6 bouton d-flex align-items-center justify-content-center">
+				<img src="../img/actualite/retours_exp.svg">
+				<a onclick="openMenu('retourExp')" href="javascript:void(0)" data-toggle="tab" class="lienMenuCompte btnRed col-4">
+					Retours d'experiences 
+				</a>
+			</div>
+		</div>
+	</div>
+	<hr class="hrActu w-50 w-lg-75">
+
+	<div class="container mt-2">
+		{# tab-content pour ouvrir une page sous le menu a l'aide des tab-pane #}
+		<div class="tab-content">
+			{# Articles #}
+			<div class="tab-pane active menuTab" id="article" style="display:none">
+				<h2 class="text-center my-5">Les poles</h2>
+
+				{# Dernier articles #}
+				<h3 class="sousTitre mt-5">Les derniers articles :</h3>
+				<div class="row mb-5 justify-content-center">
+					{% for articles, dates in lastArticles %}
+						{% for date in dates %}
+							<div class="col-12 col-md-6 col-lg-4 text-center my-3">
+								<p>{{ articles }}</p>
+								<a class="lienUrl" href="{{ path('article_show', {'slug':date.articles.slug}) }}">
+									<img src="
+									{% if date.articles.pole == "Innovation" %}
+										{{ asset ('/images/folderHomePage/kit_icones2/Innovation.svg')}}
+									{% elseif date.articles.pole == "Evolution des savoirs" %}
+										{{ asset ('/images/folderHomePage/kit_icones2/Evo_Savoirs.svg')}}  
+									{% elseif date.articles.pole == "Evolution des metiers" %}
+										{{ asset ('/images/folderHomePage/kit_icones2/Evo_Metiers.svg')}}                   
+									{% elseif date.articles.pole == "Immobilier & Silver Experience" %}
+										{{ asset ('/images/folderHomePage/kit_icones2/Immobilier.svg')}}
+									{% elseif date.articles.pole == "Universal design & inclusive design" %}
+										{{ asset ('/images/folderHomePage/kit_icones2/Uni_Inc_Design.svg')}}	
+									{% elseif date.articles.pole == "Com Recherche et developpement" %}
+										{{ asset ('/images/folderHomePage/kit_icones2/Com_Rech_Dev.svg')}}
+									{% endif %}" alt="iconePole logo" style="width:250px; border-radius:5px">
+								</a>
+
+								<br>
+								<a class="lienUrl text-center" href="{{ path('article_show', {'slug':date.articles.slug}) }}">{{ date.articles.titreArticle }}</a> 
+								<br>
+								<small>Créé le {{date.date | date('d/m/Y')}}</small>					
+							</div>
+						{% endfor %}
+					{% endfor %}	
+				</div>
+
+				<hr class="hrActu w-50">
+
+				{# Meilleurs articles #}
+				<h4 class="sousTitre mt-5">Les meilleurs articles :</h4>
+				<div class="row justify-content-center">
+					{% for article in bestArticles %}
+						{# article 1 #}
+						<div class="col-12 col-lg-4">
+							<article class="my-5">
+								<div class="mx-auto">
+									<a class="lienUrl" href="{{ path('article_show', {'slug':article.articles.slug}) }}">
+										<img class="imgArticle mb-3 mx-3" src="{{ asset('uploads/retourExp/newspaper.png')}}"alt="reunion" width="300px">
+									</a>
+								</div>
+								<div class="article text-center">
+									<img src="
+										{% if article.articles.pole == "Innovation" %}
+											{{ asset ('/images/folderHomePage/kit_icones2/Innovation.svg')}}
+										{% elseif article.articles.pole == "Com Recherche et developpement" %}
+											{{ asset ('/images/folderHomePage/kit_icones2/Com_Rech_Dev.svg')}}
+										{% elseif article.articles.pole == "Evolution des savoirs" %}
+											{{ asset ('/images/folderHomePage/kit_icones2/Evo_Savoirs.svg')}}
+										{% elseif article.articles.pole == "Evolution des metiers" %}
+											{{ asset ('/images/folderHomePage/kit_icones2/Evo_Metiers.svg')}}
+										{% elseif article.articles.pole == "Immobilier & Silver Experience" %}
+											{{ asset ('/images/folderHomePage/kit_icones2/Immobilier.svg')}}
+										{% elseif article.articles.pole == "Universal design & inclusive design" %}
+											{{ asset ('/images/folderHomePage/kit_icones2/Uni_Inc_Design.svg')}}
+										{% endif %}" alt="iconePole logo" class="mt-5 ml-3" width="50px" style="border-radius:5px">
+										<br>
+										<a class="lienUrl" href="{{ path('article_show', {'slug':article.articles.slug}) }}">{{ article.articles.titreArticle}}</a>
+									<div class="mx-5 my-3 pb-5 text-center">
+										{{ article.articles.accroche }} <br>
+										{% include 'partials/rating.html.twig' with {'rating' : article.avgRatings } %}
+									</div>
+								</div>		
+							</article>
+						</div>
+					{% endfor %}
+				</div>
+
+				<h2 class="liens text-center my-5 ">Retrouvez <a href="{{ path('articles') }}" class="lienUrl">ici</a> toute la liste de nos articles</h2>
+			</div>
+
+			{# RetourExp #}
+			<div class="tab-pane menuTab" id="retourExp" style="display:none">
+				<h2 class="text-center my-5">Les retours d'experiences</h2>
+
+				{# Dernier articles #}
+				<h3 class="sousTitre mt-5">Les derniers articles :</h3>
+
+				<div class="row align-items-center mb-5">
+					{% for retourExp in lastRetourExp %}
+						<div class="col-12 col-lg-4 text-center my-3">
+							<div class="mx-auto">
+								{% if retourExp.RetourExp.imgRetourExp is not null %}
+									<img class="imgArticle mb-3 mx-3 rounded" src="../../public/uploads/retourExp/{{retourExp.RetourExp.imgRetourExp.imageRExp}}" alt="image retour experience" width="170px" height="150px">
+								{% else %} 
+									<img class="imgArticle mb-3 mx-3 rounded" src="{{ asset('uploads/retourExp/retourExpDefault.jpg')}}"alt="image retour experience" width="300px">
+								{% endif %}	
+							</div>
+
+							<a class="lienUrl" href="{{ path('experience_show', {'slug': retourExp.RetourExp.slug}) }}" class="text-center">{{retourExp.RetourExp.titrePublication }}</a><br>
+							<small>Créé le {{retourExp.date | date('d/m/Y') }}</small>					
+						</div>
+					{% endfor %}	
+				</div>
+
+				<hr class="hrActu w-50">
+
+				{# Meilleurs articles #}
+				<h4 class="sousTitre mt-5">Les meilleurs retours :</h4>
+
+				{% for retourExp in bestRetourExp %}
+					<div class="row articleCadre bgGrey my-lg-5">
+						<div class="col-12 col-lg-6 mt-2 text-center ">
+							{% if retourExp.RetourExp.imgRetourExp is not null %}
+								<img class="img1 photos gauche inline-photo show-on-scroll rounded" src="../../public/uploads/retourExp/{{retourExp.RetourExp.imgRetourExp.imageRExp}}" alt="experience">
+							{% else %} 
+								<img class="img1 photos gauche inline-photo show-on-scroll" src="{{ asset('uploads/retourExp/retourExpDefault.jpg')}}" alt="experience">
+							{% endif %}
+						</div>
+
+						<div class="col-12 col-lg-6 my-5 text-center">
+							<a class="h4 my-4 lienUrl" href="{{ path('experience_show', {'slug': retourExp.RetourExp.slug}) }}">{{ retourExp.RetourExp.titrePublication }}</a>
+								<p class="my-5">
+									{{ retourExp.RetourExp.accroche }}
+								</p>
+
+								<div class="my-4">
+									{% include 'partials/rating.html.twig' with {'rating' : retourExp.avgRatings } %}
+								</div>
+							</a>
+						</div>
+					</div>
+				{% endfor %} 
+				<h2 class="liens text-center my-5 ">Retrouvez <a href="{{path('experience')}}" class="lienUrl">ici</a> toute la liste de nos retours d'experience</h2>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('assets/js/apropos.js')}}"></script>
+{% endblock %}

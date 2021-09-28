@@ -1,0 +1,8 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    globals:
+        mercure_publish_url: '%env(MERCURE_PUBLISH_URL)%'
+    form_themes: ['bootstrap_4_layout.html.twig']
+    paths:
+        '%kernel.project_dir%/public/img': imgs
+        '%kernel.project_dir%/public/images': images

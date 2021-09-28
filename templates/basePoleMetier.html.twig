@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Generation Boomerang - {% block title %}{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="shortcut icon" type="image/PNG" href="/favicon.png" />
+
+
+    {# Bootstrap #}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+
+
+    {# FontAwesome #}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+
+    {# Inconu ? #}
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    {#
+    GSAP animations JS
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+        integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+    #}
+
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/a_general.css')}}">
+    {% endblock %}
+
+</head>
+
+<body>
+    {% include "partials/header_poles.html.twig" with {"logo": "metiers2",
+    "color":"rgba(44, 60,77,0.828)"} %}
+    {% for message in app.flashes('erreur') %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block body %}{% endblock %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    {% block javascripts %}
+    <script src="{{ asset('assets/js/notifications.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+
+    {% endblock %}
+</body>
+{% include 'partials/footer.html.twig' with {"origin":"pole"} %}
+
+</html>

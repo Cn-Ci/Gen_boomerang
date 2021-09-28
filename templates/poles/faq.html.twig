@@ -1,0 +1,147 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/pole_faq.css')}}">
+{% endblock %}
+
+{% block title %}
+Foire aux Questions
+{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+    {# TITLE #}
+    <div class="page-header">
+        <h1 class="">Foire aux questions</h1>
+        <p class="text-center">
+            En effet chaque problème à une solution, et toute solution est bonne à connaître.
+            Alors si vous avez des interrogations, des divergences de point de vue sur certains savoirs ou autres,
+            cette rubrique vous donne la chance de pouvoir poser vos questions à vos experts.
+        </p>
+    </div>
+
+    {# FENETRE D'AVERTISSEMENT #}
+    <div class="alert alert-warning alert-dismissible mt-5" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+
+        <p>
+            Cette page contient toutes les questions fréquemment posées. Si vous ne trouvez pas ce que vous cherchez,
+            veuillez nous contacter.
+        </p>
+    </div>
+
+    <hr class="mt-5 w-50">
+
+    {# RUBRIQUE DES QUESTIONS #}
+    <div class="panel-group" id="accordion">
+        <h3 class="faqHeader">Questions fréquentes :</h3>
+        <br>
+
+        {# stock les href de chaque question pour que les liens puissent ensuite changer a chaque itération #}
+        {# 10 art max affichés #}
+        {% set collapseArray = [
+        'collapseOne',
+        'collapseTwo',
+        'collapseThree',
+        'collapseFour',
+        'collapseFive',
+        'collapseSix',
+        'collapseSeven',
+        'collapseEight',
+        'collapseNine',
+        'collapseTen'] %}
+
+        {# crée un compteur afin de modifier le text des href a chaque itération #}
+        {% set i = 0 %}
+
+        {# le for parcours toute la table des questions #}
+        {% for question in questions %}
+        <div class="panel panel-default">
+            <div class="panel-heading" onclick="rotate()">
+                <h4 class="panel-title">
+                    {# le href est modifié a chaque itération pour que le JS puisse fonctionner au click #}
+                    <a data-toggle="collapse" href="#{{ collapseArray[i] }}" id="collaps">{{
+                        question.titre }}</a>
+                </h4>
+            </div>
+            {# l'id est modifié a chaque itération pour que le JS puisse fonctionner au click #}
+            <div id="{{ collapseArray[i] }}" class="panel-collapse collapse">
+                <div class="panel-body mb-4">
+                    {{ question.description }}
+                </div>
+            </div>
+        </div>
+        {% set i = i + 1 %}
+
+        {% endfor %}
+        <hr class="w-50 my-5">
+
+        {# RUBRIQUE 2 (si nécéssaire !!! ) #}
+        <h3 class="faqHeader">Autre rubrique (si necessaire)</h3>
+        <br>
+
+        <div class="panel panel-default">
+            {# question #}
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapseTen">Lorem ipsum dolor sit ?</a>
+                </h4>
+            </div>
+            {# réponse #}
+            <div id="collapseTen" class="panel-collapse collapse">
+                <div class="panel-body mb-4">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit quae sapiente rem, ut nulla
+                    fugit
+                    repellat inventore
+                    earum temporibus laborum sunt magni atque tempore non aliquam alias iste impedit eveniet.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="w-50 my-5">
+
+{#
+    <div id="contact" class="text-center my-5">
+        <a class="btn btnContact w-50" href="mailto:gen@generation-boomerang.com">Contactez nous</a>
+    </div>
+#}
+
+    <section id="contact">
+            <div class="div_titre_section"  data-aos="fade-up">
+                <h2 class="h2_img">besoin d'un renseignement ?</h2>
+            </div>
+            <article id="contact_article" data-aos="fade-up" data-aos-duration="1500">
+                <div id="send_mess">
+                    <form id="form_faq" action="{{path('app_send_faq_mail')}}" method="post">
+                        <div id="champs_email_nom">
+                            <div class="champ">
+                                <input type="text" name="name" id="name" placeholder="Nom *" required>
+                            </div>
+                            <div class="champ"> 
+                                <input type="email" name="email" id="email" placeholder="E-mail *" required>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="champ" id="textarea">
+                            <textarea name="message" id="message" placeholder="Votre message *" required></textarea>
+                        </div>
+                        <br>
+                    </form>
+                    <div class="col-6 m-1  ml-auto mr-auto">
+                        <button form="form_faq" class="btn btnBlue" type="submit">Envoyer</button>
+                    </div>
+                </div>
+            </article>
+            <hr class="w-50 my-5">
+            <div id="coordonnes">
+                <p>
+                    gen@generation-boomerang.com
+                </p>
+            </div>
+        </section>
+</div>
+{% endblock %}

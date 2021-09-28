@@ -1,0 +1,100 @@
+
+
+/* le css juste en dessous ameliore le rendu de l'article */
+
+h1, h2, h3, h4{ /* Changement pour gerer les conflits h1... avec le textarea de ckeditor */
+    color: black!important;
+    font-weight: normal!important;
+    text-transform: none!important;
+    font-size: 22px!important;
+}
+
+.Admin_container{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+
+.Admin_article{
+
+    width: 25%;
+    margin: 40px 0px 0px 0px;
+
+}
+
+.Admin_btn a{
+
+    width: 120px;
+    margin: 10px;
+
+}
+
+
+.Container_article{
+
+    margin: 70px 0px 0px 0px!important;
+
+
+}
+.Container_article hr{
+ 
+    border: none;
+    border-top: 2px solid  rgba(0, 0, 0, 0.1)!important;
+    margin: 5px 0px 5px 0px;
+   
+
+}
+
+.img_article{
+
+     margin-top: 20px;
+     width: 70%;
+     height: 450px;
+     object-fit: cover;
+     
+}
+
+
+
+.Container_details{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   
+   
+}
+.Container_details article{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+/* alignement du corp de texte ( textearea ) */
+
+.Abonne {
+    margin-top: 3%;
+}
+
+.Abonne .text-justify.col-lg-8{
+
+    font-size: 18px;
+    
+
+}
+
+
+.align-items-center .col-12 { 
+   padding-top: 20px ; 
+    
+}
+
+
+

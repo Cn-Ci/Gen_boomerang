@@ -1,0 +1,78 @@
+/************** Security login  ***************/
+/****** marge entre navbar et page + border */
+#login{
+    padding: 10px 10px 50px;
+    border: 2px solid var(--couleurBleu);
+    border-radius: 15px;
+}
+
+.fa-user
+{
+    font-size: 2em;
+    color           : #0FAEB2;
+
+}
+/****** phrase deja loggé */
+.logged {
+    border: 1px solid var(--couleurRouge);
+    border-radius: 15px;
+    padding: 10px 10px 10px 10px;
+    color: var(--couleurBleu);
+    font-weight: bold;
+}
+
+/****** Couleur button */
+.btnBlue{
+    background-color: #0FAEB2;
+    color           : var(--couleurBlanc);
+    text-transform  : uppercase;
+    font-weight     : bold;
+    border-radius   : 5px;
+    transition:all 0.3s;
+    max-height: 2.3rem;
+    white-space: nowrap;
+}
+.btnBlue:hover
+{
+    background-color: transparent;
+    color           : #0FAEB2;
+}
+
+/****** couleur mdp oublié */
+.mdpForget{
+    text-decoration: none;
+    color:var(--couleurRouge);
+}
+
+/****** couleur mdp oublié passage de souris*/
+.mdpForget:hover{
+    text-decoration: none;
+    color:var(--couleurBleu);
+}
+
+/****** barre de séparation */
+.hrLogin {
+    border: 1px solid var(--couleurRouge);
+}
+
+/****** container login */
+
+.container
+{
+    max-width: 500px !important;
+}
+
+/****** Quand l'ecran est en dessous de 992px */
+@media (max-width: 992px) { 
+    /****** bordure input */
+    .formBorder{
+        border: 1px solid var(--couleurBleu);
+        border-radius: 25px;  
+        margin:10px 50px 10px 50px;
+    }
+}
+
+/***** REMOVE OUTLINE */
+#inputPassword:focus-visible, #inputEmail:focus-visible {
+    outline: none;
+}

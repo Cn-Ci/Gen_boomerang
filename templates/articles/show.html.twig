@@ -1,0 +1,255 @@
+{% extends 'base_no_pole_button.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/art_retourExp_show.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/articles_show.css')}}">
+{% endblock %}
+
+{% block title %}Article {{ article.titreArticle }}{% endblock %}
+
+{% block body %}
+<div class="container-fluid ">
+
+<div class="Admin_container">
+   <div >
+    <a href="{{ path('articles') }}" class="btn btnRed m-3">Retour à la liste des articles</a>
+   </div>
+
+        {# Profil de l'auteur #}
+
+        <div class="Admin_article ">
+            <div class="mx-auto text-center">
+                {% if app.user.imgUserAvatar %}
+                <img src="/uploads/userAvatar/{{ app.user.imgUserAvatar.userAvatar }}" alt="experience" width="100px"
+                    class="img-fluid mb-3" style="border-radius:5px">
+                {% else %}
+                <img src="{{ asset('uploads/userAvatar/avatarVide.jpg')}}" alt="experience" width="100px"
+                    class="img-fluid mb-3" style="border-radius:5px">
+                {% endif %}
+            </div>
+
+            {% if app.user %}
+            <div class="my-1 text-center">
+                <a href="{{ path('user_show', {id:article.author.id}) }}">
+                    <h4 class="nomUser"> {{ article.author.firstname }} {{
+                        article.author.lastname }}</h4>
+                </a>
+
+                <p>
+                    {% if type == 'SansEmploi' and article.author.searchedJob %}
+                     A la recherche d'un emploi |
+                    Emploi recherché : {{ article.author.searchedJob }}
+                    {% elseif type == 'Entrepreneur' and article.author.company %}
+                     Entrepreneur |
+                    Activité : {{ article.author.company.nom }}
+                    {% elseif type == 'Etudiant' and article.author.domainStudies %}
+                     Etudiant |
+                    Domaine étudié : {{ article.author.domainStudies }}
+                    {% elseif type == 'Salarié' and article.author.currentJob %}
+                     Salarié |
+                    Emploi actuel : {{ article.author.currentJob }}
+                    {% elseif type == 'Retraité' and article.author.PrecedentJobs %}
+                    Retraité |
+                    Emploi précedent : {{ article.author.PrecedentJobs}}
+                    {% elseif type == 'ProfessionLiberale' and article.author.currentJob %}
+                    Profession Libérale |
+                    Emploi actuel : {{ article.author.currentJob}}
+                    {% endif %}
+                </p>
+
+                {% if app.user and app.user == article.author or app.user.roles[0] == "ROLE_ADMIN" %}
+                <div class="my-1 Admin_btn">
+                    <a type="submit" class="btn btnRed" href="{{ path('article_edit', {'slug':article.slug}) }} "> Editer</a>
+                    <a type="submit" class="btn btnRed" href="{{ path('article_delete', {'slug':article.slug}) }}"> Supprimer</a> <br>
+                </div>
+                {% endif %}
+            </div>
+            {% else %}
+            <div class="anonyme">
+                <div class="my-1">
+                    <img class="avatar avatar-mini" src="/uploads/userAvatar/avatarVide.jpg"
+                        alt="Avatar de {{ app.user.fullName }}" style="border-radius:5px" width="200px">
+                </div>
+                <p class="h4 text-center"><i class="fas fa-user"></i> Utilisateur anonyme</p>
+            </div>
+            {% endif %}
+        </div>
+</div>
+
+   
+
+    {# Contenu Article #}
+
+    <div class="col-12  text-justify Container_article">
+
+         
+
+        <div style="margin-bottom:35px">
+            <p class="text-justify text-uppercase italic font-weight-bold" style="font-size:35px">
+                {{ article.titreArticle }}
+            </p> 
+             <p class="h3 text-justify ">"{{ article.accroche}}"</p>
+        </div>
+
+      <hr>
+        <div class="Container_details">
+      
+ 
+          <article>
+            <p class="my-2 text-justify"> Publié le {{ article.createdAt|date('d/m/Y')
+                }} à {{ article.createdAt|date('h:m') }}</p>
+           
+            </article>
+            <article>
+               {# Vues #}
+            <div class="col-4 text-center">
+                <i class="far fa-eye" style="color:#008000; font-size:25px"></i><span
+                    class="px-2">{{article.views}}</span>
+            </div>
+
+            {# like #}
+            <div class="col-4 text-center">
+                {% if app.user in article.usersLikers %}
+                <i id="thumbs" style="color:#4169E1; font-size:1.58em;" class="fas fa-thumbs-up ml-2" aria-hidden="true"
+                    data-liked="true" data-id="{{article.id}}"></i>
+                {% else %}
+                <i id="thumbs" style="color:#383d41; font-size:1.58em;" class="fas fa-thumbs-up ml-2" aria-hidden="true"
+                    data-liked="false" data-id="{{article.id}}"></i>
+                {% endif %}
+                <span id="js-likes">{{article.likes}}</span>
+            </div>
+
+            {# Note #}
+            <div class="col-6 com py-1 text-center">
+                {% if article.avgRatings | length > 0 %}
+                {% include 'partials/rating.html.twig' with {'rating' : article.avgRatings} %}
+              
+                {% endif %}
+            </div>
+
+           </article>
+           
+        </div>
+<hr>
+
+            {% if article.imgArticle is not null %}
+            <img src="/uploads/articles/{{ article.imgArticle.imageArt }}" alt="experience" 
+                class="img_article" >
+            {% else %}
+            <img src="{{ asset('uploads/articles/retourExpDefault.jpg')}}" alt="experience" 
+                class="img_article" >
+            {% endif %}
+
+
+            {% if app.user %}
+    {% if app.user and app.user.isVerified == 1 %}
+    <div class="Abonne ">
+      
+        <p class="text-justify col-lg-8 ">{{ article.intro }}</p>
+
+        {% if app.user.abonnement %}
+        <div class="row align-items-center">
+         
+            <div class="col-12 col-lg-8">
+              {{ article.contenu|raw }}
+            </div>
+        </div>
+
+    </div>
+
+
+    
+
+
+       
+        {# Commentaire #}
+        <div class="commentaire my-5 p-5">
+            {% if article.commentaire | length > 0 %}
+            <h4>Commentaire de l'article {{ article.titreArticle }}</h4>
+
+            {% for com in article.commentaire|reverse %}
+            <div class="row comments commentsToggled" id="commentaire">
+                <div class="col-9">
+                    <p class="mx-3 my-2">
+                        <strong> {{ com.userCommentaire.firstName }}</strong> a dit :
+                    </p>
+
+                    <p id="commContent" class="font-italic mx-5">
+                        {{ com.contenu }}
+                    </p>
+                </div>
+
+                <div class="col-3">
+                    <strong>Note : </strong> {% include 'partials/rating.html.twig' with {'rating': com.rating} %}
+                </div>
+
+                {% if app.user and app.user == article.author %}
+                <div class="mx-5">
+                    <small>{{ com.createdAt | date('d/m/y \\à H:i', "Europe/Paris")}}</small>
+                    <span> | </span>
+                    <span class="options modifComm" onclick="modifyComment(event, '{{com.id}}')">Modifier</span>
+                    <span> | </span>
+                        <form method="post"action="{{ path('comm_delete',{'id': com.id}) }}"
+                            style="display:inline;">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete-comm' ~ com.id) }}" />
+                            <button class="options" id="btnDelete">Supprimer</button>
+                        </form>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <p id="showMoreComments" class="text-center mt-5 mb-3">
+                Voir plus <i class="bi bi-arrow-bar-down"></i>
+            </p>
+            {% else %}
+            <div class="alert alert-danger text-center my-3">
+                <p class="h4"><i class="fas fa-exclamation-triangle"></i> Cet article n'a pas encore de commentaires !
+                </p>
+            </div>
+            {% endif %}
+
+            {{ form_start(form) }}
+            <div class="row align-items-center mx-5">
+                <div class="col-10">
+                    {{ form_row(form.contenu, {'label':"Ajouter un commentaire",'attr': {'style':'height:150px',
+                    'class':"form-control w-100 inputBorder " ,'minlength':'2','maxlength':'255'}} ) }}
+                </div>
+
+                <div class="col-2 mx-auto mt-2">
+                    {{ form_row(form.rating, {'label':"Note",'attr': {'class':"form-control w-100 inputBorder" }} ) }}
+                    <button type="submit" id="addCom" class="btn btnRed p-1 rounded ">Envoyer</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+
+        </div>
+        {% else %}
+        <div class="lireSuiteAbo w-50 text-center mx-auto py-3 my-5">
+            <p>
+                <u>Pour lire la suite de cet article </u><br>
+                <strong><i class="fas fa-exclamation-triangle"></i> Un abonnement est nécéssaire !</strong>
+            </p>
+
+            <a class="btn btnRed " href="{{path('abonnements_index')}}">Consulter nos offres</a>
+        </div>
+        {% endif %}
+        {% else %}
+        <div class="alert alert-danger my-3 text-center">
+            <p class="h4"><i class="fas fa-exclamation-triangle"></i> Vous devez confirmer votre compte pour pouvoir
+                lire l'article !</p>
+        </div>
+        {% endif %}
+    </div>
+    {% else %}
+    <div class="alert alert-danger my-3 text-center">
+        <p class="h4"><i class="fas fa-exclamation-triangle"></i> Vous devez être inscrit pour pouvoir lire l'article !
+        </p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('assets/js/art_retourExp.js') }}"></script>
+{% endblock %}

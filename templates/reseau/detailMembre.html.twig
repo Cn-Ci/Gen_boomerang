@@ -1,0 +1,217 @@
+{% extends 'base_no_pole_button.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/reseau_detailMembre.css')}}">
+{% endblock %}
+
+{% block title %}Detail de {% endblock %}
+
+{% block body %}
+<div class="container detailMembre">
+    <a href="{{ path('searchMembre') }}" class="btn btnRed m-3">Retour à la liste des membres</a>
+
+    {# BLOCK ENTETE #}
+    <div class=" text-center">
+        {% if user.imgUserAvatar %}
+        <img class="imgSize" src="/uploads/userAvatar/{{ user.imgUserAvatar.userAvatar }}"
+            alt="photo de {{ user.firstname}}">
+        {% else %}
+        <img class="imgSize" src="{{ asset('uploads/userAvatar/avatarVide.jpg') }}" alt="photo de {{ user.firstname}}">
+        {% endif %}
+
+        <div class="mt-3 grey">
+            {{ user.fullName }}
+        </div>
+
+        <p class="intitules mb-5">{{ user.type }}</p>
+
+        <hr class="w-50 hrReseau">
+    </div>
+
+
+    {# BLOCK DATE DE NAISSANCE (pour les sans emploi, salariés et retraités uniquement) #}
+    {% if user.type == 'Sans Emploi' or user.type == 'Salarié' or user.type == 'Retraité' %}
+    <div class="row mt-5 w-50 mx-auto">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeInformationPersonnel.svg') }}"
+            alt="informations personnelles">
+
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Date de naissance :</span>
+            <span class="grey">{{ user.birthdate | date('d/m/Y') }}</span>
+        </div>
+    </div>
+    {% endif %}
+
+
+    {# STATUT (pour tous) #}
+    <div class="row mt-5 w-50 mx-auto ">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeStatut.svg') }}" />
+
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Statut : </span>
+            <span class="grey">{{ user.type }}</span>
+        </div>
+    </div>
+
+
+    {# Etudiant #}
+    {% if user.type == 'Etudiant' %}
+    <div class="row mt-5 w-50 mx-auto ">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeStructure.svg') }}" />
+
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Ecole : </span>
+            {% if user.schoolName %}
+            <span class="grey">{{ user.schoolName }}</span>
+            {% else %}
+            <span class="grey">Non Renseigné</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row mt-5 w-50 mx-auto ">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeLoupe.svg') }}" />
+
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Domaine d'étude : </span>
+
+            {% if user.domainStudies %}
+            <span class="grey">{{ user.domainStudies }}</span>
+            {% else %}
+            <span class="grey">Non Renseigné</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row mt-5 w-50 mx-auto ">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeSecteurActivite.svg') }}" />
+
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Niveau d'étude : </span>
+
+            {% if user.lvlOfStudies %}
+            <span class="grey">{{ user.lvlOfStudies }}</span>
+            {% else %}
+            <span class="grey">Non Renseigné</span>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {# Entrepreneur et Profession liberal #}
+    {% if user.type == 'Entrepreneur' or user.type == 'Profession Liberale' %}
+    <div class="row mt-5 w-50 mx-auto ">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeStructure.svg') }}" />
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Entreprise : </span>
+
+            {% if user.company %}
+            <span class="grey">{{ user.company.nom }}</span>
+            {% else %}
+            <span class="grey">Non Renseigné</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row mt-5 w-50 mx-auto ">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeLoupe.svg') }}" />
+
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Secteur d'activité : </span>
+
+            {% if user.company %}
+            <span class="grey">{{ user.company.activite }}</span>
+            {% else %}
+            <span class="grey">Non Renseigné</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row mt-5 w-50 mx-auto ">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeSecteurActivite.svg') }}" />
+
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Région : </span>
+
+            {% if user.company != null %}
+            <span class="grey">{{ user.company.adresse.region }}</span>
+            {% else %}
+            <span class="grey">Non Renseigné</span>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {# Retraite #}
+    {% if user.type == 'Retraité' %}
+    <div class="row mt-5 w-50 mx-auto ">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeStructure.svg') }}" />
+
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Emploi précédent:</span>
+
+            {% if user.precedentJobs %}
+            <span class="grey">{{ user.precedentJobs }}</span>
+            {% else %}
+            <span class="grey">Non Renseigné</span>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {# Sans Emploi #}
+    {% if user.type == 'Sans Emploi' %}
+    <div class="row mt-5 w-50 mx-auto ">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeStructure.svg') }}" />
+
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Emploi recherché:</span>
+
+            {% if user.searchedJob %}
+            <span class="grey">{{ user.searchedJob }}</span>
+            {% else %}
+            <span class="grey">Non Renseigné</span>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {# Salarié #}
+    {% if user.type == 'Salarié' %}
+    <div class="row mt-5 w-50 mx-auto ">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeSecteurActivite.svg') }}" />
+
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Emploi actuel:</span>
+
+            {% if user.currentJob %}
+            <span class="grey">{{ user.currentJob }}</span>
+            {% else %}
+            <span class="grey">Non Renseigné</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row mt-5 w-50 mx-auto ">
+        <img class="logoSize" src="{{ asset('/img/poles/icones/80x80-px/iconeStructure.svg') }}" />
+
+        <div class="my-auto ml-3">
+            <span class="intitules grey ">Nom de la société:</span>
+
+            {% if user.companyName %}
+            <span class="grey">{{ user.companyName }}</span>
+            {% else %}
+            <span class="grey">Non Renseigné</span>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <hr class="w-50 hrReseau mt-5 ">
+
+    {# BOUTON CONTACT #}
+    <div class="row justify-content-center mt-5">
+        <a href="#" class="mx-auto mb-5 btn btnRed py-3 px-5">Contactez moi</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,130 @@
+/***** Home Accessibilite **************************************************************************/
+/****** fond */
+.fondColore{
+    background-color: #95acbb;
+    margin-bottom: -36px;
+}
+
+/******* Titre */
+.titleAcces{
+    color: #95acbb;
+    text-shadow:2px 2px 1px var(--couleurNoir);
+}
+
+/******* texte */
+.txt{
+    text-align: justify;
+    font-size: 1.3em;
+}
+
+/******* barre de separation */
+.hrTitle{
+    width: 80%;
+}
+
+/******* Titre Carte */
+.titleCard{
+    font-size: 1.7em;
+    color: #697881;
+}
+
+/******* Fond Titre Carte */
+.card-header {
+    background-color: var(--couleurBlanc);
+    border:none;
+}
+
+/******* taille photo */
+.photo{
+    width: 70%;
+    text-align: center;
+}
+
+
+/****** OMBRES DES CARTES */
+.shadow-drop-2-center {
+    -webkit-animation: shadow-drop-2-center 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: shadow-drop-2-center 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes shadow-drop-2-center {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+        -webkit-transform: translateZ(90px);
+        transform: translateZ(90px);
+        -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.90);
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.90);
+    }
+}
+
+@keyframes shadow-drop-2-center {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+        -webkit-transform: translateZ(90px);
+        transform: translateZ(90px);
+        -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.90);
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.90);
+    }
+}
+
+
+/**------ EFFETS SUR LA PAGE ------**/
+/****** EFFET DU TITRE */
+    .slide-top {
+        -webkit-animation: slide-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    @-webkit-keyframes slide-top {
+        0% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+        100% {
+            -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+        }
+      }
+
+      @keyframes slide-top {
+        0% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+        100% {
+            -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+        }
+      }
+      
+    
+/***** EFFET DE LA PHOTO DE DROITE (ACCESSIBILITE) */
+    .inline-photo {
+        border: 1em solid #fff;
+        border-bottom: 4em solid #fff;
+        border-radius: .25em;
+        box-shadow: 1em 1em 2em .25em rgba(0,0,0,.2);
+        margin: 2em auto;
+        opacity: 0;
+        transform: translateY(4em) rotateZ(-5deg);
+        transition: transform 4s .25s cubic-bezier(0,1,.3,1),
+                    opacity .3s .25s ease-out;
+        max-width: 600px;
+        width: 90%;
+        will-change: transform, opacity;
+    }
+
+    .inline-photo.is-visible {
+        opacity: 1;
+        transform: rotateZ(-2deg);
+    }

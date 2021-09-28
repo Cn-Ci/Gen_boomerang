@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/aide-contact.css')}}">
+{% endblock %}
+
+{% block title %}
+Aide
+{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+    {# TITLE #}
+    <div class="page-header">
+        <h2 class="">Aide</h2>
+    </div>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+
+        </div>
+        </h4>
+    </div>
+</div>
+
+<hr class="w-50 my-5">
+
+<div class="text-center my-5 ">
+    <div class="row">
+        <div class="col-lg-6 col-xs-12">
+            <div class="container partenaire p-0 mx-auto">
+                <ul class="grid cs-style-4">
+                    <li>
+                        <figure>
+                            <img src="{{ asset('img/navbar/1.png')}}" alt="img01" height="65px"
+                                style="border-radius:5px">
+                            <figcaption>
+                                <h3>Sponsor 1</h3>
+                                <span>Exemple</span>
+                                <a href="http://dribbble.com/shots/1115632-Camera">Visiter leur site</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="{{ asset('img/navbar/2.png')}}" alt="img02" height="65px"
+                                style="border-radius:5px">
+                            <figcaption>
+                                <h3>Sponsor 2</h3>
+                                <span>Exemple</span>
+                                <a href="http://dribbble.com/shots/1115960-Music">Visiter leur site</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="{{ asset('img/aPropos/buildings1.png')}}" alt="img02" height="65px"
+                                style="border-radius:5px">
+                            <figcaption>
+                                <h3>Sponsor 3</h3>
+                                <span>Exemple</span>
+                                <a href="http://dribbble.com/shots/1115960-Music">Visiter leur site</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="{{ asset('img/aPropos/banniere-paralaxe.jpg')}}" alt="img02" height="65px"
+                                style="border-radius:5px">
+                            <figcaption>
+                                <h3>Sponsor 4</h3>
+                                <span>Exemple</span>
+                                <a href="http://dribbble.com/shots/1115960-Music">Visiter leur site</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="{{ asset('img/aPropos/par-linnovation.jpg')}}" alt="img02" height="265px"
+                                style="border-radius:5px">
+                            <figcaption>
+                                <h3>Sponsor 5</h3>
+                                <span>Exemple</span>
+                                <a href="http://dribbble.com/shots/1115960-Music">Visiter leur site</a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xs-12">
+            dfgdsfgdfgdfg
+        </div>
+    </div>
+
+    <a class="col-12 col-md-6 text-center lienFooter underline" href="{{path('aide')}}">FAQ</a>
+</div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<!-- <script src="{{ asset('assets/js/poleFaq.js')}}"></script> -->
+{% endblock %}

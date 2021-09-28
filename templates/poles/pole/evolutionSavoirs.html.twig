@@ -1,0 +1,506 @@
+{% extends 'base.html.twig' %}{#anciennement basePole.html.twig#}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/pole_evolutionSavoirs.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/a_general_pole.css')}}">
+{% endblock %}
+
+{% block title %}Evolution des savoirs {% endblock %}
+
+{% block body %}
+{#{% include 'poles/menuCube.html.twig' %}#}
+{# BANNIERE #}
+<img class="banniere-size  sectionPole" src="{{ asset('img/poles/pole_savoirs/banniere_savoirs2.jpg') }}"
+    alt="banniere design">
+
+<div id="contact" class="text-center mt-5">
+    <a class="btn btnContact w-50" href="{{path('contactEvolutionSavoirs')}}">Fiche contact</a>
+</div>
+
+<div class="container">
+    {# BLOCK DE PRESENTATION DU POLE #}
+    <div id="presentationPole">
+        <h2 class="colorSavoirs text-center my-5">Presentation du pole</h2>
+
+        <h4 class="colorBlack text-center mb-2">Vocation</h4>
+        <p class="typeText w-75 mx-auto text-center">
+            Réaliser le déploiement du BIM dans l'entreprise, manager la Technique et l'Innovation.
+        </p>
+
+        <h4 class="colorBlack text-center mt-5 mb-2">Conviction</h4>
+        <p class="typeText w-75 mx-auto ">
+            Dans l’entreprise être garant de la technicité, de l’expertise technique et réglementaire,
+            responsable des choix constructifs des validations techniques et réglementaires tous corps
+            d’état. Dans la vie sociale : renforcer les compétences des adultes. Considérer l'éducation et
+            la culture, comme moteurs du développement. Eduquer, partager : la clé du développement,
+            un enjeu majeur pour la construction de l’avenir. En réponse à la destruction accélérée de
+            l'environnement : Affirmer ses choix préférentiels pour des solutions respectueuses et durables.
+            = Ensemble, on va plus loin !
+        </p>
+    </div>
+
+
+    {# BLOCK DE PRESENTATION DU MEMBRE FONDATEUR #}
+    <div id="membreFondateur" class="mb-5">
+        <h2 class="text-center colorSavoirs mt-5 mb-2">Presentation du membre fondateur</h2>
+
+        <section class="mx-auto w-75 my-3">
+            {# <aside class="m-4"><img class="photoMembre mr-3" src="/img/poles/equipe_pole/xavier_grande.png"
+                    alt="photo"></aside> #}
+            <aside class="m-4"><img class="photoMembre mr-4" src="/img/poles/experts/xavier.png" alt="photo"></aside>
+            <article class="typeText">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisienim ad minim veniam,
+                quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+                dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praes
+                ent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
+                cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+                erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+                nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+                diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+                veniam, quis nostrud exerci tation ullamcor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisienim ad
+                minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+                consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
+                illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
+                praes
+                ent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons
+                ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                volutpat.
+            </article>
+        </section>
+    </div>
+
+
+    {# CAROUSSEL BOOTSTRAP DES MEMBRES CONNECTES AU POLE #}
+    {#<div id="membreConnectes">
+        <h2 class="text-center colorSavoirs mt-5 mb-2 ">Les membres connectes au pole</h2>
+        <div id="carouselExampleIndicators" class="carousel slide mb-4" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row m-5 text-center">
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/jeanYvesMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Jean-Yves Prodel</h4>
+                            <p class="font-weight-bold">Design</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/patrick.jpg') }}" alt="First slide">
+                            <h4 class="colorBlack">Patrick Vrignon</h4>
+                            <p class="font-weight-bold">Innovation</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/xavierMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Xavier Tournillon</h4>
+                            <p class="font-weight-bold">Evolution des savoirs</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row m-5 text-center">
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/francisMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Francis DESCAMPS</h4>
+                            <p class="font-weight-bold">Evolution des métiers</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/anneMarie.jpg') }}" alt="First slide">
+                            <h4 class="colorBlack">Anne-Marie Pinsolle</h4>
+                            <p class="font-weight-bold">Communication R&amp;D</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4 ">
+                            <img class="p-4" src="{{ asset('img/poles/experts/alainMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Alain Bechade</h4>
+                            <p class="font-weight-bold">Immobilier</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>#}
+
+
+    {# BLOCK L'EVOLUTION DES SAVOIRS SELON XAVIER TOURNILLON #}
+    <div id="poleSelon">
+        <h2 class="text-center colorSavoirs mt-5 mb-2">L'evolution des savoirs selon Xavier Tournillon</h2>
+
+        <div class="w-75 mx-auto my-3 mt-4">
+            <p class="typeText">Sans cesse se réinventer :</p>
+            <ul class="typeText">
+                <li>répondre à la gestion et l’obsolescence des données</li>
+                <li>à la virtualité qui évolue très vite</li>
+                <li>à la consommation de la planète à outrance</li>
+                <li>à la résilience humaine en réaction à des situations soudaines style pandémie</li>
+                <li>être capable par notre contenu, de proposer, d’intéresser pour empêcher nos internautes de partir
+                </li>
+                <li>esprit <strong>«GENERATION BOOMERANG»©</strong> : être intuitif : les recherches ? Proposer ce que
+                    vous ne
+                    recherchez pas ! Proposer et mieux ce qu’il ne sait pas qu’il aurait pu demander ! Les anciens
+                    expliquent au profit des jeunes qui ont l’agilité et la clarté</li>
+            </ul>
+        </div>
+    </div>
+
+
+    {# BLOCK DES TRAVAUX DE XAVIER TOURNILLON #}
+    {#<div id="travauxDe">
+        <h2 class="text-center colorSavoirs mt-5 mb-2">Les travaux de Xavier Tournillon</h2>
+
+        <p class="typeText w-75 mx-auto my-3">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+            suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+            vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
+            accumsan
+            et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
+            facilisi.
+            Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+            laoreet
+            dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+            suscipit
+            lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+            sed
+            diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+            veniam,
+            quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
+            vel
+            eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
+        </p>
+    </div>#}
+
+
+    {# BLOCK DE CARRES DES TRAVAUX DE XAVIER TOURNILLON #}
+    <!--<div class="container">
+            <div class="row">
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Titre presentation 1</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Titre presentation 2</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Titre presentation 3</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Titre presentation 4</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+
+    {# CAROUSSEL BOOTSTRAP DES TRAVAUX DE XAVIER TOURNILLON #}
+    {# <div id="partenaireDe">
+        <h2 class="text-center colorSavoirs mt-5 mb-2 ">Les partenaires de Xavier Tournillon</h2>
+        <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row m-5 text-center">
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/francisMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Francis DESCAMPS</h4>
+                            <p class="font-weight-bold">Evolution des métiers</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/anneMarie.jpg') }}" alt="First slide">
+                            <h4 class="colorBlack">Anne-Marie Pinsolle</h4>
+                            <p class="font-weight-bold">Communication R&D</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/alainMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Alain Bechade</h4>
+                            <p class="font-weight-bold">Immobilier</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row m-5 text-center">
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/jeanYvesMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Jean-Yves Prodel</h4>
+                            <p class="font-weight-bold">Design</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/patrick.jpg') }}" alt="First slide">
+                            <h4 class="colorBlack">Patrick Vrignon</h4>
+                            <p class="font-weight-bold">Innovation</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                        <div class="membre col-12 col-lg-4">
+                            <img class="p-4" src="{{ asset('img/poles/experts/xavierMini.png') }}" alt="First slide">
+                            <h4 class="colorBlack">Xavier Tournillon</h4>
+                            <p class="font-weight-bold">Evolution des savoirs</p>
+                            <button class="btn btnPole">AFFICHER LE PROFIL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div> #}
+
+
+    {# BLOCK DE L'EVOLUTION DES METIERS #}
+    {#<div id="evolution">
+        <h2 class="text-center colorSavoirs mt-5 mb-2">L'evolution des metiers</h2>
+
+        <p class="typeText w-75 mx-auto my-3">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+            suscipit
+            lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+            velit
+            esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
+            dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem
+            ipsum
+            dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+            magna
+            aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+            lobortis nisl
+            ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+            nonummy nibh
+            euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+            exerci
+            tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
+            dolor in
+            hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
+        </p>
+    </div>#}
+
+    {# BLOCK DE CARRES DE L'INNOVATION #}
+    <!--<div class="container">
+            <div class="row">
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Titre 1</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3 ">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Titre 2</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Titre 3</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Titre 4</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+
+    {# BLOCK DES SECTEURS D'ACTIVITE #}
+    {#<div id="secteur">
+        <h2 class="text-center colorSavoirs mt-5 mb-2">Les secteurs d'activites</h2>
+
+        <p class="typeText w-75 mx-auto my-3">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+            laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+            autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+            dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
+            praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor
+            sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
+            amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+            magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+            lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
+            dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
+        </p>
+    </div>#}
+
+
+    {# BLOCK DE CARRES DES SECTEURS D'ACTIVITE #}
+    <!--<div class="container">
+            <div class="row">
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Metier 1</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Metier 2</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Metier 3</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                {# Carte Presentation 1 #}
+                <div class="col-12 col-lg-6 px-0 p-5 rounded-0">
+                    <div class="card">
+                        <div class="text-center" style="border-bottom: 4px solid black;">
+                            <p class="h4 titreCard mx-auto my-3 colorSavoirs">Metier 4</p>
+                        </div>
+                        <div class="card-body text-center">
+                            <p class="card-text my-2 ">
+                                Description 
+                            </p>
+                            
+                            <a href="" class="btn btnPole my-3">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+</div>
+{% endblock %}

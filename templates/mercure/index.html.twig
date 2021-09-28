@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  <h1>AFSY - Mercure and Symfony</h1>
+  <div id="mercure-content-receiver"></div>
+  <form id="mercure-message-form" action="{{ path('sendMessage') }}" method="post">
+    <label for="mercure-message-input">Message:</label>
+    <input type="text" id="mercure-message-input" name="message"/>
+    <input type="submit" id="mercure-message-btn" value="Send"/>
+  </form>
+{% endblock %}
+
+
+{% block javascripts %}
+  <script type="text/javascript">
+    const userName = prompt('Hi! I need your name for the Chat please :)');
+    const _receiver = document.getElementById('mercure-content-receiver');
+    const _messageInput = document.getElementById('mercure-message-input');
+    const _sendForm = document.getElementById('mercure-message-form');
+
+    const sendMessage = (message, user = 'ChatBot') => {
+      if (message === '') {
+        return;
+      }
+
+      fetch(_sendForm.action, {
+        method: _sendForm.method,
+        body: 'message=' + message + '&user=' + user,
+        headers: new Headers({
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        })
+      }).then(() => {
+        _messageInput.value = '';
+      });
+    };
+
+    _sendForm.onsubmit = (evt) => {
+      sendMessage(_messageInput.value, userName);
+
+      evt.preventDefault();
+      return false;
+    };
+
+    const url = new URL('{{ mercure_publish_url }}');
+    url.searchParams.append('topic', 'http://chat.afsy.fr/message');
+    const eventSource = new EventSource(url, { withCredentials: true });
+    eventSource.onmessage = (evt) => {
+        const data = JSON.parse(evt.data);
+        if (!data.message || !data.user) {
+        return;
+        }
+        _receiver.insertAdjacentHTML('beforeend', `
+        <div class="message">${data.user}: ${data.message}</div>`);
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+        sendMessage(userName + ' joined!');
+    });
+  </script>
+{% endblock %}

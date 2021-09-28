@@ -1,0 +1,53 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: lazy
+            provider: app_user_provider
+            guard:
+                authenticators:
+                    - App\Security\UserAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                target: a-propos
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+    # - { path: ^/, roles: ROLE_ADMIN } 
+        - { path: ^/admin, roles: ROLE_ADMIN } 
+
+    #  PUBLICATIONS
+        - { path: ^/publications/nouvelle-publication, roles: [ROLE_ADMIN,ROLE_FONDATEUR,ROLE_ABONNE] } 
+
+    #  RESEAU
+        - { path: ^/annuaire, roles: [ROLE_ADMIN,ROLE_FONDATEUR,ROLE_ABONNE] } 
+
+    #  VIS MA VIE 
+        - { path: ^/experienceVisMaVie/presentation, roles:  [ROLE_ADMIN,ROLE_FONDATEUR,ROLE_ABONNE, IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: ^/experienceVisMaVie, roles:  [ROLE_ADMIN,ROLE_FONDATEUR,ROLE_ABONNE] } 
+        - { path: ^/experienceVisMaVie/new, roles:  [ROLE_ADMIN,ROLE_FONDATEUR,ROLE_ABONNE] } 
+    
+    #  PÔLES  
+        - { path: ^/poles/nouvelle-publication, roles: [ROLE_ADMIN,ROLE_FONDATEUR] } 
+       

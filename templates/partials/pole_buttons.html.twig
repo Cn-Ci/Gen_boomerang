@@ -1,0 +1,39 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/pole_buttons.css')}}">
+{% endblock %}
+
+{% if origin != "no_icon"%}
+
+    <a href="{{  path('evo_metier_pole_index')  }}" class="btnPolefixed detailsPole1">
+        <img class="logoPolefixed" src="{{ asset('img/poles/cube-3d/metiers2.svg') }}" alt="icone metier">
+        <p class="btnPolefixed text_hover detailsPole1" style="color: #5762C4">Evolution des métiers</p>
+    </a>
+
+    <a href="{{ ('../poles/commRechercheDev') }}" class="btnPolefixed detailsPole2">
+        <img class="logoPolefixed" src="{{ asset('img/poles/cube-3d/communication2.svg') }}" alt="icone communication">
+        <p class="btnPolefixed text_hover detailsPole2" style="color: #FE8D25">Communication R&amp;D</p>
+    </a>
+
+    <a href="{{ ('../poles/evolutionSavoirs') }}" class="btnPolefixed detailsPole3">
+        <img class="logoPolefixed" src="{{ asset('img/poles/cube-3d/savoirs2.svg') }}" alt="icone evolution">
+        <p class="btnPolefixed text_hover detailsPole3" style="color: #FF5356">Evolution des savoirs</p>
+    </a>
+    
+
+    <a href="{{ ('../poles/immobilier') }}" class="btnPolefixed detailsPole4">
+        <img class="logoPolefixed" src="{{ asset('img/poles/cube-3d/immobilier2.svg') }}" alt="icone innovation">
+        <p class="btnPolefixed text_hover detailsPole4" style="color: #61C855">Immobilier &amp; Silver Experience</p>
+    </a>
+
+    <a href="{{ ('../poles/design') }}" class="btnPolefixed detailsPole5">
+        <img class="logoPolefixed" src="{{ asset('img/poles/cube-3d/design2.svg') }}" alt="icone metiers">
+        <p class="btnPolefixed text_hover detailsPole5" style="color: #A452CB">Universal Design</p>
+    </a>
+
+    <a href="{{ ('../poles/innovation') }}" class="btnPolefixed detailsPole6">
+        <img class="logoPolefixed" src="{{ asset('img/poles/cube-3d/innovation2.svg') }}" alt="icone savoirs">
+        <p class="btnPolefixed text_hover detailsPole6" style="color: #FECC38">Innovation</p>
+    </a>
+
+{% endif %}
+

@@ -1,0 +1,54 @@
+/************** Security login  ***************/
+/****** couleur label */
+label {
+    color: var(--couleurBleu);
+    font-weight: bold;
+}
+
+/****** bordure input */
+.inputBorder{
+    border: 1px solid var(--couleurBleu);
+    border-radius: 5px;  
+    padding: 5px 15px 10px 15px;
+}
+/****** bordure form */
+.formBorder
+{
+    margin: 10px 10px 10px 0px !important;
+}
+/****** marge du texte a droite */
+.paddingText{
+    margin-top:100px;
+}
+
+/****** barre vertical */
+.hrVertical{
+    height:300px;
+    border:2px solid var(--couleurBleu);
+    border-radius:2px;
+}
+.eye
+{
+    cursor: pointer;
+}
+#mdp_message
+{
+    color: red;
+}
+input
+{
+    outline: none;
+}
+/****** Quand l'ecran est en dessous de 992px */
+@media (max-width: 768px) { 
+    /****** barre vertical */
+    .hrVertical{
+        border:0;
+        height:0;
+    }
+
+    /****** marge du texte a droite */
+    .paddingText{
+        margin-top:0px;
+    }
+}

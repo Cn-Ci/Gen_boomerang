@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/aide-contact.css')}}">
+{% endblock %}
+
+{% block title %}
+Contacts et aide
+{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+    {# TITLE #}
+    <div class="page-header">
+        <h2 class="">Liste des contacts utile</h2>
+        <p class="text-center">
+            Dans cette rubrique vous trouverez une aide pour votre navigation et les questions générales ainsi que la
+            possibilité de nous contacter
+        </p>
+    </div>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="mailing" data-toggle="collapse" href="#collapseTen">Quelques contacts utiles ...</a> <img
+                    class="img-fluid mt-4 ml-6" width="20px" src="{{ asset('img/icones/fleche_bas.png') }}"
+                    alt="fleche">
+        </div>
+        </h4>
+    </div>
+
+    {# réponse #}
+    <div id="collapseTen" class="panel-collapse collapse">
+        <div class="panel-body mb-4">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-10">
+                    <label for="">Mr truc machin</label>
+                    <label for="">resonsable pole relations</label>
+                    <a class="mailing" href="mailto:example@gmail.com">machin@boomerang.com</a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-10">
+                    <label for="">Mr truc machin</label>
+                    <label for="">resonsable pole relations</label>
+                    <a class="mailing" href="mailto:example@gmail.com">machin@boomerang.com</a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-10">
+                    <label for="">Mr truc machin</label>
+                    <label for="">resonsable pole relations</label>
+                    <a class="mailing" href="mailto:example@gmail.com">machin@boomerang.com</a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-10">
+                    <label for="">Mr truc machin</label>
+                    <label for="">resonsable pole relations</label>
+                    <a class="mailing" href="mailto:example@gmail.com">machin@boomerang.com</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="w-50 my-5">
+
+<div class="text-center my-5 ">
+    <a div class="btn btnContact w-50 " href="">(Faq....) Quelle est votre question ?</a>
+</div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('assets/js/poleFaq.js')}}"></script>
+{% endblock %}

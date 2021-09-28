@@ -1,0 +1,34 @@
+{% extends 'base_no_pole_button.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+	<section class="container">
+		<main class="row">
+			<div class="col-12 my-1 d-flex justify-content-between">
+				<h1>Votre messagerie</h1>
+
+				<p>
+					<a class="btn btn-primary" href="newmessage.php">Nouveau message</a>
+				</p>
+			</div>
+
+			<div class="col-12">
+				<table class="table">
+
+					<thead>
+						<th><i class="la la-envelope"></i></th>
+						<th>De</th>
+						<th>Message</th>
+						<th>Date</th>
+						<th>Supprimer</th>
+					</thead>
+
+					<tbody>
+
+					</tbody>
+				</table>
+			</div>
+		</main>
+	</section>
+{% endblock %}

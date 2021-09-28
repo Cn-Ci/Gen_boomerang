@@ -1,0 +1,50 @@
+{% extends 'base_no_pole_button.html.twig'%}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/formRegister.css')}}">
+{% endblock %}
+
+{% block title %}Inscription {% endblock %}
+
+{% block body %}
+	{% if error is defined %}
+		<div class="alert alert-danger mx-auto my-5" role="alert">
+			Vérifiez que tous les champs soient correctement renseignés.
+		</div>
+	{% endif %}
+
+	{# LOADDING SCREEN#}
+	<div class="loadingScreen collapse"><div class="loader mx-auto"></div></div>
+
+	<div class="container inscription mb-5">
+		<div class="row">
+			<h1 class="mx-auto my-3 py-4 text-center">Creer votre compte</h1>
+			<div class="col-12">
+				<h4 class="sectionForm text-left">Vous etes ?</h4>
+				<hr class="hrInscription"> 
+				
+				<div class="form-group">
+					<select name="status" class="form-control w-100" id="statusSelector" required>
+						<option></option>
+						<option name="SansEmploi" value="SansEmploi">Demandeur emploi</option>
+						<option name="Etudiant" value="Etudiant">Etudiant</option>
+						<option name="Entrepreneur" value="Entrepreneur">Entrepreneur</option>
+						<option name="ProfessionLiberale" value="ProfessionLiberale">Profession Libérale</option>
+						<option name="Salarie" value="Salarie">Salarié</option>
+						<option name="Retraite" value="Retraite">Retraité</option>
+					</select>
+				</div>
+				
+				<div id="form"></div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<br>
+		<br>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('assets/js/inscription.js') }}"></script>
+{% endblock %}

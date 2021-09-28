@@ -1,0 +1,326 @@
+.container{
+  max-width: 1170px; 
+  margin   : auto;
+}
+
+.participant {
+  font-size: large;
+}
+
+.chat_date {
+  float: right;
+}
+
+.me {
+  font-weight: bold;
+}
+
+.font-grey {
+  color: var(--couleurGris);
+}
+
+.inbox_people {
+  background  : #f8f8f8 none repeat scroll 0 0;
+  float       : left;
+  overflow    : hidden;
+  padding     : 0px !important;
+  width       : 25%; 
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.inbox_msg {
+  border  : 1px solid #c4c4c4;
+  clear   : both;
+  overflow: hidden;
+}
+
+.top_spac{ 
+  margin: 20px 0 0;
+}
+
+.recent_heading {
+  float: left; 
+  width: 40%;
+
+}
+.srch_bar {
+  display   : inline-block;
+  text-align: right;
+  width     : 60%; 
+}
+
+.headind_srch{ 
+  padding      : 10px 20px 10px 20px; 
+  overflow     : hidden; 
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.recent_heading h4 {
+  color    : #05728f;
+  font-size: 21px;
+  margin   : auto;
+}
+.srch_bar input{
+  border       : 1px solid #cdcdcd; 
+  border-width : 0 0 1px 0; 
+  width        : 80%; 
+  padding-right: 25px; 
+  background   : none;
+}
+.srch_bar input:focus {
+  outline: none;
+  border-width : 0 0 2px 0; 
+}
+
+.srch_bar .input-group-addon button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border    : medium none;
+  padding   : 0;
+  color     : #707070;
+  font-size : 18px;
+}
+
+.srch_bar .input-group-addon { 
+  margin: 0 0 0 -27px;
+}
+
+.chat_ib h5 { 
+  font-size: 15px; 
+  color    : #464646; 
+  margin   : 0 0 8px 0;
+}
+
+.chat_ib h5 span {
+  font-size: 13px; 
+  float    : right;
+}
+
+.chat_ib p{ 
+  font-size: 14px; 
+  color    : #989898; 
+  margin   : auto;
+}
+
+.chat_img {
+  float: left;
+  width: 11%;
+}
+
+.chat_ib {
+  float  : left;
+  width  : 88%;
+}
+
+.chat_people{ 
+  overflow: hidden; 
+  clear   : both;
+}
+
+.chat_list {
+  border-bottom: 1px solid #c4c4c4;
+  margin       : 0;
+  padding      : 15px 10px 15px 10px;
+}
+.chat_list:hover {
+  cursor: pointer;
+}
+
+.messageError {
+  margin-top: 157px !important;
+}
+
+.inbox_chat { 
+  max-height: 595px;
+  overflow-y: scroll;
+}
+
+.active_chat{ 
+  background:#ebebeb;
+}
+
+.incoming_msg {
+  margin  : 2% 0% 2% 0%;
+  overflow: hidden;
+}
+
+.incoming_msg_img {
+  display: inline-block;
+  width  : 6%;
+}
+
+.received_msg {
+  padding       : 0 0 0 10px;
+  vertical-align: top;
+  float         : left;
+  margin-right  : 20px;
+}
+
+.received_withd_msg p {
+  color        : #fff;
+  background   : rgb(255,109,0);
+  background   : linear-gradient(87deg, rgba(255,109,0,1) 0%, rgba(233,151,58,1) 100%);
+  border-radius: 20px 20px 20px 20px;
+  font-size    : 16px;
+  margin       : 0;
+  padding      : 5px 10px 5px 10px;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+}
+
+.time_date {
+  color    : #747474;
+  display  : block;
+  font-size: 12px;
+  margin   : 8px 0 0;
+  float    : right;
+}
+
+.time_date_receiver {
+  color    : #747474;
+  display  : block;
+  font-size: 12px;
+  margin   : 8px 0 0;
+  float    : left;
+}
+
+#bg {
+  margin-top: 0px !important;
+}
+
+.mesgs {
+  float  : left;
+  width  : 60%;
+  padding: 0px !important;
+}
+
+.sent_msg p {
+  background   : rgb(2,62,125);
+  background   : linear-gradient(87deg, rgba(2,62,125,1) 0%, rgba(15,117,226,1) 100%);
+  border-radius: 20px 20px 20px 20px;
+  font-size    : 16px;
+  color        : #fff;
+  padding      : 10px 15px 10px 15px;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
+}
+
+.outgoing_msg { 
+  overflow: hidden; 
+  margin  : 2% 0% 2% 0%;
+}
+
+.sent_msg {
+  float       : right;
+  margin-right: 20px;
+  width       : 50%;
+}
+
+.input_msg_write input {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  color     : #4c4c4c;
+  font-size : 15px;
+  min-height: 48px;
+  width     : 100%;
+}
+
+.input_msg_write {
+  padding: 25px;
+  height : auto;
+}
+
+.write_msg {
+  border-radius: 25px !important;
+  border       : 1px solid rgba(0, 0, 0, 0.1);
+  resize       : none;
+  width        : 100%;
+  min-height   : 50px;
+  height       : auto;
+  overflow     : hidden;
+  line-height  : 26px;
+  padding      : 13px 50px 13px 25px;
+}
+
+.write_msg:focus, .from-control:focus { 
+  outline: none !important; 
+  border : 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.type_msg {
+  border-top: 0px;
+  position  : relative;
+}
+
+.msg_send_btn {
+  background   : #fff none repeat scroll 0 0;
+  border       : 1px solid rgba(0, 0, 0, 0.1);
+  cursor       : pointer;
+  position     : absolute;
+  color        : #fff;
+  border-radius: 50%;
+  font-size    : 17px;
+  height       : 40px;
+  width        : 40px;
+  top          : 7px;
+  right        : 31px;
+}
+.msg_send_btn:focus {
+  outline: none;
+  border : 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.fa-trash-alt {
+  color    : #1eb7b5;
+  font-size: larger;
+}
+
+.msg_history {
+  height    : 580px;
+  overflow-y: auto;
+}
+
+#newConvBlock:hover {
+  background-color: #e1e1e1;
+}
+
+.history_conv:hover{
+  background-color: #dae9e0; 
+}
+
+#groupName {
+  border-radius: 45px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+#groupName:focus {
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#creatConvButton {
+  border: 3px solid #fe6e00;
+}
+#creatConvButton:focus {
+  outline: none;
+}
+
+.btn-link {
+  padding-left: 0px;
+}
+/** Scroll bar */
+#style-1::-webkit-scrollbar-track, #style-2::-webkit-scrollbar-track {
+	box-shadow      : inset 0 0 6px rgba(0,0,0,0.1);
+	border-radius   : 10px;
+	background-color: #F5F5F5;
+}
+#style-1::-webkit-scrollbar, #style-2::-webkit-scrollbar-track {
+	width           : 12px;
+	background-color: #F5F5F5;
+}
+#style-1::-webkit-scrollbar-thumb, #style-2::-webkit-scrollbar-track {
+	border-radius   : 10px;
+	box-shadow      : inset 0 0 6px rgba(0,0,0,0.1);
+	background-color: #555;
+}
+
+.imgSize {
+  width: 3.5em;
+}

@@ -1,0 +1,24 @@
+/***** Code commun **************************************************************************/
+/****** titre gris */
+.titleGrey{
+    font-weight: bolder;
+    color: var(--couleurGris);
+}
+
+/****** titre Rouge */
+.colorOrange{
+    color: var(--couleurRouge);
+}
+
+/****** couleur input */
+.input{
+    border-color: var(--couleurBleu);
+    border-width: 0.2em !important; 
+    border-radius: 10px;
+    font-size: 1.2em;
+}
+
+/****** hauteur */
+.h-15{
+    height: 15em !important;
+}

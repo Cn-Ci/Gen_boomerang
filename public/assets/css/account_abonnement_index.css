@@ -1,0 +1,155 @@
+/***** Account abonnement index **************************************************************************/
+/****** bordure et taille des cartes */
+    .card {
+        border: 5px solid var(--couleurBleu);
+        height: 200;
+    }
+
+    .txtPack::selection{
+        color: var(--couleurRouge);
+    }
+
+/****** bordure et titre des cartes */
+    .card-header {
+        font-size    : 1.5em;
+        border-bottom: 5px solid var(--couleurBleu);
+        height:150px;
+        display: flex;
+        align-items: center;
+    }
+
+/****** hauteur du texte */
+    .card-text{
+        color: var(--couleurGris);
+        height: 110px;
+        font-size: 1.3em;
+    }
+
+/****** Couleur Titre et texte */
+    .titreCard {
+        text-transform: uppercase;
+        color: var(--couleurGris);
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+/***** barre vertical */
+    .vl {
+        border-left: 3px solid var(--couleurBleu);
+        height: 600px;
+    }
+
+    .bg-grey{
+        background-color: rgb(223, 223, 223);
+        width: 50%;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+/***** pictos */
+    .picAbo{ 
+        max-width:60%;
+    }
+
+/***** New Abonnements **************************************************************************/
+/****** encadrés bleu */
+    .cadreBleu {
+        border: 2px solid var(--couleurBleu);
+        /* height: 100px; */
+        margin-top: -2px;
+    }
+
+/****** couleur bleu des text */
+    .txtBlue{
+        color: var(--couleurBleu);
+    }
+
+/****** couleur rouge des textes */
+    .txtRed{
+        color: var(--couleurRouge);
+    }
+
+/****** couleur des liens */
+    a{
+        color: var(--couleurBleu);
+    }
+
+/****** couleur des liens survolés */
+    a:hover{
+        color: var(--couleurRouge);
+    }
+
+    a.focus{
+        color: var(--couleurRouge);
+    }
+
+/****** bolder des text */
+    .weight{
+        font-size: 1.1em;
+        font-weight: bolder;
+    }
+
+/****** bouton de validation */
+    .bouton{
+        background-color: var(--couleurBleu);
+        border: var(--couleurBleu);
+        border-radius: 20px;
+        max-height: 40px;
+    }
+
+/****** bouton de validation survolé */
+    .bouton:hover{
+        background-color: var(--couleurRouge);
+    }
+    
+/****** loader */
+    .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 15em;
+        height: 15em;
+        animation: spin 2s linear infinite;
+        margin-left: 15em !important;
+        margin-top: 15em !important;
+        /* display: none; */
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+/****** modifie le loader pour mieux s'adapter a l'ecran */
+    @media (max-width: 993px) and (min-width: 769px) {
+        .loader {
+            width: 10em;
+            height: 10em;
+            margin-left: 8em !important;
+            margin-top: 8em !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .loader {
+            width: 8em;
+            height: 8em;
+            margin-left: 12em !important;
+            margin-top: 5em !important;
+            margin-bottom: 5em !important;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+

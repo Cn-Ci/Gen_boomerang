@@ -1,0 +1,71 @@
+{% extends 'base_no_pole_button.html.twig'%}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/security_login.css')}}">
+{% endblock %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block body %}
+    <div id="login" class="container my-5" >
+            <div class="w-100">
+                <form method="post">
+                    {# Déjà Loggé #}
+                    {% if app.user %}
+                        <div class="logged my-3 text-center w-50 mx-auto">
+                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+
+                    {# Connexion #}
+                    <h3 class="h3 my-5 text-center"><i class="fas fa-user"></i></h3>
+                    <hr class="hrLogin w-75"> 
+
+                    {# Si erreur #}
+                    {% if error %}
+                        <div class="alert alert-danger">Une erreur est survenue, l'adresse mail ou le mot de passe est incorrect</div>
+                    {% endif %}
+
+                    {# Email #}
+                    <div class="text-center row justify-content-center">
+                        <label for="inputEmail" class="text-left mx-auto col-10">Adresse email</label>
+
+                        <div class="row formBorder col-9 ">
+                            <div class="col-9 col-md-10 text-right">
+                                <input placeholder="Saisissez votre adresse mail" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control-plaintext w-100 ml-auto text-left" required >
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {# Mdp #}
+                    <div class="text-center row justify-content-center">
+                        <label for="inputPassword" class="text-left mx-auto col-10">Mot de passe</label>
+                        
+                        <div class="row formBorder col-9" id="show_hide_password">
+                            <div class="col-9 col-md-10 text-right">
+                                <input placeholder="Saisissez votre mot de passe" type="password" name="password" id="inputPassword" class="form-control-plaintext w-100 ml-auto text-left" required>
+                            </div>
+                            <div class="col-1 col-md-1 text-left align-self-center">
+                                <a href="" class="my-auto"><i class="fa fa-eye-slash" aria-hidden="true" style="color:black"></i></a>                         
+                            </div>
+                        </div>
+                    </div>  
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    <div class="text-center mx-auto">
+                    <a href="{{ path('app_forgotten_password') }}" class="mdpForget">Mot de passe oublié ?</a>
+                        <div class="column pt-3">
+                            <div class="col-6 m-1  ml-auto mr-auto">
+                                <button class="btn btnBlue" type="submit">SE CONNECTER</button>
+                            </div>
+
+                            <div class="col-6 m-1 mt-3 ml-auto mr-auto">
+                                <a class="btn btnRed" href="/register">S'INSCRIRE</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+{% endblock %}

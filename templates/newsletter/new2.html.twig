@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}s'abonner à la Newsletter {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/newsletter.css')}}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="w-100">
+        <h4 class="text-center">Vous avez choisis la newsletter 2</h4>
+            {{form_start(form)}}
+                {{form_widget(form)}}
+
+                <div class="col-6 text-center mx-auto">
+                    <button type="submit" class="mx-3 btn btnRed w-75">{{ button_label|default('Envoyer') }}</button>
+                </div>
+            {{form_end(form)}}
+        </div>
+    </div>
+{% endblock %}

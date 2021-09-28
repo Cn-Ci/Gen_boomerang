@@ -1,0 +1,205 @@
+{% extends 'base_no_pole_button.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/pole_index.css')}}">
+{% endblock %}
+
+{% block title %}Les poles{% endblock %}
+
+{% block body %}
+<div class="container ">
+    {# block qui sommes nous #}
+    <h2 class="colorInnovation text-center mt-5 mb-3 outline">qui sommes nous ?</h2>
+
+    <p class="typeText mx-auto">
+        L’association «BUILDING SENIORS»© (2015) est portée par des professionnels de l’immobilier xcvxvxvxvxxc,
+        impliqués dans les techniques liées à la recherche, le développement, l’innovation, l’Universal Design,
+        les nouveaux métiers, les nouveaux savoirs et la Silver expérience.
+    </p>
+
+    {# block nos objectifs #}
+    <h2 class="colorInnovation text-center mt-5 mb-3 outline">nous voulons...</h2>
+
+    <p class="typeText mx-auto">
+        Accompagner des personnes dans un parcours d'insertion sociale et professionnelle,
+        en s’appuyant sur l’expérience des aînés et les compétences des jeunes générations.
+    </p>
+
+    <h2 class="colorInnovation text-center mt-5 mb-3 outline">Nous pensons que c'est...</h2>
+    <p class="typeText mx-auto">
+        Une véritable mission d'intérêt général, pour un meilleur vivre ensemble,
+        dans une société inclusive prenant en compte les personnes en situation de handicap
+        visible et invisible.
+    </p>
+
+    <h2 class="colorInnovation text-center mt-5 mb-3 outline">Nos objectifs...</h2>
+    <p class="typeText mx-auto">
+        Faire du numérique la passerelle entre le savoir des aînés et les compétences des jeunes générations,
+        pour générer du lien social, qu’ils soient en activité professionnelle, au chômage ou à la retraite.<br><br>
+        Fédérer les énergies, promouvoir dans ce nouveau marché, la prescription de produits, la consommation
+        de biens et de services intergénérationnels, pour accompagner la prévention sur l’ensemble de la population
+        quelle que soit leur nature ou leur handicap : formation, publications, colloques…<br><br>
+        Ouvrir un nouvel espace qui vise à activer et réactiver le senior en sollicitant des projets sur son
+        savoir-faire,
+        faire bénéficier de leur collaboration la chaîne de l’immobilier, s’appuyer sur les compétences et la vision
+        des jeunes générations.
+    </p>
+
+    <h2 class="colorInnovation text-center mt-5 mb-3 outline">Notre mission...</h2>
+    <p class="typeText mx-auto">
+        Valoriser les seniors actifs de l’immobilier et du bâtiment, en s’appuyant sur leur « expertise professionnelle
+        et de vie » :<br><br>
+        Promouvoir l'Innovation : les métiers, compétences, valeurs et savoir-faire français à l’international,
+        informer, former, préparer à de nouveaux métiers et de nouvelles compétences.<br><br>
+        Exprimer de nouvelles voies de progrès permettant aux techniques et pratiques d’évoluer.<br><br>
+        Développer le lien intergénérationnel, notamment avec le monde étudiant.<br><br>
+        Favoriser la mise en relation de différents publics.<br><br>
+        Participer aux colloques, salons, évènements dédiés à l’immobilier, pour accompagner dans leurs réflexions
+        le grand public, les institutions et organisations professionnelles, les entreprises, le monde étudiant, les
+        écoles...
+
+    </p>
+
+    {# block des 6 poles #}
+    <h2 class="colorInnovation text-center mt-5 outline">les 6 poles</h2>
+
+    {# ancienne disposition en commentaire #}
+
+    <!--{# icones poles communication + innovation + savoirs #}
+        <div class="row text-center">
+            <div class="col-4 mt8">
+                <img class="logoPole" src="{{ asset('img/poles/cube-3d/innovation2.svg') }}" alt="icone ampoule" class="mx-auto my-auto">
+                <div class="nomPole mt-3 w-75 mx-auto" id="titreFront">Innovation</div>
+                <a href="{{ ('../poles/innovation') }}" id="front" class="btnPole btnIno detailsPole btn mx-auto">Voir le pole</a>
+            </div>
+            
+            <div class="col-4">
+                <img class="logoPole" src="{{ asset('img/poles/cube-3d/communication2.svg') }}" alt="icone communication" class="mx-auto my-auto">
+                <div class="nomPole mt-3 w-75 mx-auto" id="titreLeft">Communication Recherche et Développement</div>
+                <a href="{{ ('../poles/commRechercheDev') }}" id="left" class="btnPole btnCom detailsPole btn mx-auto">Voir le pole</a>
+            </div>
+            <div class="col-4 mt8">
+                <img class="logoPole" src="{{ asset('img/poles/cube-3d/savoirs2.svg') }}" alt="cerveau" class="mx-auto my-auto">
+                <div class="nomPole mt-3 w-75 mx-auto" id="titreRight">Evolution des savoirs</div>
+                <a href="{{ ('../poles/evolutionSavoirs') }}" id="right" class="btnPole btnSavoir detailsPole btn mx-auto">Voir le pole</a>
+            </div>
+        </div>
+
+        {# CUBE 3D #}
+        <div class="row justify-content-center mtCub">
+	        <div class="scene mx-auto">
+	            <div class="cube">
+	                <a class="cubeFace cubeFace--front" href="{{ ('../poles/innovation') }}"><img class="imgCube mx-auto my-auto" src="{{ asset('img/poles/cube-3d/innovation2.svg') }}" alt="icone innovation"></a>
+	                <a class="cubeFace cubeFace--back" href="{{ ('../poles/evolutionsMetier') }}"><img class="imgCube mx-auto my-auto" src="{{ asset('img/poles/cube-3d/metiers2.svg') }}" alt="icone metiers"></a>
+	                <a class="cubeFace cubeFace--right" href="{{ ('../poles/evolutionSavoirs') }}"><img class="imgCube mx-auto my-auto" src="{{ asset('img/poles/cube-3d/savoirs2.svg') }}" alt="icone savoirs"> </a>
+	                <a class="cubeFace cubeFace--left" href="{{ ('../poles/commRechercheDev') }}"><img class="imgCube mx-auto my-auto" src="{{ asset('img/poles/cube-3d/communication2.svg') }}" alt="icone communication"></a>
+	                <a class="cubeFace cubeFace--top" href="{{ ('../poles/design') }}"><img class="imgCube mx-auto my-auto" src="{{ asset('img/poles/cube-3d/design2.svg') }}" alt="icone design"></a>
+	                <a class="cubeFace cubeFace--bottom" href="{{ ('../poles/immobilier') }}"><img class="imgCube mx-auto my-auto" src="{{ asset('img/poles/cube-3d/immobilier2.svg') }}" alt="icone immobilier"></a>
+                </div>
+	        </div>    
+	    </div> 
+        
+        {# icones poles immobilier + design + metiers #}
+        <div class="row text-center">
+            <div class="col-4 mt-8">
+                <img class="logoPole" src="{{ asset('img/poles/cube-3d/immobilier2.svg') }}" alt="icone immobilier" class="mx-auto my-auto">
+                <div class="nomPole mt-3 w-75 mx-auto" id="titreBottom">Immobilier</div>
+                <div><a href="{{ ('../poles/immobilier') }}" id="bottom" class="btnPole btnImmo detailsPole btn mx-auto">Voir le pole</a></div>
+            </div>
+
+            <div class="col-4 mb-5">
+                <img class="logoPole" src="{{ asset('img/poles/cube-3d/design2.svg') }}" alt="logo design" class="mx-auto my-auto">
+                <div class="nomPole mt-3 w-75 mx-auto" id="titreTop">Design</div>
+                <div><a href="{{ ('../poles/design') }}" id="top" class="btnPole btnDesign detailsPole btn mx-auto">Voir le pole</a></div>
+            </div>
+        
+            <div class="col-4 mt-8">
+                <img class="logoPole" src="{{ asset('img/poles/cube-3d/metiers2.svg') }}" alt="logo metier" class="mx-auto my-auto">
+                <div class="nomPole mt-3 w-75 mx-auto" id="titreBack">Evolution des Métiers</div>
+                <div><a href="{{ ('../poles/evolutionsMetier') }}" id="back" class="btnPole btnMetier detailsPole btn mx-auto">Voir le pole</a></div>
+            </div>
+        </div>-->
+
+    <div class="row text-center justify-content-center">
+        <div class="col-4 col-md-4 col-lg-4 mt8 mx-auto cartePole cartePole1">
+            <img class="logoPole" src="{{ asset('img/poles/cube-3d/metiers2.svg') }}" alt="logo metier">
+            <div class="nomPole mt-3" id="titreBack">Evolution des Métiers</div>
+            <a href="{{ path('evo_metier_pole_index') }}" id="back"
+                class="btnPole btnMetier detailsPole btn mx-auto">Voir
+                le pole</a>
+        </div>
+
+        <div class="col-4 col-md-4 col-lg-4 mtIcone cartePole cartePole1">
+            <img class="logoPole" src="{{ asset('img/poles/cube-3d/communication2.svg') }}" alt="icone communication"
+                class="mx-auto my-auto">
+            <div class="nomPole mx-auto mt-3" id="titreLeft">Communication R&amp;D</div>
+            <a href="{{ ('../poles/commRechercheDev') }}" id="left" class="btnPole btnCom detailsPole btn mx-auto ">Voir
+                le pole</a>
+        </div>
+        <div class="col-4 col-md-4 col-lg-4 mt8 cartePole cartePole1">
+            <img class="logoPole" src="{{ asset('img/poles/cube-3d/savoirs2.svg') }}" alt="cerveau"
+                class="mx-auto my-auto">
+            <div class="nomPole mt-3 mx-auto" id="titreRight">Evolution des savoirs</div>
+            <a href="{{ ('../poles/evolutionSavoirs') }}" id="right"
+                class="btnPole btnSavoir detailsPole btn mx-auto">Voir le pole</a>
+        </div>
+    </div>
+
+    {# CUBE 3D #}
+    <div class="row justify-content-center mtCub">
+        <div class="scene mx-auto">
+            <div class="cube">
+                <a class="cubeFace cubeFace--front" href="{{ ('../poles/innovation') }}"><img
+                        class="imgCube mx-auto my-auto" src="{{ asset('img/poles/cube-3d/innovation2.svg') }}"
+                        alt="icone innovation"></a>
+                <a class="cubeFace cubeFace--back" href="{{ ('../poles/evolutionsMetier') }}"><img
+                        class="imgCube mx-auto my-auto" src="{{ asset('img/poles/cube-3d/metiers2.svg') }}"
+                        alt="icone metiers"></a>
+                <a class="cubeFace cubeFace--right" href="{{ ('../poles/evolutionSavoirs') }}"><img
+                        class="imgCube mx-auto my-auto" src="{{ asset('img/poles/cube-3d/savoirs2.svg') }}"
+                        alt="icone savoirs"> </a>
+                <a class="cubeFace cubeFace--left" href="{{ ('../poles/commRechercheDev') }}"><img
+                        class="imgCube mx-auto my-auto" src="{{ asset('img/poles/cube-3d/communication2.svg') }}"
+                        alt="icone communication"></a>
+                <a class="cubeFace cubeFace--top" href="{{ ('../poles/design') }}"><img class="imgCube mx-auto my-auto"
+                        src="{{ asset('img/poles/cube-3d/design2.svg') }}" alt="icone design"></a>
+                <a class="cubeFace cubeFace--bottom" href="{{ ('../poles/immobilier') }}"><img
+                        class="imgCube mx-auto my-auto" src="{{ asset('img/poles/cube-3d/immobilier2.svg') }}"
+                        alt="icone immobilier"></a>
+            </div>
+        </div>
+    </div>
+
+    {# icones poles immobilier + design + metiers #}
+    <div class="row justify-content-center text-center">
+        <div class="col-4 col-md-4 col-lg-4 mt-8 cartePole cartePole2">
+            <img class="logoPole" src="{{ asset('img/poles/cube-3d/immobilier2.svg') }}" alt="icone immobilier"
+                class="mx-auto my-auto">
+            <div class="nomPole mt-3 mx-auto" id="titreBottom">Immobilier & Silver Experience</div>
+            <div><a href="{{ ('../poles/immobilier') }}" id="bottom"
+                    class="btnPole btnImmo detailsPole btn mx-auto">Voir le pole</a></div>
+        </div>
+
+        <div class="col-4 col-md-4 col-lg-4 mt-9 cartePole cartePole2">
+            <img class="logoPole" src="{{ asset('img/poles/cube-3d/design2.svg') }}" alt="logo design"
+                class="mx-auto my-auto">
+            <div class="nomPole mt-3 mx-auto" id="titreTop">Universal Design</div>
+            <div><a href="{{ ('../poles/design') }}" id="top" class="btnPole btnDesign detailsPole btn mx-auto">Voir le
+                    pole</a></div>
+        </div>
+
+        <div class="col-4 col-md-4 col-lg-4 mt-8 cartePole cartePole2">
+            <img class="logoPole" src="{{ asset('img/poles/cube-3d/innovation2.svg') }}" alt="icone ampoule"
+                class="mx-auto my-auto">
+            <div class="nomPole mt-3 mx-auto" id="titreFront">Innovation</div>
+            <a href="{{ ('../poles/innovation') }}" id="front" class="btnPole btnIno detailsPole btn mx-auto">Voir le
+                pole</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('assets/js/poleCube.js')}}"></script>
+{% endblock %}

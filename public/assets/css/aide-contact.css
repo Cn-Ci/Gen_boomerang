@@ -1,0 +1,26 @@
+.mailing{
+    font-size:1em;
+    color:rgb(4, 4, 180);
+    font-style: italic;
+    font-style: underline;
+
+}    
+
+/****** btn fiche contact */
+.btnContact{
+    background-color: var(--couleurRouge);
+    color: var(--couleurBlanc);
+    border: 4px solid var(--couleurRouge);
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 25px;
+    border-radius: 15px;
+}
+
+/****** btn contact (passage de souris) */
+.btnContact:hover{
+    background-color: var(--couleurBlanc);
+    color: var(--couleurRouge);
+    text-transform: bold;
+}

@@ -1,0 +1,114 @@
+{% extends 'base_no_pole_button.html.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/reseau_searchMembre.css')}}">
+{% endblock %}
+
+{% block title %}Rechercher un membre du réseau{% endblock %}
+
+{% block body %}
+	<div class="container searchMembre">
+        {# BLOCK DU CADRE "RECHERCHE AVANCEE" #}
+		<div class="recherche text-center w-75 mx-auto">
+			<h2 class="mt-5">recherche avancee</h2>
+
+            {# LIGNE 1 DES CHAMPS DE RECHERCHE #}
+            <form>
+                <div class="input-group my-4 w-75 mx-auto" >
+                    <input id="searchBarMembre" type="search" placeholder="Rechercher par nom, prenom, metier..." aria-describedby="button-addon5" class="form-control">
+                    
+                    <div class="input-group-append">
+                        <button id="button-addon5" type="submit" class="btn btnRed"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row mx-auto">
+                <div class="col-12 my-3">
+                    <select class="form-control selectBord w-75 p-1 mx-auto" id="selectOrderByType" placeholder="trier">
+                        <option name="none">Rechercher par type...</option>
+                        <option name="retraite">Retraité</option>
+                        <option name="salarie">Salarié</option>
+                        <option name="sansEmploi">Sans Emploi</option>
+                        <option name="etudiant">Etudiant</option>
+                        <option name="entrepreneur">Entrepreneur</option>
+                        <option name="professionLiberale">Profession Liberale</option>
+                    </select>
+                </div>
+            </div>
+		</div>
+
+        {# BLOCK RECHERCHES #}
+        <div class="mt-5">
+            {# RESULTATS DES RECHERCHES #}
+            <div id="membre" class="row justify-content-center mb-5">
+                {% for user in users %}
+                    <div id="membreSearched" class="text-center col-6 col-lg-4 my-5">
+                        {% if user.imgUserAvatar is not null %}
+                            <img class="imgSize" src="/uploads/userAvatar/{{ user.imgUserAvatar.userAvatar }}" alt="photo de {{ user.firstname}}">
+                        {% else %}
+                            <img class="imgSize" src="{{ asset('uploads/userAvatar/avatarVide.jpg') }}" alt="photo de {{ user.firstname}}">
+                        {% endif %}
+                        
+                        <div class="mt-1 grey">
+                            {{ user.lastName }} {{ user.firstName }}
+                        </div>
+
+                        <p class="searchBox">{{ user.type }}</p>
+
+                        {# Etudiant #}
+                        {% if user.type == 'Etudiant' %}
+                            {% if user.domainStudies %}
+                                <p class="searchBox">{{ user.domainStudies }}</p>
+                            {% else %}
+                                <p class="searchBox">Non Renseigné</p>
+                            {% endif %}
+
+                        {# Entrepreneur ou Prof Liberal #}
+                        {% elseif user.type == 'Entrepreneur' or user.type == 'Profession Liberale' %}
+                            {% if user.company %}
+                                <p class="searchBox">{{ user.company }}</p>
+                            {% else %}
+                                <p class="searchBox">Non Renseigné</p>
+                            {% endif %}
+
+                        {# Retraité #}    
+                        {% elseif user.type == 'Retraité' %}
+                            {% if user.precedentJobs %}
+                                <p class="searchBox">{{ user.precedentJobs }}</p>
+                            {% else %}
+                                <p class="searchBox">Non Renseigné</p>
+                            {% endif %}
+                        
+                        {# Sans Emploi #}
+                        {% elseif user.type == 'Sans Emploi' %}
+                            {% if user.searchedJob %}
+                                <p class="searchBox">{{ user.searchedJob }}</p>
+                            {% else %}
+                                <p class="searchBox">Non Renseigné</p>
+                            {% endif %}
+
+                        {# Salarié  #}    
+                        {% elseif user.type == 'Salarié' %}
+                            {% if user.currentJob %}
+                                <p class="searchBox">{{ user.currentJob }}</p>
+                            {% else %}
+                                <p class="searchBox">Non Renseigné</p>
+                            {% endif %}
+                        {% endif %}
+
+                        <a class="btn btnRed" href="{{ path('detailMembre', {id :user.id}) }}" role="button">Afficher le profil</a>
+                    </div> 
+                {% endfor %}  
+            </div>
+
+            <div class="row justify-content-center">
+                {{ knp_pagination_render(users) }}
+            </div>
+        </div>  
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/reseau.js') }}"></script>
+{% endblock %}

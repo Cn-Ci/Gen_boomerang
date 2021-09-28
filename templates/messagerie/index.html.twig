@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/messagerie-style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="messaging row">
+        <div class="inbox_msg col-12">
+            <div class="row">
+                <div class="inbox_people col-sm-12 col-md-3">
+                    <div class="headind_srch">
+                        <div class="recent_heading">
+                            <h4 style="font-family: 'COCOGOOSE', sans-serif; text-transform: capitalize">Vos discussions
+                            </h4>
+                        </div>
+
+                        <div class="srch_bar">
+                            <div class="stylish-input-group">
+                                <input type="text" class="search-bar" id="filter" placeholder="Rechercher">
+                                <span class="input-group-addon">
+                                    <button type="button">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Affichage des conversations du user -->
+                    <div class="inbox_chat scrollbar" id="style-1">
+                        <!-- Current discussion -->
+                        {% for conversation in conversations|reverse %}
+                        <!-- Mettre la première conversation en active -->
+                        <div class="chat_list history_conv"
+                            onclick="getMessages('{{conversation.id}}' , '{{app.user.id}}')" id="{{ conversation.id }}">
+                            <div class="chat_people">
+                                <div class="chat_img">
+                                    <img class="mx-auto my-3 img-fluid"
+                                        src="{{ asset('img/messagerie/icon-membre-groupe.svg') }}" width="150px"
+                                        alt="Icone conversasion de groupe">
+                                </div>
+
+                                <div class="chat_ib pl-4">
+                                    <div>
+                                        {% for participant in conversation.participants %}
+                                        {% if participant.id == app.user.id %}
+                                        <span class="participant me" style='font-style: italic;'>
+                                            Vous
+                                        </span>
+                                        /
+                                        {% else %}
+                                        <span class="participant peopleInGroup">
+                                            {{ participant.firstName }} /
+                                        </span>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+
+                                    <div>
+                                        <small class="font-grey groupName">{{ conversation.title }}</small>
+                                        <small class="font-grey chat_date">{{conversation.createdAt | date("d/m/y")
+                                            }}</small>
+                                    </div>
+
+                                    <button class="btn btn-link" onclick="deleteConversation('{{conversation.id}}')">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <!-- New discussion -->
+                        <a href="{{ url('messagerie_newConv') }}">
+                            <div class="chat_list row" id="newConvBlock">
+                                <div class="chat_people col-12">
+                                    <div class="row">
+                                        <div class="chat_img col-2 pl-0 pr-4">
+                                            <img class="mx-auto my-3 img-fluid"
+                                                src="{{ asset('img/messagerie/icon-membre-groupe-ajout.svg') }}"
+                                                width="100px" alt="Icone conversasion de groupe">
+                                        </div>
+
+                                        <div class="chat_ib col-10 my-auto pl-0">
+                                            <h5> Nouvelle discussion </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Affichage des messages de la conversation -->
+                <div class="mesgs col-sm-12 col-md-9">
+                    <div class="msg_history row" id="style-2">
+                        <div class="received_msg">
+                            <div class="received_withd_msg"></div>
+                        </div>
+
+                        <div class="outgoing_msg col-6">
+                            <div class="sent_msg"></div>
+                        </div>
+                    </div>
+
+                    <div class="type_msg row">
+                        <div class="input_msg_write col-12 py-0 ">
+                            <textarea type="text" class="write_msg" placeholder="Ecrivez votre message..."
+                                rows="1"></textarea>
+                            <button class="msg_send_btn" type="button" onclick="ajoutMessage()"><img
+                                    src="{{ asset('img/messagerie/logo_envoi_message.svg') }}"
+                                    alt="logo_envoi_message"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('assets/js/scriptMessagerie.js') }}"></script>
+{% endblock %}

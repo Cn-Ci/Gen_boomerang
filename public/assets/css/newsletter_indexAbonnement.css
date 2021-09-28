@@ -1,0 +1,45 @@
+/****** petite police grise */
+.greyTxt{
+    color: var(--couleurGris);
+    text-align: center;
+}
+
+/****** tintitulés des rubriques */
+.titleGrey{
+    color: var(--couleurGris);
+}
+
+/****** hr bleu */
+.hrNewsletter{
+    border: 2px solid var(--couleurBleu);
+    margin-top: -1.5em;
+    border-radius:2px;
+}
+
+/****** encadré bleu des box */
+.box{
+    border: 4px solid var(--couleurBleu);
+}
+
+/****** petits hr des box */
+.hrBox{
+    border: 2px solid var(--couleurBleu);
+    width: 50%;
+    border-radius:2px;
+}
+
+/****** boutons */
+.btnAbo{
+    background-color: var(--couleurRouge);
+    color: var(--couleurBlanc);
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/****** bouton hover */
+.btnAbo:hover {
+    background-color: var(--couleurBlanc);
+    color: var(--couleurRouge);
+    border:4px solid var(--couleurRouge);
+}

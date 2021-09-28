@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Retour Experience {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/art_retourExp_index.css')}}">
+{% endblock %}
+
+{% block body %}
+    <div class="container articleIndex">
+        <h2 class="text-center">
+            <img src="{{ asset('img/actualite/retours_exp.svg')}}" alt="experience" class="img-fluid mr-3">
+            <span> Retours d'experiences</span>
+        </h2>
+        <p class="text-center">
+            Nous pensons qu’il est important de connaître votre avis, c'est pourquoi nous vous donnons l’opportunité de
+            témoigner sur votre expérience vécue à travers vos différents liens noué durant votre expérimentation.
+        </p>
+
+        <div class="row">
+            <div class="col-12 col-lg-4 mb-2 mb-lg-0 pr-lg-1">
+                <form>
+                    <div class="input-group">
+                        <input id="searchBar" type="search" placeholder="Rechercher..." aria-describedby="button-addon5" class="form-control">
+                        
+                        <div class="input-group-append">
+                            <button id="button-addon5" type="submit" class="btn btnRed"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form> 
+            </div>
+            
+            <div class="col-12 col-lg-4 mb-2 mb-lg-0 pr-lg-1">
+                <div class="form-group trierArticles">
+                    <select class="form-control w-100" id="selectOrderBy" placeholder="trier">
+                        <option name="none">Trier par...</option>
+                        <option name="latest">Les plus récents</option>
+                        <option name="oldest">Les plus anciens</option>
+                    </select>
+                </div>
+            </div>
+
+            {% if app.user %}
+                <a href="{{path('experience_new')}}" class="btn btnRed col-12 col-lg-4"><i class="fas fa-plus"></i> Nouveau retour</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="card-showcase" class="container mb-5">
+        {% if app.user and publication | length > 0 %}
+            <div id="dataOrderBy" class="row mb-5 pb-5">
+                {% for pub in publication %}
+                    {% include 'retour_exp/_publications.html.twig' %}
+                {% endfor %}
+            </div> 
+            
+            {# pagination #}
+            <div class="row mx-auto my-5 justify-content-center">
+                {{ knp_pagination_render(publication) }}
+            </div>
+             
+
+        {% else %}
+        <br>
+            <p class="alert alert-danger text-center" style="margin-bottom: 300px !important"><i class="fas fa-exclamation-triangle"></i> Vous devez être inscrit pour pouvoir consulter les retours d'expériences publiés</p>  
+        {% endif %} 
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/filter.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/pole_design.css">
+{% endblock %}
+
+{% block title %}Contact Design {% endblock %}
+
+{% block body %}
+    <div class="container-fluid"> 
+        <div class="entete py-2">
+            <h1 class="title mt-3">Design</h1> 
+            {#<p class="h2 title mt-3">Fiche contact</p>#}
+            
+            <div class="text-center mb-5">
+               <a href="{{ ('https://www.facebook.com/') }}"><img class="col-2 col-md-1 mt-5 mw7" src="{{ asset('img/poles/icones/poles-80x80-px/facebook_violet.png') }}" alt="icone facebook"></a>  
+                <a href="{{ ('https://twitter.com/?lang=fr') }}"><img class="col-2 col-md-1 mt-5 mw7" src="{{ asset('img/poles/icones/poles-80x80-px/twitter_violet.png') }}" alt="icone twitter"></a>
+                <a href="{{ ('https://www.linkedin.com/feed/') }}"><img class="col-2 col-md-1 mt-5 mw7" src="{{ asset('img/poles/icones/poles-80x80-px/linkedin_violet.png') }}" alt="icone linkedIn"></a>
+                <a href="{{ ('https://www.instagram.com/') }}"><img class="col-2 col-md-1 mt-5 mw7" src="{{ asset('img/poles/icones/poles-80x80-px/instagram_violet.png') }}" alt="icone instagram"></a>
+                <a href="{{ ('mailto:example@gmail.com') }}"><img class="col-2 col-md-1 mt-5 mw7" src="{{ asset('img/poles/icones/poles-80x80-px/mail_violet.png') }}" alt="icone mail"></a>
+            </div>
+        </div>
+        
+        <h2 class="colorDesign my-5 ml-5">Actualite du pole</h2>
+        <hr class="w-75">
+    
+        <div class="container">
+            <div class="row ">
+                {% for articles in bestArticles %} 
+                    {% for article in articles %}
+                        {% if article.articles.pole.nomPole == "Universal design & inclusive design" %}
+                            <div class="col-12 col-lg-4 rounded">
+                                {% if article.articles.imgArticle  %}
+                                    <div class="text-center">
+                                        <a href="{{ path('article_show', {'slug':article.articles.slug}) }}">
+                                            <img src="/uploads/articles/{{ article.articles.imgArticle.imageArt }}" alt="experience"  width="165px" class="img-fluid my-3" style="border-radius:25px" >
+                                        </a>
+                                    </div>
+                                {% else %}
+                                    <div class="text-center"> 
+                                        <a href="{{ path('article_show', {'slug':article.articles.slug}) }}">
+                                            <img src="{{ asset('uploads/retourExp/retourExpDefault.jpg')}}" alt="experience"  width="300px" class="img-fluid my-3" style="border-radius:25px">
+                                        </a>
+                                    </div>
+                                {% endif %}
+                                <a class="card-title mt-3 lienUrl" href="{{ path('article_show', {'slug':article.articles.slug}) }}"><p class="text-center">{{ article.articles.titreArticle}}</p></a>
+
+                                <hr class="w-50">
+
+                                <div class="px-2 text-center">
+                                    <p class="font-weight-bold">{{article.articles.pole.nomPole}}</p>
+                                    <p>Publié par : {{ article.articles.author.fullName}} </p>
+                                </div>
+
+                                {# Like Com Date #}
+                                <div class="likeCom text-center mt-3">
+                                    {# Like #}
+                                    <div class="like py-1">
+                                        {% if article.articles.likes | length > 0 %}
+                                            <a class="pl-2 my-auto"><i class="fas fa-thumbs-up my-auto"></i> </a>{{article.articles.likes}}
+                                        {% else %}
+                                            <small>Pas encore liké</small>
+                                        {% endif %}   
+                                    </div>
+
+                                    {# Avis #}
+                                    <div class="com py-1">
+                                        {% if article.articles.commentaire | length > 0 %}
+                                            {% include 'partials/rating.html.twig' with {'rating' : article.articles.avgRatings} %}
+                                            <br>
+                                            <small>(Calculée sur {{ article.articles.commentaire|length }} avis)</small>
+                                        {% else %}
+                                            {% include 'partials/rating.html.twig' with {'rating' : article.articles.avgRatings} %}
+                                            <br>
+                                            <small>Pas encore noté</small>
+                                        {% endif %}   
+                                    </div>
+
+                                    {# Date #}
+                                    <small>Créé le</small> {{article.articles.createdAt|date('d/m/Y')}}        
+                                </div>
+                            </div> 
+                        {% endif %} 
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <hr class="w-50 my-5">
+
+        {# BLOC DES CARRES DES POLES EN BAS DE PAGE #}
+        <div class="row no-gutters justify-content-around mb-5">
+            <div class="col-5 col-md-2 col-lg-1 mt-4">
+                <a href="{{ ('../evolutionSavoirs') }}"><img src="{{ asset('img/poles/pole_savoirs/logo_savoirs.svg') }}"></a>
+                <div class="txtCarres mt-3">evolution des savoirs</div>
+            </div>
+
+            <div class="col-5 col-md-2 col-lg-1 mt-4">
+                 <a href="{{ ('../innovation') }}"><img src="{{ asset('img/poles/pole_innovation/logo_innovation.svg') }}"></a>
+                <div class="txtCarres mt-3">innovation</div>
+            </div>
+
+            <div class="col-5 col-md-2 col-lg-1 mt-4">
+                 <a href="{{ ('../immobilier') }}"><img src="{{ asset('img/poles/pole_immobilier/logo_immobilier.svg') }}"></a>
+                <div class="txtCarres mt-3">immobilier et sylver expérience</div>
+            </div>
+
+            <div class="col-5 col-md-2 col-lg-1 mt-4">
+                <a href="{{ ('../commRechercheDev') }}"><img src="{{ asset('img/poles/pole_communication/logo_comRechDev.svg') }}"></a>
+                <div class="txtCarres mt-3">communication recherche et dev.</div>
+            </div>
+
+            <div class="col-5 col-sm-2 col-lg-1 mt-4">
+                 <a href="{{ ('../evolutionsMetier') }}"><img src="{{ asset('img/poles/pole_metiers/logo_metiers.svg') }}"></a>
+                <div class="txtCarres mt-3">evolution des métiers</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

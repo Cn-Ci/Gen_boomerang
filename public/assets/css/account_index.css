@@ -1,0 +1,87 @@
+/***** account index *********************************************************/
+
+/****** vitrine de carte */
+#card-showcase {
+    padding: 0% 0% 0% 0% !important;
+}
+
+/****** bordure des carte */
+.card-body {
+    min-height: 750px;
+}
+
+/****** lien article et user */
+.lienSlug {
+    color :var(--couleurBleu);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/****** lien article et user hover */
+.lienSlug:hover {
+    color :var(--couleurRouge);
+    text-decoration: none;
+}
+
+/****** lien article et user */
+.lienPole {
+    color :var(--couleurBleu);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/****** lien article et user hover */
+.lienPole:hover {
+    color :var(--couleurRouge);
+    text-decoration: none;
+}
+
+/***** hauteur de texte */
+.hauteurText {
+    min-height:50px;
+    text-decoration:none;
+    font-weight: bold;
+    color:var(--couleurBleu);
+}
+
+/***** couleur com, like */
+i.fas.fa-thumbs-up, i.far.fa-eye {
+    color:var(--couleurRouge);
+}
+
+/****** text de la carte  */
+a.card-text {
+    text-decoration: none;
+    color:var(--couleurNoir);
+    height: 150px;
+}
+
+/******  text de la carte HOVER*/
+a.card-text:hover {
+    color:var(--couleurBleu);
+}
+
+/****** taille max du texte */
+.tailleText {
+    max-height: 150px;
+    overflow:hidden;
+}
+
+.imgArticle {
+    min-height: 165px;
+}
+.card-bodyPub
+{
+    position: relative;
+    height: 650px !important;
+}
+#card_bottom
+{
+    position: absolute;
+    bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}

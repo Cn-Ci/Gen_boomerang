@@ -1,0 +1,92 @@
+{% set url = path('experience_show', {'slug': pub.slug}) %}    
+    
+<div class="col-10 col-md-6 col-lg-4 mx-auto px-0">
+    <div class="card m-3">
+        <div class="card-header text-center my-auto">
+            <div class="row align-items-center">
+                {#<div class="col-1 text-left">
+                    <img src="{{ asset('uploads/retourExp/newspaper.png')}}" alt="experience" width="30px" class="mb-3" style="border-radius:5px" >
+                </div>#}
+                <div class="col-12 text-center">
+                    <a class="h4 lienSlug" href="{{ url }}" class="h4 titreCard mx-auto ">
+                        {{pub.titrePublication}}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-bodyPub text-center ">
+            <div class="row align-items-center m-auto">
+                <div class="imageRetourExp m-auto">
+                    <a class="lienSlug" href="{{ url }}">
+                        {# {% if pub.imgRetourExp.imageRExp is not null %} #}
+                        {% if pub.imgRetourExp is not null %}
+                            {% if pub.imgRetourExp.imageRExp is not null %}
+                                <img src="/uploads/retourExp/{{ pub.imgRetourExp.imageRExp }}" alt="experience" class="my-3" style="border-radius:5px" >
+                            {% else %}
+                                  <img src="{{ asset('uploads/retourExp/retourExpDefault.jpg')}}" alt="experiencetest" class="my-3" style="border-radius:5px" >
+                            {% endif %}
+                        {% else %} 
+                            <img src="{{ asset('uploads/retourExp/retourExpDefault.jpg')}}" alt="experiencetest" class="my-3" style="border-radius:5px" >
+                        {% endif %}
+                    </a>
+                </div>
+                
+                <div class="mt-2">
+                    <a class="lienSlug" href="{{ path('user_show', {id:pub.author.id}) }}">
+                        <p class="mt-3"><i class="fas fa-user"></i> {{pub.author.firstName}} {{pub.author.lastname }}</p> 
+                    </a>
+                    <a href="{{ url }}" class="hauteurText mt-1 text-left">{{pub.accroche}}</a> 
+                    
+                   
+
+
+                    <div id="retourexp_bottom">
+                     <hr class="hrArticles text-center">
+                        {# Like Com Date #}
+                        <div class="likeCom text-center mt-3">
+                            {# Vues #}
+                            <div class="view">
+                                <i class="far fa-eye px-2 my-auto" ></i><span class="my-auto" id="counter">{{pub.views}}</span>
+                            </div>
+
+                            {# Like #}
+                            <div class="like">
+                                {% if pub.likes | length > 0 %}
+                                    <a class="px-2 my-auto"><i class="fas fa-thumbs-up my-auto"></i> </a>{{pub.likes}}
+                                {% else %}
+                                    <small>Pas encore liké</small>
+                                {% endif %}   
+                            </div>
+
+                            {# Avis #}
+                            <div class="com">
+                                {% if pub.commentaire | length > 0 %}
+                                    {% include 'partials/rating.html.twig' with {'rating' : pub.avgRatings} %}
+                                    <br>
+                                    <small>(Calculée sur {{ pub.commentaire|length }} avis)</small>
+                                {% else %}
+                                    {% include 'partials/rating.html.twig' with {'rating' : pub.avgRatings} %}
+                                    <br>
+                                    <small>Pas encore noté</small>
+                                {% endif %}   
+                            </div>
+                        </div>
+                        {# Date #}
+                        <small>Créé le {{pub.createdAt|date('d/m/Y')}}</small>
+
+                        {# Btn Auteur ou non #}
+                        <div class="mb-3 editSuppr">
+                            {% if app.user and app.user.roles[0] == "ROLE_ADMIN" or app.user and app.user == pub.author %} 
+                                <div class="self-align-center">
+                                    <a type="submit"class="btn btnRed edit" href="{{ path('experience_edit', {'slug' : pub.slug })}}"><i class="fas fa-edit"></i> Editer</a>
+                                    <a type="submit"class="btn btnRed suppr" href="{{ path('experience_delete', {'slug':pub.slug}) }}"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                                </div>
+                            {% endif %} 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

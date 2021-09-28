@@ -1,0 +1,328 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('assets/css/secteur_activite.css')}}">{% endblock %}
+
+{% block title %}Secteur Activité{% endblock %}
+
+{% block body %}
+	<div class="container text-center">
+		<h1 class=" my-5">Secteurs d'activites</h1>
+		<hr class="w-75">
+
+        {# CARTES SECTION 1 #}
+        <div class="row">
+            {# CARTES 1 #}
+            <div id="cardDiv" class="col-10 col-md-6 col-lg-4 mx-auto px-0 mt-5">
+                <div class="card mx-3 my-3">
+                    {# TITRE + SOUS TITRE #}
+                    <div class="card-header text-center my-auto">
+                        <a class="link h4" href="#">Titre du secteur d'activité</a>
+
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                               <a href="#"><p class="h6 linkSubTitle">Sous titre</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bodyPub text-center">
+                        {# IMAGE #}
+                        <a class="link" href="#">
+                            <img src="http://placehold.it/300x165/" alt="experience" class="img-fluid my-3" style="border-radius:25px">
+                        </a>
+
+                        <hr class="">
+
+                        {# NOM + PRENOM #}
+                        <a class="link" href="#">
+                            <p class="mt-3 link"><i class="fas fa-user"></i> Nom Prenom</p>
+                        </a>
+
+                        <hr>
+
+                        {# Text #}
+                        <div class="txt">
+                            <a href="#" class="txt mt-1 text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quibusdam quasi cupiditate iure, consectetur ratione 
+                                saepe nisi ipsam vel laborum officiis consequuntur.
+                            </a>
+                        </div>
+
+                        {# BOUTON DE L'AUTEUR #}
+                        <div class="my-3">
+                            {% if app.user and app.user.roles[0] == "ROLE_ADMIN" or app.user and app.user == art.author %}
+                                <div class="self-align-center">
+                                    <a type="submit" class="btn btnRed my-2" href="#">
+                                    <i class="fas fa-edit"></i>Editer</a>
+                                    <a type="submit" class="btn btnRed" href="#">
+                                    <i class="fas fa-trash-alt"></i>Supprimer</a>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            {# CARTES 2 #}
+            <div id="cardDiv" class="col-10 col-md-6 col-lg-4 mx-auto px-0 mt-5">
+                <div class="card mx-3 my-3">
+                    {# TITRE + SOUS TITRE #}
+                    <div class="card-header text-center my-auto">
+                        <a class="link h4" href="#">Titre du secteur d'activité</a>
+
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                               <a href="#"><p class="h6 linkSubTitle">Sous titre</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bodyPub text-center">
+                        {# IMAGE #}
+                        <a class="link" href="#">
+                            <img src="http://placehold.it/300x165/" alt="experience" class="img-fluid my-3" style="border-radius:25px">
+                        </a>
+
+                        <hr class="">
+
+                        {# NOM + PRENOM #}
+                        <a class="link" href="#">
+                            <p class="mt-3 link"><i class="fas fa-user"></i> Nom Prenom</p>
+                        </a>
+
+                        <hr>
+
+                        {# Text #}
+                        <div class="txt">
+                            <a href="#" class=" txt mt-1 text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quibusdam quasi cupiditate iure, consectetur ratione 
+                                saepe nisi ipsam vel laborum officiis consequuntur.
+                            </a>
+                        </div>
+
+                        {# BOUTON DE L'AUTEUR #}
+                        <div class="my-3">
+                            {% if app.user and app.user.roles[0] == "ROLE_ADMIN" or app.user and app.user == art.author %}
+                                <div class="self-align-center">
+                                    <a type="submit" class="btn btnRed my-2" href="#">
+                                    <i class="fas fa-edit"></i>Editer</a>
+                                    <a type="submit" class="btn btnRed" href="#">
+                                    <i class="fas fa-trash-alt"></i>Supprimer</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# CARTES 3 #}
+            <div id="cardDiv" class="col-10 col-md-6 col-lg-4 mx-auto px-0 mt-5">
+                <div class="card mx-3 my-3">
+                    {# TITRE + SOUS TITRE #}
+                    <div class="card-header text-center my-auto">
+                        <a class="link h4" href="#">Titre du secteur d'activité</a>
+
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                               <a href="#"><p class="h6 linkSubTitle">Sous titre</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bodyPub text-center">
+                        {# IMAGE #}
+                        <a class="link" href="#">
+                            <img src="http://placehold.it/300x165/" alt="experience" class="img-fluid my-3" style="border-radius:25px">
+                        </a>
+
+                        <hr class="">
+
+                        {# NOM + PRENOM #}
+                        <a class="link" href="#">
+                            <p class="mt-3 link"><i class="fas fa-user"></i> Nom Prenom</p>
+                        </a>
+
+                        <hr>
+
+                        {# Text #}
+                        <div class="txt">
+                            <a href="#" class=" txt mt-1 text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quibusdam quasi cupiditate iure, consectetur ratione 
+                                saepe nisi ipsam vel laborum officiis consequuntur.
+                            </a>
+                        </div>
+
+                        {# BOUTON DE L'AUTEUR #}
+                        <div class="my-3">
+                            {% if app.user and app.user.roles[0] == "ROLE_ADMIN" or app.user and app.user == art.author %}
+                                <div class="self-align-center">
+                                    <a type="submit" class="btn btnRed my-2" href="#">
+                                    <i class="fas fa-edit"></i>Editer</a>
+                                    <a type="submit" class="btn btnRed" href="#">
+                                    <i class="fas fa-trash-alt"></i>Supprimer</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# CARTES 4 #}
+            <div id="cardDiv" class="col-10 col-md-6 col-lg-4 mx-auto px-0 mt-5">
+                <div class="card mx-3 my-3">
+                    {# TITRE + SOUS TITRE #}
+                    <div class="card-header text-center my-auto">
+                        <a class="link h4" href="#">Titre du secteur d'activité</a>
+
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                               <a href="#"><p class="h6 linkSubTitle">Sous titre</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bodyPub text-center">
+                        {# IMAGE #}
+                        <a class="link" href="#">
+                            <img src="http://placehold.it/300x165/" alt="experience" class="img-fluid my-3" style="border-radius:25px">
+                        </a>
+
+                        <hr class="">
+
+                        {# NOM + PRENOM #}
+                        <a class="link" href="#">
+                            <p class="mt-3 link"><i class="fas fa-user"></i> Nom Prenom</p>
+                        </a>
+
+                        <hr>
+
+                        {# Text #}
+                        <div class="txt">
+                            <a href="#" class="txt mt-1 text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quibusdam quasi cupiditate iure, consectetur ratione 
+                                saepe nisi ipsam vel laborum officiis consequuntur.
+                            </a>
+                        </div>
+
+                        {# BOUTON DE L'AUTEUR #}
+                        <div class="my-3">
+                            {% if app.user and app.user.roles[0] == "ROLE_ADMIN" or app.user and app.user == art.author %}
+                                <div class="self-align-center">
+                                    <a type="submit" class="btn btnRed my-2" href="#">
+                                    <i class="fas fa-edit"></i>Editer</a>
+                                    <a type="submit" class="btn btnRed" href="#">
+                                    <i class="fas fa-trash-alt"></i>Supprimer</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# CARTES 5 #}
+            <div id="cardDiv" class="col-10 col-md-6 col-lg-4 mx-auto px-0 mt-5">
+                <div class="card mx-3 my-3">
+                    {# TITRE + SOUS TITRE #}
+                    <div class="card-header text-center my-auto">
+                        <a class="link h4" href="#">Titre du secteur d'activité</a>
+
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                               <a href="#"><p class="h6 linkSubTitle">Sous titre</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bodyPub text-center">
+                        {# IMAGE #}
+                        <a class="link" href="#">
+                            <img src="http://placehold.it/300x165/" alt="experience" class="img-fluid my-3" style="border-radius:25px">
+                        </a>
+
+                        <hr class="">
+
+                        {# NOM + PRENOM #}
+                        <a class="link" href="#">
+                            <p class="mt-3 link"><i class="fas fa-user"></i> Nom Prenom</p>
+                        </a>
+
+                        <hr>
+
+                        {# Text #}
+                        <div class="txt">
+                            <a href="#" class=" txt mt-1 text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quibusdam quasi cupiditate iure, consectetur ratione 
+                                saepe nisi ipsam vel laborum officiis consequuntur.
+                            </a>
+                        </div>
+
+                        {# BOUTON DE L'AUTEUR #}
+                        <div class="my-3">
+                            {% if app.user and app.user.roles[0] == "ROLE_ADMIN" or app.user and app.user == art.author %}
+                                <div class="self-align-center">
+                                    <a type="submit" class="btn btnRed my-2" href="#">
+                                    <i class="fas fa-edit"></i>Editer</a>
+                                    <a type="submit" class="btn btnRed" href="#">
+                                    <i class="fas fa-trash-alt"></i>Supprimer</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# CARTES 6 #}
+            <div id="cardDiv" class="col-10 col-md-6 col-lg-4 mx-auto px-0 mt-5 mb-5">
+                <div class="card mx-3 my-3">
+                    {# TITRE + SOUS TITRE #}
+                    <div class="card-header text-center my-auto">
+                        <a class="link h4" href="#">Titre du secteur d'activité</a>
+
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                               <a href="#"><p class="h6 linkSubTitle">Sous titre</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-bodyPub text-center">
+                        {# IMAGE #}
+                        <a class="link" href="#">
+                            <img src="http://placehold.it/300x165/" alt="experience" class="img-fluid my-3" style="border-radius:25px">
+                        </a>
+
+                        <hr class="">
+
+                        {# NOM + PRENOM #}
+                        <a class="link" href="#">
+                            <p class="mt-3 link"><i class="fas fa-user"></i> Nom Prenom</p>
+                        </a>
+
+                        <hr>
+
+                        {# Text #}
+                        <div class="txt">
+                            <a href="#" class=" txt mt-1 text-left">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quibusdam quasi cupiditate iure, consectetur ratione 
+                                saepe nisi ipsam vel laborum officiis consequuntur.
+                            </a>
+                        </div>
+
+                        {# BOUTON DE L'AUTEUR #}
+                        <div class="my-3">
+                            {% if app.user and app.user.roles[0] == "ROLE_ADMIN" or app.user and app.user == art.author %}
+                                <div class="self-align-center">
+                                    <a type="submit" class="btn btnRed my-2" href="#">
+                                    <i class="fas fa-edit"></i>Editer</a>
+                                    <a type="submit" class="btn btnRed" href="#">
+                                    <i class="fas fa-trash-alt"></i>Supprimer</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+{% endblock %}

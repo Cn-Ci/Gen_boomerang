@@ -1,0 +1,128 @@
+{% extends 'base_no_pole_button.html.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/home_accessibilite.css')}}">
+{% endblock %}
+
+{% block title %}Abonnement Newsletter{% endblock %}
+
+{% block body %}
+	<div class="accessibilite row justify-content-center">
+        {# SECTION DE GAUCHE #}
+		<div class="col-10 col-md-6 col-lg-4 text-center ">
+			<h2 class="text-center titleAcces my-5 slide-top ">accessibilite</h2>
+
+			<hr class="hrTitle mb-5 ">
+
+              <img class="mx-auto w-75 mb-5 imgSize inline-photo show-on-scroll" src="{{ asset('img/test/reunion2.jpg') }}" alt="Reunion autour du handicape">
+
+			<p class="txt col-9 m-auto">
+				L'accessibilite est au coeur de nos préoccupation et nous attachons beaucoup d'importance à rendre 
+				la navigation sur notre plateforme la plus agréable possible aux personnes en situations de handicape.
+			</p>
+
+			<br>
+
+			<p class="txt col-9 m-auto pb-4">
+				Voila pourquoi nous avons mis en place une aide a la navigation : une version plus contrastée, une autre pour les daltoniens 
+                ainsi qu'une police plus facile à lire pour les personnes atteinte de dyslexie.
+			</p>
+		</div>
+
+        {# SECTION DE DROITE (COLORE) #}
+		<div class="col-11 col-md-6 col-lg-8 shadow-drop-2-center fondColore ">
+            {# LES CARTES #}
+            <div class="row text-center justify-content-center ">
+                {# NAVIGATION #}
+                <div class="card col-10 col-lg-4 my-5 mx-5 scale-up-center shadow-drop-2-center bg-black">
+                    <div class="card-header font-weight-bolder titleCard my-3">Navigation</div>
+                    <img class="photo mx-auto" src="{{ asset('img/test/navigation.jpg') }}" alt="">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>La touche "tabulation" permet d'accéder successivement à chaque lien du site.</p>
+                            <footer class="blockquote-footer">Naviguer entre les liens.</footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                {# TAILLE D'AFFICHAGE #}
+                <div class="card col-10 col-lg-4 my-5 mx-5 scale-up-center shadow-drop-2-center bg-black">
+                    <div class="card-header font-weight-bolder titleCard my-3">Taille de l'affichage</div>
+                    <img class="photo mx-auto" src="{{ asset('img/test/affichage2.jpg') }}" alt="">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>Utilisez la touche "CTRL" et la molette de la souris pour modifier la taille de votre affichage.</p>
+                            <footer class="blockquote-footer">Agrandit/réduit la police d'écriture.</footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                {# MENU ACCESSIBILITE #}
+                <div class="card col-10 col-lg-4 my-5 mx-5 scale-up-center shadow-drop-2-center bg-black">
+                    <div class="card-header font-weight-bolder titleCard my-3">Menu d'accessibilité</div>
+                    <img class="photo mx-auto" src="{{ asset('img/test/barre.jpg') }}" alt="">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>Le menu d'accessibilité situé tout en haut de page permet de modifier l'affichage en fonction de vos besoins.</p>
+                            <footer class="blockquote-footer">le Logo permet de revenir a cette page.</footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                {# MODE SOMBRE #}
+                <div class="card col-10 col-lg-4 my-5 mx-5 scale-up-center shadow-drop-2-center bg-black">
+                    <div class="card-header font-weight-bolder titleCard my-3">Mode Sombre</div>
+                    <img class="photo mx-auto" src="{{ asset('img/test/custom.jpg') }}" alt="">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>Une version contrastée du site est disponible afin de faciliter l'accessibilité aux déficiants visuels.</p>
+                            <footer class="blockquote-footer">Le "Mode Sombre" permet de modifier l'affichage.</footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                {# DYSLEXIE #}
+                <div class="card col-10 col-lg-4 my-5 mx-5 scale-up-center shadow-drop-2-center bg-black">
+                    <div class="card-header font-weight-bolder titleCard my-3">Mode Dyslexie</div>
+                    <img class="photo mx-auto" src="{{ asset('img/test/dyslexie.jpg') }}" alt="">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>Nous proposons une police de substitution permettant une meilleur lecture sur tout le site.</p>
+                            <footer class="blockquote-footer">Le "Mode Dyslexique" permet de modifier la police d'écriture.</footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                {# DALTONISME #}
+                <div class="card col-10 col-lg-4 my-5 mx-5 scale-up-center shadow-drop-2-center bg-black">
+                    <div class="card-header font-weight-bolder titleCard my-3">Mode Daltonien</div>
+                    <img class="photo mx-auto" src="{{ asset('img/test/daltonisme.jpg') }}" alt="">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>Une version adaptée aux daltoniens, se basant peu sur les couleurs afin d'être lisible par tous.</p>
+                            <footer class="blockquote-footer">Le "Mode Daltonien" permet de modifier l'affichage.</footer>
+                        </blockquote>
+                    </div>
+                </div>
+
+                {# CUBE #}
+                <div class="card col-10 col-lg-4 my-5 mx-5 scale-up-center shadow-drop-2-center bg-black">
+                    <div class="card-header font-weight-bolder titleCard my-3">Le cube des pôles</div>
+                    <img class="photo mx-auto" src="{{ asset('img/test/cube.jpg') }}" alt="">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>Un cube remplacera parfois la barre de navigation , n'hésitez pas a clicker dessus pour voir
+                            ce qu'il se passera !
+                            </p>
+                            <footer class="blockquote-footer">Le cube est accessible dans chaque page des pôles.</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/apropos.js')}}"></script>
+{% endblock %}

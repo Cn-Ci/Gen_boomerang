@@ -1,0 +1,19 @@
+/***** Account monCompte **************************************************************************/
+/***** Marge et bordure */
+.menuCompte {
+    border: 2px solid var(--couleurBleu);
+    border-radius: 5px;
+}
+
+/***** hauteur de texte */
+.lienMenuCompte {
+    text-decoration:none;
+    font-weight: bold;
+    color:var(--couleurBleu);
+}
+
+/***** hauteur de texte */
+.lienMenuCompte:hover {
+    text-decoration:none;
+    color:var(--couleurRouge);
+}

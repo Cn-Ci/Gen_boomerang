@@ -1,0 +1,165 @@
+/************** Divers **************/
+
+/***** sous-titres */
+.sousTitre{
+    color: black;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+/***** modifications des liens */
+.liens{
+    color: black;
+    font-size: 1.3em;
+}
+
+/***** hauteur de texte */
+.lienUrl {
+    text-decoration:none;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--couleurBleu);
+}
+
+/***** hauteur de texte */
+.lienUrl:hover {
+    text-decoration:none;
+    color: var(--couleurRouge);
+}
+
+/***** Box des retour d'xp */
+.article{
+    margin-top: -2em;
+    height: 350px;
+    
+}
+
+/***** boutons */
+.lienMenuCompte{
+    height:56px;
+    flex:1;
+    max-width:175px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.conteneurBouton{
+    height:auto;
+}
+.bouton{
+    margin:5px 0;
+}
+.bouton img{
+    height:56px;
+    width:80px;
+    margin-right:10px;
+}
+
+/***** hauteur de texte */
+/*.lienMenuCompte {
+    background-color : var(--couleurRouge);
+    color: var(--couleurBlanc);
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    border:4px solid var(--couleurRouge);
+}*/
+
+/***** hauteur de texte */
+/*.lienMenuCompte:hover {
+    background-color : var(--couleurBlanc);
+    color: var(--couleurRouge);
+    text-decoration: none;
+}*/
+
+/************** poles **************/
+/***** image de l'article N°1 */
+/*.imgArticle{
+    box-shadow: 1em 1em 2em .25em rgba(0,0,0,.2); 
+}*/
+
+/************** Retour d'experience **************/
+/***** BG des derniers articles */
+.bgGrey{
+    background-color: rgba(202, 200, 200, 0.164);
+    box-shadow: 1em 1em 2em .25em rgba(0,0,0,.2); 
+}
+
+/******* Cadre des derniers articles d'xp ******/
+.articleCadre{
+    border: 2px solid rgb(175, 175, 175);
+    box-shadow: 1em 1em 2em .10em rgba(0,0,0,.2);
+}
+
+/***** photos des derniers articles d'xp */
+.photos {
+    box-shadow: 1em 1em 2em .25em rgba(0,0,0,.2);
+    margin: 2em auto;
+    max-width: 600px;
+    width: 70%;
+}
+
+/***** rotation des photos a gauche */
+.gauche{
+    transform: translateY(1em) rotateZ(-5deg);
+    margin-top: 2.5em;
+}
+
+/***** positionnement img 1 meilleur article retour xp */
+.img1{
+    margin-top: 3em;
+    margin-right: 2em;
+}
+
+
+/************** effets de la page **************/
+/****** EFFET PHOTO TITRE (tt en haut) */
+.slide-top {
+    -webkit-animation: slide-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    width: 40%;
+    box-shadow: 1em 1em 2em .25em rgba(0,0,0,.2);
+    border: 4px double rgb(175, 175, 175);
+}
+
+@-webkit-keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    100% {
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
+    }
+}
+
+/***** EFFET DES IMG MEILLEURS ARTICLES (retour d'xp) */
+.inline-photo { 
+    opacity: 0;
+    transform: translateY(4em) rotateZ(-5deg);
+    transition: transform 4s .25s cubic-bezier(0,1,.3,1),
+                opacity .3s .25s ease-out;
+    will-change: transform, opacity;
+}
+
+.inline-photo.is-visible {
+    opacity: 1;
+    transform: rotateZ(-2deg);
+}
+
+
+
+
+

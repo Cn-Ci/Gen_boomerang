@@ -1,0 +1,98 @@
+{% extends 'base_no_pole_button.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/art_retourExp_new.css')}}">
+{% endblock %}
+
+{% block title %}Modification d'un article{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1 class="text-center">Modifier un article </h1>
+
+        {{ form_start(form) }}
+            {# Image de l'article #}
+            <div class="mx-auto">
+                <div class="text-center">
+                    {% if article.imgArticle %}
+                        <img src="/uploads/articles/{{article.imgArticle.imageArt}}" alt="" width="300px" class="rounded my-2">
+                        <p><small>Voici votre image actuelle</small></p>
+                    {% else %}
+                        <img src="{{ asset('uploads/articles/retourExpDefault.jpg')}}" alt="experience" width="300px" class="img-fluid mb-3" style="border-radius:25px" >
+                        <p><small>Cette image est un exemple</small></p>
+                    {% endif %}
+                
+                </div> 
+                <p><small>Cette image représente votre article</small></p>
+                {{ form_row(form.imgArticle, {'label':"Image de votre article",'attr': {'class':"form-control w-100 inputBorder" ,'minlength':'2','maxlength':'50'}} ) }}
+            </div>
+
+            <div class="row">
+                {# Pole  #}
+                <div class="col-6"> 
+                    {{ form_widget(form.pole) }}
+                </div>
+                
+                {# Titre #}
+                <div class="col-6">
+                    {{ form_row(form.titreArticle, {'label':"Titre de l'article*",'attr': {'class':"form-control w-100 inputBorder" ,'minlength':'2','maxlength':'255'}} ) }}
+                </div>
+            </div>
+            
+            {# Accroche  #}
+            <div class="mx-auto">
+                {{ form_row(form.accroche, {'label':"Accroche de l'article",'attr': {'class':"form-control w-100 inputBorder",'minlength':'10','maxlength':'700'}} ) }}
+            </div>
+
+            {# Intro  #}
+            <div class="mx-auto">
+                {{ form_row(form.intro, {'label':"Intro de l'article",'attr': {'style':'height:150px', 'class':"form-control w-100 inputBorder",'minlength':'10','maxlength':'1000'}} ) }}
+            </div>
+
+            {# Contenu  #}
+            <div class="mx-auto">
+                {{ form_row(form.contenu, {'label':"Contenu de l'article",'id':"myeditor",'attr': {'style':'height:350px', 'class':"form-control w-100 inputBorder",'minlength':'10'}} ) }}
+            </div>
+
+            {# Video a ajouter plus-tard (9/09/2021) #}
+           <!-- <div class="mx-auto">
+                {{ form_row(form.video, {'label':"Ajouter une vidéo",'attr': {'class':"form-control w-100 inputBorder"}} ) }}
+            </div> -->
+
+            {# Photo en commentaire a remplacer par elfinder (9/09/2021)  #}
+           <!-- <div class="mx-auto">
+                <small>Ici, vous pouvez ajouter des images pour expliquer le contenu de votre retour d'experience </small>
+                {{ form_row(form.images, {'label':"Ajouter des images",'attr': {'class':"form-control w-100"}} ) }}
+            </div> -->
+
+            {% if article.images | length > 0 %}
+                <p><small>Voici les images présentes sur votre retour d'expérience </small></p>
+                <div class="row justify-content-center">
+                    {% for image in article.images %}
+                        <div class="col-4 text-center">
+                            <img src="{{ asset('/uploads/carousel/'~image.images) }}" alt="" width="150px" height="150px" class="rounded my-2">
+                            
+                            {# On ajoute un lien permettant de supprimer une image (sera géré en Ajax) #}
+                            <a class="btn btn-danger" href="{{ path('pole_delete_image', {id: image.id})}}" data-delete data-token="{{ csrf_token('delete' ~ image.id )}}">X</a>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center">
+                    <p><small>Vous n'avez pas encore ajouté d'image !</small></p>
+                </div>
+            {% endif %}
+            
+            <div class="text-center">
+                <button type="submit" class="btn btnRed rounded mt-5">Modifier</button>
+            </div>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{ asset('assets/js/art_retourExp_form.js')}}"></script>
+{% endblock %}

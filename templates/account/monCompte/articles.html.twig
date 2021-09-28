@@ -1,0 +1,95 @@
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/account_index.css')}}">
+{% endblock %}
+
+{% if app.user.articles | length > 0 %}
+    <h3 class="text-center">Mes articles</h3>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Nom de l'article</th>
+                <th>Pole</th>
+                <th>Date</th>
+                <th>Editer</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        
+        <tbody> 
+            {% for art in app.user.articles %}
+                <tr>
+                    <td>
+                        <a class="lienSlug" href="{{ path('article_show', {'slug':art.slug}) }}">
+                            {{ art.titreArticle}}
+                        </a>  
+                    </td>
+                    <td>
+                        <a class="lienSlug">
+                            {{ art.pole}}
+                        </a>
+                    </td>
+                    <td>
+                        <a class="lienSlug">
+                            {{ art.createdAt | date('d/m/y')}}
+                        </a>
+                    </td>
+                    <td>
+                        <a type="submit"class="btn btnRed" href="{{ path('article_edit', {'slug':art.slug}) }}"><i class="fas fa-edit"></i> Editer</a>
+                    </td>
+                    <td>
+                        <a type="submit"class="btn btnRed" href="{{ path('article_delete', {'slug':art.slug}) }}"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="alert alert-warning text-center">
+        <p>Vous n'avez pas encore d'articles !</p>
+    </div>
+{% endif %}
+
+<hr class="hrArticles my-5">
+
+{% if app.user.retourExps | length > 0 %}
+    <h3 class="text-center">Mes Retours d'experiences</h3>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Nom de la publication</th>
+                <th>Date</th>
+                <th>Editer</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+
+        <tbody> 
+            {% for exp in app.user.retourExps %}
+                <tr>
+                    <td>
+                        <a class="lienSlug" href="{{ path('experience_show', {'slug':exp.slug}) }}">
+                            {{ exp.titrePublication}}
+                        </a>  
+                    </td>
+                    <td>
+                        <a class="lienSlug">
+                            {{ exp.createdAt | date('d/m/y')}}
+                        </a>
+                    </td>
+                    <td>
+                        <a type="submit"class="btn btnRed" href="{{ path('experience_edit', {'slug':exp.slug}) }}"><i class="fas fa-edit"></i> Editer</a>
+                    </td>
+                    <td>
+                        <a type="submit"class="btn btnRed" href="{{ path('experience_delete', {'slug':exp.slug}) }}"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <div class="alert alert-warning text-center">
+        <p>Vous n'avez pas encore d'articles !</p>
+    </div>
+{% endif %}

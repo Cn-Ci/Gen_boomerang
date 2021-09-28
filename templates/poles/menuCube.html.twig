@@ -1,0 +1,80 @@
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/navbarCube.css')}}">
+	<link rel="stylesheet" href="{{ asset('assets/css/a_general.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/navbarAccessibilite.css')}}">
+{% endblock %}
+
+<div id="navAccessibilite">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand navAccess" href="{{ path('accessibilite') }}"><img src="{{ asset('img/navbar/accessibilite.png')}}" alt="accessibilite" width="20px"> Accessibilite</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a class="nav-item nav-link" >
+                <div class="btnDys navAccess">
+                    <img src="{{ asset('img/navbar/alphabet.png')}}" alt="dyslexique" width="20px"> Dyslexique
+                </div>
+            </a>
+            <a class="nav-item nav-link"> 
+                <div class="btnDaltonien navAccess">
+                    <i class="fas fa-palette"></i> Daltonien
+                </div>
+            </a>
+            <a class="nav-item nav-link"> 
+                <div class="btnSombre navAccess">
+                    <i class="fas fa-moon"></i>Mode Sombre
+                </div>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div id="navCube">
+	{# Menu bootstrap hamburger #}
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand mx-auto pr-3"></a>
+            <div class="row w-100 align-items-center">
+			    {# Menu hamburger gauche #}
+				<div class="col-4 text-left">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown mr-auto" >
+                            <a class="nav-link dropdown-toggle " id="navbarDropdownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="imgCube" src="{{ asset('img/poles/menu/cube.png') }}" alt="" >
+                            </a>
+                            
+                            <div class="menuCube dropdown-menu text-left" aria-labelledby="navbarDropdownMenu">
+                                <a class="dropdown-item lienBlanc" href="{{path('a-propos')}}">Retour a la page d'accueil</a>
+                                    <a class="dropdown-item lienBlanc" href="{{path('poles_index')}}">Presentation des pôles</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item lienBlanc" href="#membreFondateur">Présentation du membre Fondateur</a>
+                                    <a class="dropdown-item lienBlanc" href="#poleSelon">Le pole selon le membre fondateur</a>
+                                    <a class="dropdown-item lienBlanc" href="#travauxDe">Les travaux du membre fondateur</a>
+                                    <a class="dropdown-item lienBlanc" href="#evolution">L'evolution des metiers</a>
+                                    <a class="dropdown-item lienBlanc" href="#secteur">Les secteurs d'activités</a>
+                                    <a class="nav-item dropdown my-auto">
+                                    <a class="dropdown-item lienBlanc dropdown-toggle" id="navbarDropdownPole2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pôles</a>
+                                    <div class="menuCubePole dropdown-menu text-center" aria-labelledby="navbarDropdownPole2">
+                                        <a class="dropdown-item lienBlanc" href="{{path('commRechercheDev')}}">Communication Recherche et Dev</a>
+                                        <a class="dropdown-item lienBlanc" href="{{path('design')}}">Design</a>
+                                        <a class="dropdown-item lienBlanc" href="{{path('evolutionsMetier')}}">Evolutions Metiers</a>
+                                        <a class="dropdown-item lienBlanc" href="{{path('evolutionSavoirs')}}">Evolutions Savoirs</a>
+                                        <a class="dropdown-item lienBlanc" href="{{path('immobilier')}}">Immobilier</a>
+                                        <a class="dropdown-item lienBlanc" href="{{path('innovation')}}">Innovations</a>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+{% block javascripts %}
+	<script src="{{ asset('assets/js/script.js')}}"></script>
+{% endblock %}

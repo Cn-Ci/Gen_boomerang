@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/changerDeVie_presentation.css')}}">
+{% endblock %}
+
+{% block body %}
+<div class="container changerDeVie">
+    <h1 class="text-center">Changer de vie</h1>
+
+    <div class="text-justify mb-5 py-5 ">
+        <h5>
+            Pour éviter les erreurs d’orientation,
+            pour confirmer un nouveau départ dans le cadre d’une reconversion professionnelle,
+            pour valider une formation permettant d’exercer un nouveau métier, Il existe désormais un nouvel outil :
+            la <strong>PMSMP</strong>, la Période de Mise en Situation en Milieu Professionnel.
+        </h5>
+    </div>
+
+    <div class="row text-center my-3">
+        <div class="col-12 col-lg-6 text-center">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/T2CyOc9fCxQ" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <div class="col-12 col-lg-6 py-5 my-5">
+            <h5 class="text-center mx-5">
+                Vous êtes inscrit à Pôle Emploi ?
+                <br>
+                Vous pouvez vous renseigner auprès de votre conseiller Pôle Emploi, auprès de votre Mission locale si
+                vous avez moins de 26 ans, ou auprès d’un Cap Emploi si vous êtes en situation de handicap
+            </h5>
+        </div>
+    </div>
+
+    <div class="mx-auto w-100 text-center py-5 ">
+        <h4>
+            Vous etes dirigeant d’une entreprise,
+            <br> vous pouvez proposer une <strong>PMSMP</strong> en postant
+            votre annonce <br>sur le Portail "<strong>«GENERATION BOOMERANG»©</strong>"&copy; :
+        </h4>
+    </div>
+
+    <div class="row text-left my-3">
+        <div class="col-12 col-lg-6 py-5 my-3">
+            <h5 class="text-center mx-5">
+                Au cours de la période d’immersion professionnelle, le candidat : <br>
+                Conserve son indemnisation Pole emploi.<br>
+                Bénéficie d’une couverture sociale.<br>
+                Respecte les mêmes règles que les salariés.<br>
+            </h5>
+        </div>
+        <div class="col-12 col-lg-6 text-center">
+            <iframe width="500" height="315" src="https://www.youtube.com/embed/wM1wBO6p_cg" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <h5 class="px-5 m-5 text-center">
+        Alors, trouvez votre <strong>PMSMP</strong> en consultant les offres, ou votre candidat en consultant les
+        demandes sur
+        le Portail "<strong>Génération Boomerang</strong>" &copy; et entrez en contact ensemble.
+        Une fois la mise en relation effectuée, et la candidature acceptée, le candidat prendra contact avec son
+        conseiller Pôle Emploi pour lui soumettre son projet afin qu’il remplisse la convention.
+        Ensemble, avec "<strong>Génération Boomerang</strong>" &copy; le portail numérique intergénérationnel de
+        l'<strong>Association
+            «BUILDING SENIORS»©</strong> &copy;, créons du lien social et encourageons le retour à l’emploi !
+    </h5>
+
+    {% if app.user %}
+    {% if app.user.abonnement %}
+    <div class="text-center my-5">
+        <h4>Vous etes abonne</h4>
+    </div>
+    {% else %}
+    <div class="text-center my-5">
+        <a class="font-weight-bold btn btnRed px-5" href="/abonnementNew">S'abonner</a>
+    </div>
+    {% endif %}
+    {% else %}
+    <div class="text-center my-5">
+        <a class="font-weight-bold btn btnRed px-5" href="/registrer">S'incrire</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

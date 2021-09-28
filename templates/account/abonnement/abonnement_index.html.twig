@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/account_abonnement_index.css')}}">
+{% endblock %}
+
+{% block title %}Abonnements{% endblock %}
+
+{% block body %}
+<div class="container accountAbonnement">
+    <h1 class="text-center mb-5 ">Decouvrez tous nos abonnements</h1>
+
+    <div class="row">
+        <div class="col-12 col-lg-6 ">
+            <h4 class="text-center mb-5">Sans Abonnement</h4>
+            <div class="text-center">
+                <img class="img-fluid " width="25%" src="{{ asset('img/account/non-abonnement.png') }}"
+                    alt="Image de non abonné">
+            </div>
+            <p class="h4 text-center mt-4 mx-3">Ne pas s'abonner c’est passer à côté d’un savoir authentique, mais aussi
+                ne pas pouvoir créer un lien qui vous sera bénefique humainement et professionnel.</p>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <h4 class="text-center mb-5">Avec Abonnement</h4>
+            <div class="text-center">
+                <img class="img-fluid " width="25%" src="{{ asset('img/account/abonnement.png') }}"
+                    alt="Image d'abonné">
+            </div>
+            <p class="h4 text-center mt-4 mx-3">Vous aurez à votre disposition un panorama de savoirs unique au travers
+                de nos articles et des différents retours de notre communauté provenant chacuns d’expériences
+                vécues, qui vous sont proposés.</p>
+        </div>
+    </div>
+
+
+    <div class="my-5">
+        <p class="h5 px-5 py-5 w-100 mx-auto text-center">
+            L’accès au portail "<strong>«GENERATION BOOMERANG»</strong>" &copy;, marque de l'<strong>association
+                «BUILDING SENIORS»</strong> &copy;
+            étant limité, pour bénéficier de l’ensemble de nos services et publications, il vous est demandé
+            d’adhérer à l’<strong>association «BUILDING SENIORS»</strong> &copy;, association loi 1901 d’intérêt
+            général.
+        </p>
+
+        <div class="row justify-content-center">
+            {% for abo in abos %}
+            <div class="col-12 col-md-6 col-lg-4 p-2 ">
+                <div class="card ">
+                    <div class="card-header text-center">
+                        <p class="h4 titreCard mx-auto">{{abo.title}}</p>
+                    </div>
+
+                    {% if abo.price %}
+                    <div class="card-body text-center">
+                        <h3 class="mt-3 mb-5" height="200px"> {{abo.price}} &euro; par an</h3>
+                        <p class="card-text my-5">
+                            {{ abo.description}}
+                        </p>
+                        {% if app.user %}
+                        <a href="{{ path('abonnement_new', {id :abo.id}) }}"
+                            class="text-center text-uppercase btn btnRed my-3 py-3 px-5">S'abonner</a>
+                        {% else %}
+                        <a href="/register" class="text-center text-uppercase btn btnRed my-3 py-3 px-5">S'inscrire</a>
+                        {% endif %}
+                    </div>
+                    {% else %}
+                    <div class="card-body text-center">
+                        <h3 class="mt-3 mb-5" height="200px">Nous consulter</h3>
+                        <p class="card-text my-5">
+                            {{ abo.description}}
+                        </p>
+
+                        {% if app.user %}
+                        <a href="{{ path('abonnement_new', {id :abo.id}) }}"
+                            class="text-center text-uppercase btn btnRed my-3 py-3 px-5">S'abonner</a>
+                        {% else %}
+                        <a href="/register" class="text-center text-uppercase btn btnRed my-3 py-3 px-5">S'inscrire</a>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

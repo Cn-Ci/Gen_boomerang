@@ -1,0 +1,205 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Newsletter {% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/newsletter.css')}}">
+{% endblock %}
+
+{% block body %}
+{% set arrPoles = [] %}
+
+{% for poleId in poles %}
+{% set arrPoles = arrPoles|merge([poleId.id]) %}
+{% endfor %}
+
+<div class="container">
+    <h2 class="text-center">Abonnement aux newsletters</h2>
+    <div class="row mt-3" data-id='{{ arrPoles|json_encode() }}' id="some-link">
+        <div class=" col-10 col-lg-6 fondGauche pt-3">
+            <h3 class="text-center titles" id="desc"> Brievement :</h3>
+            <h3 class="text-center nomPole mt-2" id="tit_desc">Description ...</h3>
+            <div class="tab-content">
+                {# Communication Recherche et Développement #}
+                <div class="tab-pane active menuTab m-5 text-justify" id="ComRechercheDev" style="display:none">
+                    <h5 class="text-center  mb-3">Comm & R&D </h5>
+                    <p> vero alias et? Asperiores ea, laudantium aliquam quia voluptate velit eveniet
+                        voluptatibus earum
+                        deleniti, eum dolorem, odit blanditiis quae tempore quod veritatis doloremque ex sequi. </p>
+
+                    <div class="text-center mt-5">
+                        <a href="{{ path('newsletter_subscribe',{nrPole: 1})}}" id="1" class="btn btnRed">
+                            <br> Communication R&D </a>
+                    </div>
+                </div>
+
+                {# Evolution des metiers #}
+                <div class="tab-pane active menuTab m-5 text-justify" id="evoMetier" style="display:none">
+                    <h5 class="text-center  mb-3">Evolution des métiers</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, optio molestias quibusdam cum,
+                        aliquam facilis voluptatibus deleniti perspiciatis placeat animi consequatur hic repellendus
+                        nam, tenetur fugit aspernatur voluptates. Laborum fugiat minus commodi incidunt quae doloremque,
+                        vero alias et? Asperiores ea, laudantium aliquam quia voluptate velit eveniet voluptatibus earum
+                        deleniti, eum dolorem, odit blanditiis quae tempore quod veritatis doloremque ex xsequi. </p>
+
+                    <div class="text-center mt-5">
+                        <a href="{{ path('newsletter_subscribe',{nrPole: 3})}}" class="btn btnRed" id="3"> <br>
+                            Evolution des metiers</a>
+                    </div>
+                </div>
+
+                {# Universal design & inclusive design #}
+                <div class="tab-pane active menuTab m-5 text-justify" id="design" style="display:none">
+                    <h5 class="text-center  mb-3">Universal design</h5>
+                    <p>commodi incidunt quae doloremque,
+                        vero alias et? Asperiores ea, laudantium aliquam quia voluptate velit eveniet voluptatibus earum
+                        deleniti, eum dolorem, odit blanditiis quae tempore quod veritatis doloremque ex sequi. </p>
+
+                    <div class="text-center mt-5">
+                        <a href="{{  path('newsletter_subscribe',{nrPole: 5})}}" class="btn btnRed" id="5">
+                            <br>
+                            Universal design &amp; inclusive design </a>
+                    </div>
+                </div>
+
+                {# Evolution des savoirs #}
+                <div class="tab-pane active menuTab m-5 text-justify" id="evoSavoir" style="display:none">
+                    <h5 class="text-center  mb-3">Evolution des savoirs </h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, optio molestias quibusdam cum,
+                        aliquam facilis voluptatibus deleniti perspiciatis placeat animi consequatur hic repellendus
+                        ne quod veritatis doloremque ex sequi. </p>
+
+                    <div class="text-center mt-5">
+                        <a href="{{  path('newsletter_subscribe',{nrPole: 2})}}" class="btn btnRed" id="2"> <br>
+                            Evolution des savoirs </a>
+                    </div>
+                </div>
+
+                {# Immobilier & Silver Experience #}
+                <div class="tab-pane active menuTab m-5 text-justify" id="immobilier" style="display:none">
+                    <h5 class="text-center  mb-3">Immobilier & silver Experience</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, optio molestias quibusdam cum,
+                        aliquam facilis voluptatibus deleniti perspiciatis placeat animi consequatur hic repellendus
+                        nam, tenetur fugit aspernatur voluptates. Laborum fugiat minus commodi incidunt quae doloremque,
+                        vero alias et? Asperiores ea, laudantium aliquam quia voluptate velit eveniet voluptatibus earum
+                        deleniti, eum dolorem, odit blanditiis quae tempore quod veritatis doloremque ex sequi. </p>
+
+                    <div class="text-center mt-5">
+                        <a href="{{ path('newsletter_subscribe',{nrPole: 4})}}" class="btn btnRed" id="4"><br>
+                            Immobilier &amp; Silver Experience</a>
+                    </div>
+                </div>
+
+                {# Innovation #}
+                <div class="tab-pane active menuTab m-5 text-justify" id="innovation" style="display:none">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, optio molestias quibusdam cum,
+                        aliquam facilis voluptatibus deleniti perspiciatis placeat animi consequatur hic repellendus
+                        nam, tenetur fugit aspernatur voluptates. Laborum fugiat minus commodi incidunt quae doloremque,
+                        vero alias et? Asperiores ea, laudantium aliquam quia voluptate velit eveniet voluptatibus earum
+                        deleniti, eum dolorem, odit blanditiis quae tempore quod veritatis doloremque ex sequi. </p>
+
+                    <div class="text-center mt-5">
+                        <a href="{{  path('newsletter_subscribe',{nrPole: 6})}}" class="btn btnRed" id="6"> <br>
+                            Innovation </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-10 col-lg-6 text-center pt-3">
+            <h3 class="titles">Choisissez votre newsletter</h3>
+
+            <div id="zeroContainer" class="container-fluid px-0 mt-2">
+
+                <div class="col-12 py-2 mx-6">
+                    <div class="row text-center justify-content-center">
+
+                        <div class="col-4 col-md-4 col-lg-4 mtIcone cartePole cartePole1">
+                            <img class="logoPole" src="/img/poles/cube-3d/communication2.svg" alt="icone communication">
+                            <div class="nomPole mt-3 mb-2" id="titreLeft">Communication R&amp;D</div>
+                            <a onclick="openMenu('ComRechercheDev')" href="javascript:void(0)" data-toggle="tab" id="10"
+                                class="btnCom btnPole  detailsPole btn mx-auto" data-id='1'>Je m'abonne...
+                            </a>
+                        </div>
+
+                        <div class="col-4 col-md-4 col-lg-4 mt8 mx-auto cartePole cartePole1">
+                            <img class="logoPole" src="/img/poles/cube-3d/metiers2.svg" alt="logo metier">
+                            <div class="nomPole mt-3 mb-2" id="titreBack">Evolution des Métiers</div>
+                            <a onclick="openMenu('evoMetier')" href="javascript:void(0)" data-toggle="tab" id="30"
+                                class="btnMetier btnPole  detailsPole btn mx-auto" data-id='3'>Je m'abonne...
+                            </a>
+
+                        </div>
+
+
+                        <div class="col-4 col-md-4 col-lg-4 mt8 cartePole cartePole1">
+                            <img class="logoPole" src="/img/poles/cube-3d/savoirs2.svg" alt="cerveau">
+                            <div class="nomPole mt-3 mb-2" id="titreRight">Evolution des savoirs</div>
+                            <a onclick="openMenu('evoSavoir')" href="javascript:void(0)" data-toggle="tab" id="20"
+                                class="btnSavoir btnPole  detailsPole btn mx-auto" data-id='2'>Je m'abonne...
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row  text-center mt-4">
+                        <div class="col-4 col-md-4 col-lg-4 mt-8 cartePole cartePole2">
+                            <img class="logoPole" src="/img/poles/cube-3d/immobilier2.svg" alt="icone immobilier">
+                            <div class="nomPole mt-3 mb-2" id="titreBottom">Immo &amp; Silver
+                                Exp</div>
+                            <div>
+                                <a onclick="openMenu('immobilier')" href="javascript:void(0)" data-toggle="tab" id="40"
+                                    class="btnImmo btnPole  detailsPole btn mx-auto" data-id='4'>Je m'abonne
+                                    ...
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-md-4 col-lg-4 mt-9 cartePole cartePole2">
+                            <img class="logoPole" src="/img/poles/cube-3d/design2.svg" alt="logo design">
+
+                            <div class="nomPole mt-3 mb-2" id="titreTop">Universal Design </div>
+                            <div>
+                                <a onclick="openMenu('design')" href="javascript:void(0)" data-toggle="tab" id="50"
+                                    class="btnDesign btnPole  detailsPole btn mx-auto" data-id='5'>Je m'abonne...
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-md-4 col-lg-4 mt-8 cartePole cartePole2">
+                            <img class="logoPole" src="/img/poles/cube-3d/innovation2.svg" alt="icone ampoule">
+                            <div class="nomPole mt-3 mb-2" id="titreFront">Innovation</div>
+                            <div>
+                                <a onclick="openMenu('innovation')" href="javascript:void(0)" data-toggle="tab" id="60"
+                                    class="btnIno btnPole  detailsPole btn mx-auto" data-id='6'>Je
+                                    m'abonne...
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<!-- <script>
+    window.onload = () => {
+        document.getElementById("desc").classList.add('hide');
+    }
+    function openMenu(menuName) {
+        var i, x;
+        x = document.getElementsByClassName("menuTab");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(menuName).style.display = "block";
+        document.getElementById("desc").classList.remove('hide');
+    }
+</script> -->
+<script src="{{ asset('assets/js/newsletter.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/account_abonnement_index.css')}}">
+{% endblock %}
+
+{% block title %}S'abonner{% endblock %}
+
+{% block body %}
+    <div class ="container justify-content-center text-center">
+        <h1 class="text-center">abonnement</h1>
+
+        <hr class="my-5 w-75">
+
+        <div class="row">
+            {# MENU DE GAUCHE #}
+            <div class="col-lg-4 col-md-5 col-12 mt-5 mr-auto">
+                {# le for parcours toute la table des abonnements #}
+                {% for abo in abos %}
+                    {# CARDES DES PACKS ABONNEMENT #}
+                    <div class="panel panel-default cadreBleu">
+                        <div class="panel-heading ">
+                            <h4 class="panel-title my-5">
+                                <a data-toggle="collapse" href="#collapse_{{loop.index}}" class="title{{abo.id}}" onclick="findInfo({{abo.id}})">{{abo.title}}</a>
+                            </h4>
+                        </div>
+                        <div id="collapse_{{loop.index}}" class="panel-collapse collapse">
+                            <div class="panel-body mb-4 text-center">
+                                <div class="txtRed h3 price{{abo.id}}">{{ abo.price}}€</div>
+                                <div class="mt-5">
+                                    <span class="txtBlue weight dateDebut{{abo.id}}">{{ abo.createdAt | date('d/m/Y') }}</span> 
+                                    <span>-></span>   
+                                    <span class="txtBlue weight dateFin{{abo.id}}">{{ abo.status | date('d/m/Y') }}</span> 
+                                </div>
+                                <div class="my-5">
+                                    <span class="txtBlue weight">Paiement sécurisé</span> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    
+            {# MENU DE DROITE #}
+            <div class="col-lg-8 col-md-7 col-12 cadreBleu row pt-3 mt-5" id="cadreDroite">
+                {# LOADER #}
+                <div class="loader mx-auto my-auto"></div>
+
+            	{# SECTION DE GAUCHE #}
+            	<div class="col-6 my-auto loading">
+            		<div class="h4 txtRed">
+            			Pack Séléctionné
+            		</div>
+                    
+            		<div class="txtBlue weight titleD">
+            			{{ abonnement.title }}
+            		</div>
+
+            		<hr class="my-4 w-50">
+
+            		<div class="h4 txtRed">
+            			Date de début
+            		</div>
+
+            		<div class="txtBlue weight dateDebutD">
+            			{{ abonnement.createdAt | date('d/m/Y') }}
+            		</div>
+
+            		<hr class="my-4 w-50">
+            	</div>
+
+            	{# SECTION DE DROITE #}
+            	<div class="col-6 my-auto loading">
+            		<div class="h4 txtRed">
+            			Tarif annuel
+            		</div>
+
+            		<div class="txtBlue weight priceD">
+            			{{ abonnement.price }}€
+            		</div>
+
+            		<hr class="my-4 w-50">
+
+            		<div class="h4 txtRed date2">
+            			Date de fin
+            		</div>
+
+            		<div class="txtBlue weight dateFinD">
+            			{{ abonnement.status | date('d/m/Y') }}
+            		</div>
+
+            		<hr class="my-4 w-50">
+            	</div>
+
+            	{# POURQUOI S'ABONNER #}
+            	<div class="col-12 loading">
+            		<div class="txtRed h3 text-uppercase">Pourquoi s'abonner ?</div>
+            		<div class="txtBlue ">
+            			<p class="description">
+            				{{ abonnement.description }}
+            			</p>
+            		</div>
+            	</div>
+
+                {# BOUTON DE PAIEMENT #}
+            	<div class="loading mx-auto "><button type="button" class="btn btn-primary my-5 bouton">Procéder au paiement</button></div>
+            </div>
+        </div>
+    </div>   
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        // cache le loader par defaut (sinon il s'affiche tout le temps)
+        $('.loader').hide();
+
+        function findInfo(id) {
+            // Affiche et configure le loader lors du click
+            $('.loader').show();
+            $('.loading').empty();
+            $('#cadreDroite').css('background-color', 'RGBA(0,0,0,0.1)');
+
+            // Charge la page de droite et y cache le loader une fois la page chargée
+            $('#cadreDroite').load('/renderAbo/'+id+' #encadreDroite', (e) =>{
+                $('.loader').hide();
+                $('#cadreDroite').css('background-color', 'white');
+            });
+
+            // Ferme les cardes de gauche qui ne sont pas selectionnées pour n'en garder qu'une d'active a la fois
+            $('.collapsed').removeClass('collapsed');
+            $('.aria-expanded').attr('false');
+            $('.collapse').removeClass('show');
+            
+            $(this).addClass('collapsed');
+            $(this).attr('true');
+            $(this).addClass('show');
+        }
+    </script>
+{% endblock %}

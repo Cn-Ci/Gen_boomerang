@@ -1,0 +1,109 @@
+.choice {
+    transform : scale(1);
+    transition: all 0.3s ease-in-out;
+}
+.choice:hover {
+    cursor            : pointer;
+    transform         : scale(1.05);
+    -webkit-box-shadow: 10px 11px 16px 0px rgba(204,204,204,1);
+    -moz-box-shadow   : 10px 11px 16px 0px rgba(204,204,204,1);
+    box-shadow        : 10px 11px 16px 0px rgba(204,204,204,1);
+}
+
+/** bounce out effect **/
+.bounce-out {
+    -webkit-transition-duration: 0.5s;
+    transition-duration        : 0.5s;
+    vertical-align             : middle;
+    -webkit-backface-visibility: hidden;
+    backface-visibility        : hidden;
+    font-size                  : x-large;
+    -moz-osx-font-smoothing    : grayscale;
+    display                    : inline-block;
+    -webkit-transform          : translateZ(0);
+    transform                  : translateZ(0);
+    color                      : var(--couleurRouge);
+    box-shadow                 : 0 0 1px rgba(0, 0, 0, 0);
+    font-family                : 'Caviar Dreams', sans-serif;
+    border                     : 4px solid var(--couleurRouge);
+}
+.bounce-out:hover, .bounce-out:focus, .bounce-out:active {
+    transform                         : scale(0.8);
+    -webkit-transform                 : scale(0.8);
+    color                             : var(--couleurRouge);
+    transition-timing-function        : cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+/** end bounce out effect **/
+
+/** modal choice preview **/
+#myImg {
+    border-radius: 5px;
+    cursor       : pointer;
+    transition   : 0.3s;
+}
+  
+.modal {
+    display         : none; /* Hidden by default */
+    position        : fixed; /* Stay in place */
+    z-index         : 1; /* Sit on top */
+    padding-top     : 175px; /* Location of the box */
+    left            : 0;
+    top             : 0;
+    width           : 100%; /* Full width */
+    height          : 100%; /* Full height */
+    overflow        : auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+  
+.modal-content {
+    margin   : auto;
+    display  : block;
+    width    : 80%;
+    max-width: 700px;
+}
+
+#caption {
+    margin    : auto;
+    display   : block;
+    width     : 80%;
+    max-width : 700px;
+    text-align: center;
+    color     : #ccc;
+    padding   : 10px 0;
+    height    : 150px;
+}
+
+.modal-content, #caption {
+    animation-name    : zoom;
+    animation-duration: 0.6s;
+}
+  
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+  
+.close {
+    position   : fixed;
+    top        : 150px;
+    right      : 35px;
+    color      : #f1f1f1;
+    font-size  : 40px;
+    font-weight: bold;
+    transition : 0.3s;
+    z-index    : 999;
+}
+  
+.close:hover, .close:focus {
+    color          : #bbb;
+    text-decoration: none;
+    cursor         : pointer;
+}
+
+@media only screen and (max-width: 700px){
+    .modal-content {
+    width: 100%;
+    }
+}

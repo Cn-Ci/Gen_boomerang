@@ -1,0 +1,98 @@
+{% extends 'base_no_pole_button.html.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/account_monCompte.css')}}">
+{% endblock %}
+
+{% block title %}Mon Compte {% endblock %}
+
+{% block body %}
+    <div class="container menuCompte pb-5">
+        <h1 class="text-center my-5">Mon Compte</h1>
+
+        <div class="row text-center">
+            <div class="col-6 my-2">
+                <a onclick="openMenu('profil')" href="javascript:void(0)" data-toggle="tab" class="p-3 lienMenuCompte">
+                    <i class="far fa-user fa-1x pr-2" style="color:grey"></i>Informations personnelles
+                </a>
+            </div>
+            <div class="col-6 my-2">
+                <a onclick="openMenu('security')" href="javascript:void(0)" data-toggle="tab" class="p-3 lienMenuCompte">
+                    <i class="fas fa-unlock fa-1x pr-2" style="color:grey"></i>Modifier votre mot de passe
+                </a>
+            </div>
+        </div>
+        <div class="row text-center ">
+            <div class="col-6 my-2">
+                <a onclick="openMenu('account')" href="javascript:void(0)" data-toggle="tab" class="p-3 lienMenuCompte">
+                    <i class="far fa-credit-card fa-1x pr-2" style="color:grey"></i>Abonnement &amp; Newsletter
+                </a>
+            </div>
+            <div class="col-6 my-2">
+                <a onclick="openMenu('journal')" href="javascript:void(0)" data-toggle="tab" class="p-3 lienMenuCompte">
+                    <i class="far fa-bell fa-1x pr-2" style="color:grey"></i>Articles
+                </a>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-6 my-2">
+                <a onclick="openMenu('notification')" href="javascript:void(0)" data-toggle="tab" class="p-3 lienMenuCompte">
+                    <i class="far fa-file-alt fa-1x pr-2" style="color:grey"></i>Notifications
+                </a>
+            </div>
+            <div class="col-6 my-2">
+                <a onclick="openMenu('billing')" href="javascript:void(0)" data-toggle="tab" class="p-3 lienMenuCompte">
+                    <i class="far fa-bell fa-1x pr-2" style="color:grey"></i>Moyen de paiement
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container mt-5">
+        {# tab-content pour ouvrir une page sous le menu a l'aide des tab-pane #}
+        <div class="tab-content">
+
+            {# Mon Compte #}
+            <div class="tab-pane active menuTab" id="profil" style="display:none">
+                {% include 'account/monCompte/profil.html.twig' %}
+            </div>
+
+            {# Abonnement #}
+            <div class="tab-pane menuTab" id="account" style="display:none">
+                {% include 'account/monCompte/abonnement.html.twig' %} 
+            </div>
+
+            {# Modifier mdp #}
+            <div class="tab-pane menuTab" id="security" style="display:none">
+                {% include 'account/monCompte/reset_password.html.twig' %}
+            </div>
+
+            {# Notification #}
+            <div class="tab-pane menuTab" id="notification" style="display:none">
+                {% include 'account/monCompte/notifications.html.twig' %}
+            </div>
+
+            {# Paiement #}
+            <div class="tab-pane menuTab" id="billing" style="display:none">
+                {% include 'account/monCompte/paiement.html.twig' %}
+            </div>          
+
+            {# Publications  #}
+            <div class="tab-pane menuTab" id="journal" style="display:none">
+                {% include 'account/monCompte/articles.html.twig' %}    
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openMenu(menuName) {
+            var i, x;
+            x = document.getElementsByClassName("menuTab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(menuName).style.display = "block";
+        }
+    </script>
+{% endblock %}

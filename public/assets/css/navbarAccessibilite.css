@@ -1,0 +1,247 @@
+/***** navbar Accessibilite *********************************************************/
+/****** titre nav */
+.navAccess {
+    color:#aaa !important;
+}
+
+/****** titre nav */
+.navAccess:hover {
+    color:var(--couleurBlanc) !important;
+    cursor: pointer !important;
+}
+
+/******************************* dyslexique */
+@font-face { font-family: "OpenDyslexic"; src: url('https://dl.dropboxusercontent.com/s/qfpakpjedhsrdb9/OpenDyslexicAlta-Regular.ttf'); } 
+
+body.active {
+    font-family: OpenDyslexic!important;
+}
+
+/******************************* Mode Sombre */
+body.active2, h3.active2, h4.active2, h2.active2, .bg-black.active2 {
+    background-color:  #181818!important;
+    color: var(--couleurBlanc)!important;
+}
+
+.lienUrl.active2, .colorBlueGB.active2, .colorRedGB.active2, #desc.active2{
+    color: var(--couleurBlanc);
+}
+
+.inputBorder.active2 {
+    border: 1px solid var(--couleurNoir)!important;
+    background-color: var(--couleurGrisFond);
+}
+/******************************* Mode Daltonien */
+/****** couleur body et titre */
+body.active3, h1.active3, h2.active3, h3.active3, h4.active3{
+    background-color: var(--couleurBlanc)!important;
+    color: var(--couleurNoir)!important;
+    font-weight: bold!important;
+}
+
+/****** couleur blanc et fond noir */
+#navDef1.active3, #navDef2.active3, .dropdown-menu.active3, #bg.active3, a.dropdown-item.active3, a.menuHamb.active3, a.menuHamb.active3:focus, .dropdown-submenu.active3, .dropdown-submenu.active3:focus, a.dropdown-item.active3:focus, .lienNoir.active3, .page-link.active3{
+    background-color: var(--couleurNoir)!important;
+    color: var(--couleurBlanc)!important;
+}
+
+/****** couleur blanc et fond noir HOVER */
+.lienBlanc.active3, .navPrincipal.active3:hover{
+    background-color: var(--couleurBlanc)!important;
+    color: var(--couleurNoir)!important;
+}
+
+/******* couleur noir et fond blanc HOVER */
+.navPrincipal.active3:hover, #navbarDropdownPole2.active3:hover, #navbarDropdown.active3:hover, #navbarDropdownDifferentPole.active3:hover, #navbarDropdown2.active3:hover, #navbarDropdownDifferentPole.active3:hover, #navbarDropdown2.active3:hover, .lienFooter.active3:hover, a.dropdown-item.active3:hover {
+    background-color: var(--couleurBlanc)!important;
+    color: var(--couleurNoir)!important;
+}
+.fab.active3{
+    background-color:var(--couleurNoir)!important;
+    color:var(--couleurBlanc)!important;
+}
+
+
+/***** couleur noir */
+i.fas.active3:hover, .lienMenu.active3, .semper.active3, .textDaltonien.active3, label.active3, legend.active3, .textBleu.active3, .lienCharte.active3, .titreCard.active3, .lienMenuCompte.active3:hover, th.active3, .titreMission.active3, i.far.fa-eye.active3, p.h4.titreCard.active3, .hauteurText.active3, .colorCommRechercheEtDev.active3, .colorImmobilier.active3, .colorEvolutionDesMetiers.active3, .colorSavoirs.active3, .colorInclusiveDesign.active3, .lienUrl.active3, .grid figcaption.active3, .colorBlueGB.active3, .colorRedGB.active3, .font-white.active2, .hauteurText.active3, p.active3, i.fas.fa-user.active3, i.fas.fa-thumbs-up.active3, .navbar-light .navbar-nav .nav-link.active3:hover{
+    color: var(--couleurNoir)!important;
+}
+
+/***** couleur blanc  */
+#btnSearch.active3:hover i.fas.active3, .navAccess:hover i.fas.active3, .dropdown-toggle.active3::after, i.fas.fa-bars.active3, .navbar-light .navbar-nav .nav-link.active3, i.fas.active3, #textFoot.active3, #textFoot2.active3{
+    color: var(--couleurBlanc)!important;
+}
+
+/****** correction mode daltonien navbar depuis sa réorganisation */
+#navAccessibilite p.active3{
+    color:var(--couleurBlanc)!important;
+}
+#navDef1 p.active3{
+    color:var(--couleurBlanc)!important;
+}
+.navPrincipal.active3:hover::after, .dropdown-menu.active3 .dropdown-item:hover, .dropdown-menu.active3 .dropdown-item:hover i, .navPrincipal.active3:hover i{
+    color:var(--couleurNoir)!important;
+}
+#navDef1.active3 ul{
+    background-color:var(--couleurNoir)!important;
+}
+
+/****** fond gris */
+.fondColore.active3{
+    background-color:  #181818!important;
+}
+
+#boomerangHeader.active3{
+    background-color: transparent;
+    color: var(--couleurNoir)!important;
+}
+
+/****** HR VERTICAL 3PX NOIR */
+.vl.active3 {
+    border-left: 3px solid var(--couleurNoir);
+    height: 600px;
+}
+
+/****** Bordure 1PX NOIR */
+.hrInscription.active3, .formBorder.active3, .hrLogin.active3, .card-header.active3, .hrAbonnement.active3, .inputBorder.active3, .hrVertical.active3{
+    border: 1px solid var(--couleurNoir)!important;
+}
+
+/****** Bordure 2PX NOIR */
+#login.active3, .menuCompte.active3, #file-ip-1-preview.active3, .hrArticles.active3, .hrMonCompte.active3, .hrNewsletter.active3, .hrBox.active3, .hrProfil.active3{
+    border: 2px solid var(--couleurNoir)!important;
+}
+
+/****** Bordure 3PX NOIR */
+.recherche.active3, .selectBord.active3, .imgSize.active3{
+    border: 3px solid var(--couleurNoir)!important;
+}
+
+/****** Bordure 5PX NOIR */
+.card.active3, .box.active3 {
+    border: 5px solid var(--couleurNoir)!important;
+}
+
+/****** Bordure 2PX BLANC */
+.menuCube.active3, .menuCubePole.active3{
+    border:2px solid var(--couleurBlanc)!important;
+}
+
+/****** couleur blanc, fond noir et bordure 1PX NOIR (sauf boutons qui ont leur truc plus bas) */
+.btnPole.active3, span.carousel-control-prev-icon.active3, span.carousel-control-next-icon.active3, .btnContact.active3 {
+    background-color: var(--couleurNoir)!important;
+    color: var(--couleurBlanc)!important;
+    border: 4px solid var(--couleurNoir)!important;
+}
+
+/****** bordure boutons carrousel */
+span.carousel-control-prev-icon.active3, span.carousel-control-next-icon.active3{
+    border:10px solid var(--couleurNoir)!important;
+}
+
+/****** couleur noir, fond blanc et bordure 4PX NOIR */
+.btnPole.active3:hover, .btnContact.active3:hover {
+    background-color: var(--couleurBlanc)!important;
+    color: var(--couleurNoir)!important;
+}
+    /****** correction survol */
+    .btnPole.active3:hover > .fas, .btnContact.active3:hover > .fas{
+        color:var(--couleurNoir)!important;
+    }
+
+/***** Barre de recherche */
+#btnSearch.active3 {
+    color: var(--couleurNoir)!important;
+    border: 4px solid var(--couleurBlanc)!important;
+}
+
+/***** Barre de recherche HOVER */
+#btnSearch.active3:hover {
+    background-color: var(--couleurNoir)!important;
+    color: var(--couleurBlanc)!important;
+    border: 4px solid var(--couleurBlanc)!important;
+}
+
+/***** Button */
+.lienMenuCompte.active3, .grid figcaption a.active3{
+    background-color: var(--couleurBlanc)!important;
+    color: var(--couleurNoir)!important;
+    border: 4px solid var(--couleurNoir)!important;
+}
+
+/****** Couleur button GENERAL */
+.btnRed.active3{
+    background-color: var(--couleurNoir)!important;
+    color           : var(--couleurBlanc)!important;
+    border          : 4px solid var(--couleurNoir)!important;
+}
+.btnRed.active3 .fas{
+    transition:all 0.3s;
+}
+
+/****** Couleur button passage de la souris GENERAL*/
+.btnRed.active3:hover{
+    background-color: var(--couleurBlanc) !important;
+    color           : var(--couleurNoir) !important;
+    border          : 4px solid var(--couleurNoir)!important;
+}
+.btnRed.active3:hover .fas{
+    color:var(--couleurNoir) !important;
+}
+
+/***** Button HOVER  */
+.lienMenuCompte.active3:hover, .grid figcaption a.active3:hover {
+    background-color: var(--couleurNoir)!important;
+    color: var(--couleurBlanc)!important;
+}
+
+/***** correction survol */
+a.btn.btnRed.active3:hover > fas{
+    color:var(--couleurBlanc)!important;
+}
+
+
+/****** Lien Charte */
+.lienCharte.active3, .mdpForget.active3, .lienSlug.active3{
+    color:  var(--couleurNoir)!important;
+    text-decoration:none!important;
+}
+
+/****** Lien Charte HOVER*/
+.lienCharte.active3:hover, .mdpForget.active3:hover, .lienSlug.active3:hover{
+    color:  var(--couleurGris)!important;
+    text-decoration:none!important;
+}
+
+/****** Lien Condition */
+.conditionsGeneral.active3{
+    color:  var(--couleurBlanc)!important;
+    background-color: var(--couleurNoir)!important;
+    text-decoration:none!important;
+}
+
+/****** Lien Condition HOVER */
+.conditionsGeneral.active3:hover{
+    color:  var(--couleurNoir)!important;
+    background-color: var(--couleurBlanc)!important;
+    text-decoration:none!important;
+}
+
+.active4 {
+    color: var(--couleurNoir)!important;
+}
+
+/*! dark mode */
+#container-wave.active2 {
+    background-color: #181818 !important;
+    background-image: url('../../images/folderHomePage/boomSombre.png') !important;
+}
+#container-wave.active2{
+    background-color: #2c2c2c !important;
+    border-color: white !important;
+}
+#desc.active2, #discoverSiteButton.active2 {
+    color: #f5f5f5 !important;
+}
+
+

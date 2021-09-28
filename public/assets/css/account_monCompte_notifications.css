@@ -1,0 +1,18 @@
+/***** Account monCompte notifications **************************************************************************/
+.notif {
+    border-top   : 1px solid var(--couleurBleu);
+    border-bottom: 1px solid var(--couleurBleu);
+}
+
+.notifPreContent {
+    color: var(--couleurRouge);
+}
+
+.trashNotif {
+    float: right;
+    font-size: x-large;  
+}
+.trashNotif:hover {
+    color: var(--couleurRouge);
+    cursor: pointer;
+}

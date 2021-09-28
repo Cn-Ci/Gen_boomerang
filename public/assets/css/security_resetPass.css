@@ -1,0 +1,53 @@
+/************** Security Forgotten_Password  ***************/
+/****** marge entre navbar et page + border */
+
+
+/****** titre */
+h1 {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--couleurRouge)!important;
+    text-transform: uppercase;
+}
+
+
+/****** input mdp */
+
+input
+{
+    outline: none;
+}
+.btnPass
+{
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--couleurOrange);
+}
+.btnPass:hover
+{
+    background-color : var(--couleurBlanc);
+    color: var(--couleurOrange);
+}
+.row
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.show_hide_password, .paddingText
+{
+    margin: 0 auto !important;
+}
+
+#show_hide_1, #show_hide_2
+{
+    cursor: pointer;
+}
+#mdp_message
+{
+    color: red;
+}

@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-12">
+        <h4 class="sectionForm text-left">Vos identifiants de connexion</h4>
+        <hr class="hrInscription">
+
+        {{ form_start(form)}}
+            {{form_row(form.email, {'label':'Email*','attr': {'placeholder': 'Adresse email', 'class':"form-control-plaintext formBorder w-100 mx-auto px-5", 'size':"10"}})}}
+            {{form_row(form.password, {'label':'Mot de passe*','attr': {'placeholder': 'Mot de passe', 'class':"form-control-plaintext formBorder w-100 mx-auto px-5", 'size':"30"}})}}
+            {{form_row(form.passwordConfirm, {'label':'Confirmez votre mot de passe*','attr': {'placeholder': 'Confirmation du mot de passe', 'class':"form-control-plaintext formBorder w-100 mx-auto px-5", 'size':"30"}})}}
+            <p class="textBleu text-center w-75 mx-auto">Doit contenir 8 à 24 caractères, et au moins une majuscule, une minuscule, un chiffre et un caractère spécial.</p>
+
+            <h4 class="sectionForm text-left">Vos informations personnel</h4>
+            <hr class="hrInscription"> 
+
+            <p class="textBleu text-center w-75 mx-auto">Enregistrez  votre nom et vos coordonnées. Ces informations personnelles sont privées et ne seront pas visibles par les autres utilisateurs. Consultez notre 
+                <a target="_blank" href="/docs/Charte ABS-GB.pdf" class="lienCharte">Politique de confidentialité.</a> 
+            </p>
+
+            <div class="mx-auto my-3" required>
+                {{ form_row(form.civilite, {'label':'Civilite*'}) }}
+                {{ form_errors(form) }}
+            </div>
+
+            <div class="row">
+                <div class="col">{{form_row(form.lastName, {'label':'Nom*','attr': {'class':"form-control w-100",'minlength':'2','maxlength':'50'}})}}</div>
+                <div class="col">{{form_row(form.firstName, {'label':'Prenom*','attr': {'class':"form-control w-100",'minlength':'2','maxlength':'50'}})}}</div>
+            </div>
+
+            {{form_row(form.birthdate, {'label':'Date de naissance'})}}
+
+            <div class="checkbox pt-5 text-center">
+                <label>
+                    <input type="checkbox" required> En vous inscrivant, vous affirmez avoir pris connainssance des <a target="_blank" href="/docs/Charte à l'inscription Génération Boomerang.pdf" class="lienCharte">conditions generales</a>
+                </label>
+            </div>
+
+            <div class="text-center py-5 buttonFooter">
+                <button type="submit" class="btn btnRed"; style="width:300px">Je crée mon compte</button>
+            </div>
+        {{form_end(form)}}
+    </div>
+</div>

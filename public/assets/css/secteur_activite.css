@@ -1,0 +1,54 @@
+/****************** CARTES *************************/
+/****** bordure des carte */
+.card {
+    box-shadow: 0px 0px 22px -6px rgba(0,0,0,0.75);
+    background-color: rgb(233, 233, 233);
+}
+
+/****** bordure des carte */
+.card-body {
+    min-height: 750px;
+}
+
+/****************** LIENS *************************/
+/****** liens */
+.link {
+    color :var(--couleurBleu);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/****** lien survolé */
+.link:hover {
+    color :var(--couleurRouge);
+    text-decoration: none;
+}
+
+/****** lien des sous titre */
+.linkSubTitle {
+    color :var(--couleurBleu);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/****** lien des sous titre survolés */
+.linkSubTitle:hover {
+    color :var(--couleurRouge);
+    text-decoration: none;
+}
+
+/****************** TEXTES *************************/
+/***** texte */
+.txt {
+    min-height:50px;
+    text-decoration:none;
+    font-weight: bold;
+    color:var(--couleurBleu);
+}
+
+/***** texte survolé */
+.txt:hover {
+    text-decoration:none;
+    color:var(--couleurRouge);
+}

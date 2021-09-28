@@ -1,0 +1,106 @@
+/***** NavbarCube **************************************************************************/
+/****** taille et position de la nav */
+#navCube{
+    width: 17%;
+    position: fixed;
+    top:5.3vw;
+    left:-40px;
+    z-index:10;
+}
+
+/****** taille et position de la nav */
+#navAccessibilite{
+    position: fixed;
+    width:100%;
+    top:0;
+    z-index:11;
+}
+
+/****** fleche du dropdrown*/
+.dropdown-toggle::after{
+    font-size: 50px;
+    vertical-align: middle;
+}
+
+/****** taille img */
+.imgCube{
+    width: 75px;
+}
+
+/****** Bordure du menu */
+.menuCube{
+    border:2px solid var(--couleurJauneCube);
+    font-size: 13px;
+}
+
+/***** Ecriture des liens, Ecriture de l'interieur des dropdown */
+.lienMenu{
+    color: var(--couleurRougeCube)!important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/***** Ecriture dropdown */
+.dropdown-item {
+    color: var(--couleurRougeCube)!important;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/***** Ecriture dropdown passage souris */
+.dropdown-item:hover, .dropdown-item:focus{
+    color: var(--couleurBleuCube)!important;
+    border-radius: 10%;
+}
+
+/****** dropdown menu pole du cube */
+.menuCubePole {
+    border:2px solid var(--couleurJauneCube);
+    margin-top: -210px;
+    margin-left:305px;
+}
+
+/****** Quand l'ecran est en dessous de 992px */
+@media (max-width: 992px) { 
+    /****** taille img */
+    .imgCube{
+        width: 50px;
+    }
+    
+    /****** dropdown menu pole du cube */
+    .menuCubePole {
+        border:2px solid var(--couleurblanc);
+        margin-top: 0px;
+        margin-left:0px;
+        font-size: 13px;
+    }
+}
+
+/****** Quand l'ecran est en dessous de 765px */
+@media (max-width: 765px) { 
+    /****** taille et position de la nav */
+    #navCube{
+        width: 25%;
+        position: fixed;
+        top:9vw;
+        left:-40px;
+        z-index:10;
+    }
+    /****** fleche du dropdrown*/
+    .dropdown-toggle::after{
+        font-size: 30px;
+        vertical-align: middle;
+    }
+}
+
+/****** Quand l'ecran est en dessous de 575px */
+@media (max-width: 575px) { 
+    /****** taille et position de la nav */
+    #navCube{
+        width: 0%;
+        position: fixed;
+        top:15vw;
+        left:-40px;
+        z-index:10;
+    }
+}

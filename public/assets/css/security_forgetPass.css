@@ -1,0 +1,26 @@
+/************** Security Forgotten_Password  ***************/
+/****** marge entre navbar et page + border */
+#forgetPass{
+    padding: 10px 10px 50px;
+    border: 2px solid var(--couleurBleu);
+    border-radius: 15px;
+}
+
+/****** titre */
+h1 {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--couleurRouge)!important;
+    text-transform: uppercase;
+}
+
+/****** Couleur button */
+.BtnEnvoyer {
+    background-color : var(--couleurBleu);
+    color: var(--couleurBlanc);
+}
+
+/****** input mdp */
+#inputPassword{
+    background-color: var(--couleurBlanc)!important;
+}

@@ -1,0 +1,47 @@
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/account_monCompte_notifications.css')}}">
+{% endblock %}
+
+{% block body %}
+    <h3>NOTIFICATIONS</h3>
+
+    {% if user.notif|length != 0 %}
+        {% for notif in user.notif %}
+            <div class="notif w-100 py-3">
+                <h6 class="m-0">
+                    <span class="notifPreContent">Vous avez une nouvelle notification :</span>
+                    {{ notif.description }}
+                    <i data-id="{{ notif.id }}" class="trashNotif fa fa-trash" aria-hidden="true"></i>
+                </h6>
+            </div>
+        {% endfor %}
+    {% else %}
+        <hr>
+
+        <div class="w-100 py-3 text-center">
+            <h6>Vous avez aucune notification.</h6>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+	<script>
+		$(".trashNotif").click( (e) => {
+            let id = $(e.target).data("id");
+            let nbNotif = parseInt($("#nbNotif").text());
+            $.ajax({
+                url  : '/deleteNotif/' + id,
+                type : 'POST',
+                async: true,
+                success: function(data) {
+                    $($(e.target).parents("div.notif")).remove();
+                    $("#nbNotif").text(nbNotif - 1);
+                },
+                error: function(xhr, status, error) {
+                    alert(xhr.responseText);
+                }
+            });
+        });
+	</script>
+{% endblock %}

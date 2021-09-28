@@ -1,0 +1,242 @@
+easy_admin:
+    design:
+        menu:
+            - label: 'Article'
+              icon : 'newspaper-o'
+              children: 
+                - { entity: 'Commentaire', icon: 'newspaper-o'}
+
+    site_name: 'Admin'
+    entities: 
+        Articles:
+            class: App\Entity\Articles
+            form:
+                fields:
+                    - {property: 'titreArticle'}
+        Commentaire:
+            class: App\Entity\Commentaire
+            form:
+                fields:
+                    - {property: 'contenu'}
+    
+#     design:
+#         assets:
+#             js: 
+#                 - 'public/js/notifications.js'
+#         brand_color: '#1ABC9C'
+        
+        # menu:
+        #     - label: 'Gestion Utilisateur' 
+        #       icon: 'user'           
+        #       children:
+        #         - { entity : userInfo, icon: 'info' }
+        #         - { entity : userInfoAnnuaire, icon: 'info' }
+        #         - { entity : userRole, icon: 'angle-double-up' }
+        #         - { entity : userCompteStatut, icon: 'star-half-alt' }
+                       
+#             - label: 'Documents Utilisateur' 
+#               icon: 'file-upload'
+#               children:                
+#                 - { entity : userDocumentInsc, icon: 'file-pdf' }
+#                 - { entity : userDocumentVmV, icon: 'file-pdf' }
+               
+#             - label: 'Gestion des Pôles' 
+#               icon: 'cube'           
+#               children:
+#                 - { entity : responsablePole, icon: 'cube' }  
+
+#             - label: 'Articles et Commentaires'
+#               icon: 'newspaper' 
+#               children:
+#                 - { entity : gestionArticles, icon: 'newspaper' }  
+#                 - { entity : gestionCommentaires, icon: 'newspaper' }  
+                
+
+
+            
+#     entities:
+# #        # List the entity class name you want to manage
+# #        - App\Entity\Product
+# #        - App\Entity\Category
+
+# #  Info des utilisateurs       
+#         # userInfo:
+#         #     class: App\Entity\Annuaire  
+#         #     label: 'User dans annuaire'
+#         #     icon: 'info'
+            
+#         #     list:
+#         #         fields:
+#         #             - { property: 'user.lastName', label: 'Nom', type: json_array}
+#         #             - { property: 'user.firstName', label: 'Prénom', type: json_array}
+#         #             - { property: 'user.birthdate', label: 'Date de naissance', type: date, format: 'd-m-Y' }
+#         #             - { property: 'user.email', label: 'E-Mail', type: json_array}
+#         #             - { property: 'user.adresse.numeroRue', label: 'Numéro de rue', type: json_array} 
+#         #             - { property: 'user.adresse.nomRue', label: 'Nom de rue', type: json_array} 
+#         #             - { property: 'user.adresse.codePostal', label: 'Code Postal', type: json_array} 
+#         #             - { property: 'user.adresse.ville', label: 'Ville', type: json_array} 
+#         #             - { property: 'user.adresse.region', label: 'Région', type: json_array}
+#         #             - { property: 'user.telephone', label: 'Téléphone', type: json_array}  
+#         #     form:
+#         #         fields:
+                    
+#         #             - { property: 'user.lastName', label: 'Nom', type: json_array}
+#         #             - { property: 'user.firstName', label: 'Prénom', type: json_array}
+#         #             - { property: 'user.birthdate', label: 'Date de naissance', type: date, format: 'd-m-Y' }
+#         #             - { property: 'user.email', label: 'E-Mail', type: json_array}
+#         #             - { property: 'user.adresse.numeroRue', label: 'Numéro de rue', type: json_array} 
+#         #             - { property: 'user.adresse.nomRue', label: 'Nom de rue', type: json_array} 
+#         #             - { property: 'user.adresse.codePostal', label: 'Code Postal', type: json_array} 
+#         #             - { property: 'user.adresse.ville', label: 'Ville', type: json_array} 
+#         #             - { property: 'user.adresse.region', label: 'Région', type: json_array}
+#         #             - { property: 'user.telephone', label: 'Téléphone', type: json_array}  
+    
+#         userInfoAnnuaire:
+#             class: 'App\Entity\User'  
+#             label: 'Données utilisateurs'
+#             icon: 'info'
+#             disabled_actions: ['edit']
+#             list:
+#                 fields:
+#                     - { property: 'lastName', label: 'Nom', type: json_array}
+#                     - { property: 'firstName', label: 'Prénom', type: json_array}
+#                     - { property: 'birthdate', label: 'Date de naissance', type: date, format: 'd-m-Y' }
+#                     - { property: 'email', label: 'E-Mail', type: json_array}
+#                     - { property: 'adresse.numeroRue', label: 'Numéro de rue', type: json_array} 
+#                     - { property: 'adresse.nomRue', label: 'Nom de rue', type: json_array} 
+#                     - { property: 'adresse.codePostal', label: 'Code Postal', type: json_array} 
+#                     - { property: 'adresse.ville', label: 'Ville', type: json_array} 
+#                     - { property: 'adresse.region', label: 'Région', type: json_array}
+#                     - { property: 'telephone', label: 'Téléphone', type: json_array}  
+#             form:
+#                 fields:
+#                     - email
+#                     - { property: 'lastName', label: 'Nom', type: json_array}
+#                     - { property: 'firstName', label: 'Prénom', type: json_array}
+#                     - { property: 'birthdate', label: 'Date de naissance', type: date, format: 'd-m-Y' }
+#                     - { property: 'email', label: 'E-Mail', type: json_array}
+#                     - { property: 'adresse.numeroRue', label: 'Numéro de rue', type: json_array} 
+#                     - { property: 'adresse.nomRue', label: 'Nom de rue', type: json_array} 
+#                     - { property: 'adresse.codePostal', label: 'Code Postal', type: json_array} 
+#                     - { property: 'adresse.ville', label: 'Ville', type: json_array} 
+#                     - { property: 'adresse.region', label: 'Région', type: json_array}
+#                     - { property: 'telephone', label: 'Téléphone', type: json_array}  
+    
+# #  Gestion des Rôles utilisateur
+#         userRole:
+#             class: App\Entity\User
+#             label: 'Rôle des utilisateurs'
+#             icon: 'user-tag'
+#             disabled_actions: ['delete']
+#             list:
+#                 fields:
+#                     - { property: 'lastName', label: 'Nom', type: json_array}
+#                     - { property: 'firstName', label: 'Prénom', type: json_array}
+#                     - email
+#                     - { property: 'roles', label: "<i class='fas fa-toggle-off' style='color:green'></i> Rôles actuel de l'utilisateur", type: json_array}
+#             form:
+#                 fields:
+#                     - email
+#                     - { property: 'roles', label: 'Choisissez un nouveau rôle', type: choice, type_options: {expanded: true, multiple: true, choices: {'Administrateur':'ROLE_ADMIN', 'Membre Fondateur':'ROLE_FONDATEUR','Abonné':'ROLE_ABONNE', 'Non abonné':'IS_AUTHENTICATED_ANONYMOUSLY' }}}
+
+# #  Gestion du statut utilisateur       
+#         userCompteStatut:
+#             class: App\Entity\User
+#             label: 'Statut des utilisateurs'
+#             icon: 'user-check'
+#             disabled_actions: ['delete']
+#             list:
+#                 fields:
+#                     - { property: 'lastName', label: 'Nom', type: json_array}
+#                     - { property: 'firstName', label: 'Prénom', type: json_array}
+#                     - email
+#                     - { property: 'compte', label: '<i class="fas fa-star-half-alt" style="color:orange"></i> Statut du Compte' }   
+#             form:
+#                 fields:
+#                     - email
+#                     - { property: 'compte', label: 'Statut du Compte', type: choice, type_options: {expanded: true, multiple: false, choices: {'Valider':'valider', 'En attente':'En attente', 'À vérifier':'À vérifier'}}}
+              
+# #  Gestion des documents inscriptions  utilisateur 
+#         userDocumentInsc:
+#             class: App\Entity\Document
+#             label: 'Inscription'
+#             icon: 'file-alt'
+#             disabled_actions: ['delete','edit']
+#             list:
+#                 fields:
+#                     - { property: 'user.lastName', label: 'Nom' }
+#                     - { property: 'user.firstName', label: 'Prénom' }
+#                     - { property: 'user.email', label: 'E-mail'}
+#                     - { property: 'filename', type: 'file', label: '<i class="fas fa-file-pdf" style="color:red"></i> Télécharger le fichier'}                
+                
+            
+# #  Gestion des documents Vis Ma Vie utilisateur 
+#         userDocumentVmV:
+#             class: App\Entity\OffreVisMaVie
+#             label: 'Vis ma vie'
+#             icon: 'file-alt'
+#             disabled_actions: ['delete','edit']
+#             list:
+#                 fields:
+#                     - { property: 'user.lastName', label: 'Nom' }
+#                     - { property: 'user.firstName', label: 'Prénom' }
+#                     - { property: 'user.email', label: 'E-mail'}
+#                     - { property: 'uploadCv', type: 'file', label: '<i class="fas fa-file-pdf" style="color:red"></i> Télécharger le fichier'}                
+
+# #  Gestion des Responsable de pôle  
+                
+        
+#         responsablePole:
+#             class: App\Entity\Pole            
+#             label: 'Responsable pôle'
+#             icon: 'file-alt'
+#             disabled_actions: ['delete']
+#             list:
+#                 fields:
+#                     - 'nomPole'
+#                     - { property: 'responsable', label: 'Adresse mail' }
+#                     - { property: 'responsable.lastName', label: 'Nom' }
+#                     - { property: 'responsable.firstName', label: 'Prénom' }
+                    
+#             form:
+#                 fields:
+#                     - { property: 'responsable', label: 'Adresse mail' }
+
+# #  Gestion des Articles et Commentaires  
+#         gestionArticles:
+#             class: App\Entity\Articles           
+#             label: 'Articles'
+#             icon: 'newspaper'
+#             # disabled_actions: ['edit']
+#             list:
+#                 fields:
+#                     - { property: 'author.email', label: "Auteur de l'article"}
+#                     - { property: 'titreArticle', label: "Titre de l'article"}
+#             form:
+#                 fields:
+#                     - { property: 'titreArticle', label: 'Titre' }  
+#                     - { property: 'intro', label: 'Introduction' }    
+#                     - { property: 'ContenuArticle', label: 'Contenu' }      
+
+#         gestionCommentaires:
+#             class: App\Entity\Commentaires            
+#             label: 'Commentaires'
+#             icon: 'newspaper'
+#             list:
+#                 fields:
+#                     - { property: 'article.titreArticle', label: "Titre de l'article concerné"}
+#                     - { property: 'contenu', label: 'Contenu du commentaire' }
+#                     - { property: 'createdAt', label: 'Crée le' }                 
+#                     - { property: 'user.email', label: 'Auteur du commentaire'}
+#             form:
+#                 fields:
+#                     - { property: 'contenu', label: 'Contenu à modifier' }
+
+       
+        
+                    
+                      
+                    
+           
+                    
+           

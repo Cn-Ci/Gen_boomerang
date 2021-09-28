@@ -1,0 +1,114 @@
+/***** footer **************************************************************************/
+/****** Background et taille footer */
+#bg {
+    /*background-color: rgba(0,0,0,0.555) !important;*/
+    background-color:#2e3b4b;
+    padding-top: 2vh;
+    padding-bottom:2vh;
+    color: var(--couleurBlanc);
+    font-size: 15px;
+}
+
+.boutonsPoles{
+    margin-top:10vw
+}
+.boutonsPoles .btnPole{
+    width:250px;
+    height:44px;
+}
+.btnPole{
+    padding-top: 0.3!important;
+    font-size:0.9em;
+}
+
+.btnPole-immo{
+    padding-bottom: 0.5em!important;
+    font-size:0.9em;
+}
+
+/****** logo */
+#bg img{
+    max-width:250px !important;
+}
+
+/****** Link */
+#bg .fab {
+    font-size: 2.5rem;
+    color: var(--couleurBlanc);
+    border-radius:20%;
+    transition: all 1.5s;
+    margin:0 5px;
+}
+
+/****** Link animation */
+#bg .fab:hover {
+	transform:rotate3d(0,1,0,360deg);
+}
+
+/****** lien */
+.lienFooter, .follow{
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--couleurBlanc)!important;
+    text-transform: uppercase;
+    border:none;
+    text-decoration: none;
+    width: 120px;
+    /*-moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;*/
+    transition: all .3s;
+    padding:5px;
+    border-radius:7px;
+}
+
+/****** lien animation */
+.lienFooter:hover{
+    color: var(--couleurRouge)!important;
+  
+    text-decoration: none;
+    /*border-radius: 10%;*/
+    border:none;
+    /*padding: 5px;
+    width: 150px;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+    border-radius: 5px*/
+}
+
+/****** hr */
+.hrFooter {
+    border: 1px solid var(--couleurBlanc);
+}
+
+/****** Mention obligatoire Flaticon */
+.flaticon{
+    text-decoration: none;
+    color: var(--couleurBlanc);
+}
+
+/****** Mention obligatoire Flaticon */
+.flaticon:hover{
+    text-decoration: none;
+    color: var(--couleurRouge);
+}
+
+/****** Quand l'ecran est en dessous de 992px */
+@media (max-width: 768px) { 
+    /****** Background et taille footer */
+    /*#bg {
+        font-size: 18px;
+    }*/
+
+    /****** lien */
+    /*.lienFooter, .follow{
+        font-size: 20px;
+    }*/
+
+    /****** textFooter */
+    .textFooter {
+        width: 40%;
+    }
+}

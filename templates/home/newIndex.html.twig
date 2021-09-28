@@ -1,0 +1,152 @@
+{% extends 'base_accueil.html.twig' %}{# base.html.twig pour la navbar complète, baseHome.html.twig pour seulement la
+barre accessibilité #}
+
+{% block stylesheets %}
+<link href="http://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/caviar-dreams" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('assets/css/newIndex.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/pole_index.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/a_general.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/navbarAccessibilite.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/docSlider-master/docSlider.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="docSlider">
+    <div id="zeroContainer" class="container-fluid px-0">
+        <div id="container-wave" class="mx-0 pl-3">
+            <div class="margeHome row align-content-center mr-1">
+                <div class="col-12 col-md-12 col-lg-6 mx-auto text-center mb-5">
+                    <hr class="hrHome my-4">
+
+                    {# <h1 id="boomerangHeader" class="text-center mt-5 "><span class="colorBlueGB">Generation</span>
+                        <span class="colorRedGB">Boomerang</span>
+                    </h1> #}
+
+                    <div class="logo-home-page  mb-5">
+                    </div>
+
+                    {# <img src="../../public/img/logo/logo-2.png" alt="logo"> #}
+
+
+                    <p id="desc" class="text-left px-3 px-sm-5">
+                        Bienvenue sur notre portail ! Nous avons le profond plaisir de vous compter parmi nos beta
+                        testeurs.<br>
+                        Au cours de cette expérience, vous aurez pour mission d'observer de façon objective les
+                        perfections,
+                        imperfections, les points sombres de notre portail.<br><br> Parce que vous êtes spécial, votre
+                        avis compte.<br>
+                        N'hésitez pas à faire des remarques et à apporter des suggestions :
+                        <a class="lienBeta" target="_blank"
+                            href="https://docs.google.com/document/d/1J5IvZWypD2iUrwYocJDN16TWXmdxPptZOhLQd4AAQeE/edit?usp=sharing">cliquez
+                            par ici</a>.
+                        Merci !
+                    </p>
+
+                    <a href="{{path('a-propos')}}" id="discoverSiteButton" class="btn my-2 text-center float"> {#ancien
+                        path : 'actualite'#}
+                        Découvrez notre portail
+                    </a>
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-6 py-2">
+                    {# icones poles communication + innovation + savoirs #}
+                    <div class="row text-center justify-content-center">
+                        <div class="col-4 col-md-4 col-lg-4 mt8 mx-auto cartePole cartePole1">
+                            <a href="{{  path('evo_metier_pole_index')  }}" id="back" class="btnPole detailsPole ">
+                                <img class="logoPole" src="{{ asset('img/poles/cube-3d/metiers2.svg') }}"
+                                    alt="logo metier">
+                            </a>
+
+                            <div class="nomPole mt-3" id="titreBack">Evolution des Métiers</div>
+                            <a href="{{  path('evo_metier_pole_index')  }}" id="back"
+                                class="btnPole btnMetier detailsPole btn mx-auto">Voir le pole</a>
+                        </div>
+
+                        <div class="col-4 col-md-4 col-lg-4 mtIcone cartePole cartePole1">
+                            <img class="logoPole" src="{{ asset('img/poles/cube-3d/communication2.svg') }}"
+                                alt="icone communication" class="mx-auto my-auto">
+                            <div class="nomPole mx-auto mt-3" id="titreLeft">Communication R&amp;D</div>
+                            <a href="{{ ('../poles/commRechercheDev') }}" id="left"
+                                class="btnPole btnCom detailsPole btn mx-auto ">Voir le pole</a>
+                        </div>
+                        <div class="col-4 col-md-4 col-lg-4 mt8 cartePole cartePole1">
+                            <img class="logoPole" src="{{ asset('img/poles/cube-3d/savoirs2.svg') }}" alt="cerveau"
+                                class="mx-auto my-auto">
+                            <div class="nomPole mt-3 mx-auto" id="titreRight">Evolution des savoirs</div>
+                            <a href="{{ ('../poles/evolutionSavoirs') }}" id="right"
+                                class="btnPole btnSavoir detailsPole btn mx-auto">Voir le pole</a>
+                        </div>
+                    </div>
+
+                    {# CUBE 3D #}
+                    <div class="row justify-content-center mtCub">
+                        <div class="scene mx-auto">
+                            <div class="cube">
+                                <a class="cubeFace cubeFace--front" href="{{ ('../poles/innovation') }}"><img
+                                        class="imgCube mx-auto my-auto"
+                                        src="{{ asset('img/poles/cube-3d/innovation2.svg') }}"
+                                        alt="icone innovation"></a>
+                                <a class="cubeFace cubeFace--back" href="{{ ('../poles/evolutionsMetier') }}"><img
+                                        class="imgCube mx-auto my-auto"
+                                        src="{{ asset('img/poles/cube-3d/metiers2.svg') }}" alt="icone metiers"></a>
+                                <a class="cubeFace cubeFace--right" href="{{ ('../poles/evolutionSavoirs') }}"><img
+                                        class="imgCube mx-auto my-auto"
+                                        src="{{ asset('img/poles/cube-3d/savoirs2.svg') }}" alt="icone savoirs"> </a>
+                                <a class="cubeFace cubeFace--left" href="{{ ('../poles/commRechercheDev') }}"><img
+                                        class="imgCube mx-auto my-auto"
+                                        src="{{ asset('img/poles/cube-3d/communication2.svg') }}"
+                                        alt="icone communication"></a>
+                                <a class="cubeFace cubeFace--top" href="{{ ('../poles/design') }}"><img
+                                        class="imgCube mx-auto my-auto"
+                                        src="{{ asset('img/poles/cube-3d/design2.svg') }}" alt="icone design"></a>
+                                <a class="cubeFace cubeFace--bottom" href="{{ ('../poles/immobilier') }}"><img
+                                        class="imgCube mx-auto my-auto"
+                                        src="{{ asset('img/poles/cube-3d/immobilier2.svg') }}"
+                                        alt="icone immobilier"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# icones poles immobilier + design + metiers #}
+                    <div class="row justify-content-center text-center">
+                        <div class="col-4 col-md-4 col-lg-4 mt-8 cartePole cartePole2">
+                            <img class="logoPole" src="{{ asset('img/poles/cube-3d/immobilier2.svg') }}"
+                                alt="icone immobilier" class="mx-auto my-auto">
+                            <div class="nomPole mt-3 mx-auto" id="titreBottom">Immobilier &amp; Silver Experience</div>
+                            <div><a href="{{ ('../poles/immobilier') }}" id="bottom"
+                                    class="btnPole btnImmo detailsPole btn mx-auto">Voir le pole</a></div>
+                        </div>
+
+                        <div class="col-4 col-md-4 col-lg-4 mt-9 cartePole cartePole2">
+                            <img class="logoPole" src="{{ asset('img/poles/cube-3d/design2.svg') }}" alt="logo design"
+                                class="mx-auto my-auto">
+                            <div class="nomPole mt-3 mx-auto" id="titreTop">Universal Design</div>
+                            <div><a href="{{ ('../poles/design') }}" id="top"
+                                    class="btnPole btnDesign detailsPole btn mx-auto">Voir le pole</a></div>
+                        </div>
+
+                        <div class="col-4 col-md-4 col-lg-4 mt-8 cartePole cartePole2">
+                            <img class="logoPole" src="{{ asset('img/poles/cube-3d/innovation2.svg') }}"
+                                alt="icone ampoule" class="mx-auto my-auto">
+                            <div class="nomPole mt-3 mx-auto" id="titreFront">Innovation</div>
+                            <a href="{{ ('../poles/innovation') }}" id="front"
+                                class="btnPole btnIno detailsPole btn mx-auto">Voir le pole</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave"></div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('assets/js/poleCube.js')}}"></script>
+{#
+<script src="{{ asset('assets/js/script.js')}}"></script>#}
+{% endblock %}

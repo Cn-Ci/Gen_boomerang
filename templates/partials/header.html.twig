@@ -1,0 +1,220 @@
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/a_general.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/css/navbarAccessibilite.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/css/pole_buttons.css') }}" />
+
+{% endblock %} {# Navbar scrol < 80 #} <div id="navAccessibilite">
+  <nav class="navbar navbar-expand navbar-dark bg-dark py-0">
+    <a id="accessibiliteFont" class="navbar-brand navAccess " href="{{ path('accessibilite') }}">
+      <i class="fas fa-wheelchair"></i> Accessibilité
+    </a>
+
+    {#<button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span></button>#}
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link">
+          <div class="btnDys navAccess" onclick="
+										
+					if(getStylePropertyValue('accessibiliteFont', 'font-family') === 'Tahoma, sans-serif'){
+						localStorage.setItem('dyslexique', 'true')
+					}else{
+						localStorage.setItem('dyslexique', 'false')
+					}
+					">
+            {#
+            <img src="{{ asset('img/navbar/alphabet.png') }}" alt="dyslexique" width="20px" />
+            #} <i class="fas fa-font"></i><span> Dyslexique</span>
+          </div>
+        </a>
+        <a class="nav-item nav-link">
+          <div class="btnDaltonien navAccess" onclick="
+										
+					if(getStylePropertyValue('accessibiliteFont', 'font-weight') === '400'){
+						localStorage.removeItem('daltonien')
+
+						localStorage.setItem('daltonien', 'true')
+					}else{
+						localStorage.removeItem('daltonien')
+
+						localStorage.setItem('daltonien', 'false')
+					}
+					">
+            <i class="fas fa-palette"></i><span> Daltonien</span>
+          </div>
+        </a>
+        <a class="nav-item nav-link">
+          <div class="btnSombre navAccess" onclick="
+					if(window.getComputedStyle( document.body ,null).getPropertyValue('background-color') === 'rgb(255, 255, 255)'){
+						localStorage.removeItem('sombre')
+						localStorage.setItem('sombre', 'true')
+					}else{
+						localStorage.removeItem('sombre')
+						localStorage.setItem('sombre', 'false')
+					}">
+            <i class="fas fa-moon"></i><span> Sombre</span>
+          </div>
+        </a>
+
+        <a class="nav-item nav-link">
+          <div class="navAccess" onclick="
+            localStorage.setItem('sombre', 'false')
+            localStorage.setItem('daltonien', 'false')
+            localStorage.setItem('dyslexique', 'false')
+            window.location.reload()
+            ">
+            <i class="fas"></i><span> Reset</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </nav>
+  </div>
+
+  <div id="nav1">
+    {# Menu Bootstrap hamburger#}
+    <div id="navDef1" class="px-1">
+      <nav class="navbar navbar-expand-xl navbar-light text-center p-0">
+        <button class="navbar-toggler dropdown-toggle" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="logo navbar-brand px-2" href="{{ path('home') }}"><img src="{{ asset('img/navbar/logo4.png') }}"
+            width="200px" alt="logo" /></a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          {# Barre de recherche et menu #}
+          <ul class="navbar-nav first_nav">
+            {# RECHERCHE #}
+            <li class="nav-item my-auto ml-3 ml-xl-0">
+              <div id="recherche" class="align-items-center m-auto">
+                <input class="form-control" type="search" placeholder="Recherche" aria-label="Search" />
+              </div>
+            </li>
+
+            <button id="btnSearch" class="btn mx-auto mb-2" type="submit" onclick="search()">
+              <i class="fas fa-search"></i>
+            </button>
+
+            {# ACTUALITE #}
+            <li class="nav-item my-auto ml-3 ml-xl-2">
+              <a class="nav-link navPrincipal underline" href="{{ path('actualite') }}">Actualite</a>
+            </li>
+
+            {# PRESENTATION #}
+            <li class="nav-item dropdown my-auto ml-3 ml-xl-0 dropdown_padding">
+              <a class="nav-link navPrincipal dropdown-toggle underline" id="navbarDropdownPresentation"
+                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Presentation
+              </a>
+              <div class="dropdown-menu text-left text-xl-left test" aria-labelledby="navbarDropdownPresentation">
+                <a class="dropdown-item lienNoir" href="{{ path('a-propos') }}">Notre etat d'esprit</a>
+                <a class="dropdown-item lienNoir" href="{{ path('poles_index') }}">Poles d'expertise</a>
+              </div>
+            </li>
+
+            {# PUBLICATION #}
+            <li class="nav-item dropdown my-auto ml-3 ml-xl-0 dropdown_padding">
+              <a class="nav-link navPrincipal dropdown-toggle underline" id="navbarDropdown"
+                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Publication
+              </a>
+              <div class="dropdown-menu text-left text-xl-left" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item lienNoir" href="{{ path('experience') }}">Retours d'experience</a>
+                <a class="dropdown-item lienNoir" href="{{ path('articles') }}">Articles</a>
+              </div>
+            </li>
+
+            {# PARTENAIRES #}
+            <li class="nav-item my-auto ml-3 ml-xl-0">
+              <a class="nav-link navPrincipal underline" href="{{ path('partenaire') }}">Partenaires</a>
+            </li>
+
+            {# FAQ #}
+            <li class="nav-item my-auto ml-3 ml-xl-2">
+              <a class="nav-link navPrincipal underline" href="{{ path('poles_faq') }}">FAQ</a>
+            </li>
+
+            {# ABONNEMENT #}
+            <li class="nav-item my-auto ml-3 ml-xl-2">
+              <a class="nav-link navPrincipal underline" href="{{ path('abonnements_index') }}">Abonnement</a>
+            </li>
+          </ul>
+        </div>
+
+        {# Menu Connexion #}
+        <form class="collaspe">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown text-center">
+              {# CONNEXION #} {% if app.user %}
+              <a href="" class="nav-link" data-toggle="dropdown" id="arrow">
+                <div class="profil">
+
+                  {% if app.user.imgUserAvatar and app.user.imgUserAvatar.userAvatar !="" %}
+                  <img class="avatar avatar-mini img-fluid" src="/uploads/userAvatar/{{
+                      app.user.imgUserAvatar.userAvatar  
+                    }}" alt="" />
+
+                  {% else %}
+                  <img class="avatar avatar-mini img-fluid" src=" {{ asset('img/navbar/avatarVide.jpg') }}" alt="" />
+                  {% endif %}
+                  <span id="nbNotif" class="badge badge-danger">{{
+                    app.user.notif | length
+                    }}</span>
+                </div>
+                <div class="row align-items-center">
+                  <div class="nomDesktop">
+                    <p class="navPrincipal text-center">
+                      <i class="fas fa-user"></i>
+                      {{ app.user.firstName }} <br />
+                      {{ app.user.lastName }}
+                    </p>
+                  </div>
+                </div>
+              </a>
+              {% else %}
+              <a class="nav-link navPrincipal dropdown-toggle underline mr-lg-5" id="navbarDropdown3" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Connexion</span>
+              </a>
+              {% endif %}
+
+              <div class="dropdown-menu text-right text-lg-center" aria-labelledby="navbarDropdown3">
+                {% if app.user %}
+                <p class="dropdown-item nomMobile">
+                  <i class="fas fa-user"></i>
+                  {{ app.user.firstName }} <br />
+                  {{ app.user.lastName }}
+                </p>
+                <a class="dropdown-item lienNoir" href="{{ path('mon_compte') }}"><i class="fas fa-user-cog"></i> Mon
+                  compte</a>
+                <a class="dropdown-item lienNoir" href="{{ path('searchMembre') }}"><i class="fas fa-users"></i>
+                  Reseau</a>
+                <a class="dropdown-item lienNoir" href="{{ path('messagerie_getConversations') }}"><i
+                    class="fas fa-comments"></i> Messagerie</a>
+                {% if app.user.roles[0] == "ROLE_ADMIN" %}
+                <a class="dropdown-item lienNoir" href="{{ path('admin') }}"><i class="fas fa-user-shield"></i>
+                  Administateur</a>
+                {% endif %}
+                <a class="dropdown-item lienNoir" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i> Se
+                  deconnecter</a>
+                {% else %}
+                <a class="dropdown-item lienNoir" href="/login"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
+                <a class="dropdown-item lienNoir" href="/register"><i class="fas fa-user-plus"></i> S'inscrire</a>
+                {% endif %}
+              </div>
+            </li>
+          </ul>
+        </form>
+      </nav>
+    </div>
+  </div>
+{% block javascripts %}
+  <script src="{{ asset('assets/js/script.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,641 @@
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/account_monCompte_profil.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/progress_pie_compiled.css')}}" />
+
+{% endblock %}
+
+{% block body %}
+
+
+<!-- initialisation des variables qui sont utilisé plus bas -->
+{% set pourcentage = 0 %}
+{% set pourcentage_sans_emplois = 11.11 %}
+{% set pourcentage_profession_liberale = 6.25 %}
+{% set pourcentage_retraite = 11.11 %}
+{% set pourcentage_salarie = 10 %}
+{% set pourcentage_etudiant = 9.09 %}
+{% set pourcentage_entrepreneur = 6.67 %}
+
+<div class="container">
+
+    <!-- à décommenter pour tester -->
+    {#
+         <pre>
+        {{ dump(app.user) }}
+        </pre>
+    #}
+
+    <h3 class="text-center py-5">Informations Personnelles</h3>
+
+    {{form_start(form)}}
+    <div class="row mt-3" onchange="showPreview(event)">
+        <div class="col-12">
+            <div class="row form-group mb-3">
+                <div class="col">
+                    <div class="preview p-3" style="text-align:center;">
+
+                        {% if app.user.imgUserAvatar != null %}
+                        {% set img = "/uploads/userAvatar/" ~ app.user.imgUserAvatar.userAvatar %}
+                        {% else %}
+                        {% set img = "/img/navbar/avatarVide.jpg" %}
+                        {% endif %}
+
+                        <img id="file-ip-1-preview" class="m-auto" src="{{img}}" style="text-align:center;height:auto;">
+
+                    </div>
+                    <div>
+                        {{ form_widget(form.imgUserAvatar, {'attr': {'id':'file-ip-1','label': 'Modifier photo' }}) }}
+                    </div>
+
+                    <small class="couleurFormat text-center my-2">Format: .jpg, jepg, .png, Poids: 10 MO maximum</small>
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.firstName, 'Prenom*') }}
+                    {{ form_widget(form.firstName, {'attr': {'class': 'shadow inputBorder w-100 inputBorder
+                    form-control-plaintext my-2'}})
+                    }}
+
+                    {{ form_label(form.lastName, 'Nom*') }}
+                    {{ form_widget(form.lastName, {'label':'Prenom', 'attr': {'class': 'shadow inputBorder w-100
+                    inputBorder form-control-plaintext my-2'}})
+                    }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.email, 'Adresse e-mail*') }}
+                {{ form_widget(form.email, {'attr': {'value' : app.user.email,'class': 'shadow inputBorder inputBorder
+                form-control-plaintext w-100 my-2' }})
+                }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.telephone, 'Numero de telephone') }}
+                {{ form_widget(form.telephone, {'type' : 'tel', 'attr': {'class': 'shadow inputBorder
+                form-control-plaintext w-100 my-2'}})
+                }}
+            </div>
+
+            <div class="row form-group">
+                <div class="col">
+                    <label>Civilite*</label>
+                    {{ form_widget(form.civilite, {'type' : 'tel', 'attr': {'class': 'form-control-plaintext w-100
+                    my-2'}})
+                    }}
+                </div>
+
+                <div class="col">
+                    <label>Date de naissance</label>
+                    {{ form_widget(form.birthdate, {'type' : 'tel', 'attr': {'class': 'form-control-plaintext w-100
+                    my-2'}})
+                    }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.description, 'Description de profil') }}
+                {{ form_widget(form.description, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+                my-2'}})
+                }}
+            </div>
+
+            {% if type == 'SansEmploi' %}
+
+            {% if app.user.imgUserAvatar is not null %}
+            {% set pourcentage = pourcentage_sans_emplois + pourcentage %}
+            {% endif %}
+
+            {% if app.user.firstName is not null %}
+            {% set pourcentage = pourcentage_sans_emplois + pourcentage %}
+            {% endif %}
+
+            {% if app.user.lastName is not null %}
+            {% set pourcentage = pourcentage_sans_emplois + pourcentage %}
+            {% endif %}
+
+            {% if app.user.email is not null %}
+            {% set pourcentage = pourcentage_sans_emplois + pourcentage %}
+            {% endif %}
+
+            {% if app.user.telephone is not null %}
+            {% set pourcentage = pourcentage_sans_emplois + pourcentage %}
+            {% endif %}
+
+            {% if app.user.civilite is not null %}
+            {% set pourcentage = pourcentage_sans_emplois + pourcentage %}
+            {% endif %}
+
+            {% if app.user.birthdate is not null %}
+            {% set pourcentage = pourcentage_sans_emplois + pourcentage %}
+            {% endif %}
+
+            {% if app.user.description is not null %}
+            {% set pourcentage = pourcentage_sans_emplois + pourcentage %}
+            {% endif %}
+
+            {# ******************************** #}
+
+            {% if app.user.searchedJob is not null %}
+            {% set pourcentage = pourcentage_sans_emplois + pourcentage %}
+            {% endif %}
+
+
+            {% if documents is not null %}
+            {% set pourcentage = pourcentage + 10 %}
+            {% endif %}
+            {# 
+                {% if app.user.documents is not null %}
+                {% set pourcentage = pourcentage_sans_emplois + pourcentage %}
+                {% endif %}
+                #}
+
+            <h3 class="text-center py-5">Informations relatives au statut de demandeur d'emploi</h3>
+            <div class="row">
+                <div class="col">
+                    {{ form_label(form.searchedJob, 'Emploi recherché') }}
+                    {{ form_widget(form.searchedJob, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+                    my-2 px-3'}})
+                    }}
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.documents, 'Justificatif') }}
+                    {{ form_widget(form.documents, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100
+                    my-3 px-3'}})
+                    }}
+                </div>
+            </div>
+
+            {% elseif type == 'ProfessionLiberale' %}
+
+            {% if app.user.imgUserAvatar is not null %}
+            {% set pourcentage =  pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.firstName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.lastName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.email is not null %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.telephone is not null %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.civilite is not null %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.birthdate is not null %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.description is not null %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {# ******************************** #}
+
+            {% if app.user.currentJob is not null %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.company is not null %}
+
+            {% if app.user.company.nom is not empty  %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.company.activite is not empty  %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.company.adresse.numeroRue is not empty  %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.company.adresse.nomRue is not empty  %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.company.adresse.codePostal is not empty %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.company.adresse.ville is not empty %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% if app.user.company.adresse.region is not empty %}
+            {% set pourcentage = pourcentage + pourcentage_profession_liberale %}
+            {% endif %}
+
+            {% endif %}
+
+
+
+
+            <h3 class="text-center py-5">Informations relatives au statut de profession libérale</h3>
+            {{ form_label(form.currentJob , 'Emploi actuel') }}
+            {{ form_widget(form.currentJob, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100 my-2
+            px-3'}})
+            }}
+
+            {{ form_label(form.company.nom , 'Nom de votre entreprise') }}
+            {{ form_widget(form.company.nom, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100 my-2
+            px-3'}})
+            }}
+
+            {{ form_label(form.company.activite, 'Activite de votre entreprise') }}
+            {{ form_widget(form.company.activite, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+            my-2 px-3'}})
+            }}
+
+            <h3 class="text-center py-5">Adresse de son entreprise</h3>
+            <div class="row">
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.numeroRue , 'Numero de rue') }}
+                    {{ form_widget(form.company.adresse.numeroRue, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}})
+                    }}
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.company.adresse.nomRue , 'Nom de rue') }}
+                    {{ form_widget(form.company.adresse.nomRue, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}})
+                    }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.codePostal , 'Code postal') }}
+                    {{ form_widget(form.company.adresse.codePostal, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}})
+                    }}
+                </div>
+                <div class="col">
+                    {{ form_label(form.company.adresse.ville , 'Ville') }}
+                    {{ form_widget(form.company.adresse.ville, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}})
+                    }}
+                </div>
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.region , 'Region') }}
+                    {{ form_widget(form.company.adresse.region, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}})
+                    }}
+                </div>
+            </div>
+
+
+
+            {% elseif type == 'Retraite'%}
+
+            {% if app.user.imgUserAvatar is not null %}
+            {% set pourcentage =  pourcentage + pourcentage_retraite %}
+            {% endif %}
+
+            {% if app.user.firstName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_retraite %}
+            {% endif %}
+
+            {% if app.user.lastName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_retraite %}
+            {% endif %}
+
+            {% if app.user.email is not null %}
+            {% set pourcentage = pourcentage + pourcentage_retraite %}
+            {% endif %}
+
+            {% if app.user.telephone is not null %}
+            {% set pourcentage = pourcentage + pourcentage_retraite %}
+            {% endif %}
+
+            {% if app.user.civilite is not null %}
+            {% set pourcentage = pourcentage + pourcentage_retraite %}
+            {% endif %}
+
+            {% if app.user.birthdate is not null %}
+            {% set pourcentage = pourcentage + pourcentage_retraite %}
+            {% endif %}
+
+            {% if app.user.description is not null %}
+            {% set pourcentage = pourcentage + pourcentage_retraite %}
+            {% endif %}
+
+            {% if app.user.precedentJobs is not null %}
+            {% set pourcentage = pourcentage + pourcentage_retraite %}
+            {% endif %}
+
+            {# ******************************** #}
+
+            <h3 class="text-center py-5">Informations relatives à votre statut de retraité</h3>
+            {{ form_label(form.precedentJobs , 'Décrivez votre parcour professionel en quelques lignes') }}
+            {{ form_widget(form.precedentJobs, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+            my-2'}})
+            }}
+
+            {% elseif type == 'Salarie'%}
+
+            {% if app.user.imgUserAvatar is not null %}
+            {% set pourcentage =  pourcentage + pourcentage_salarie %}
+            {% endif %}
+
+            {% if app.user.firstName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_salarie %}
+            {% endif %}
+
+            {% if app.user.lastName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_salarie %}
+            {% endif %}
+
+            {% if app.user.email is not null %}
+            {% set pourcentage = pourcentage + pourcentage_salarie %}
+            {% endif %}
+
+            {% if app.user.telephone is not null %}
+            {% set pourcentage = pourcentage + pourcentage_salarie %}
+            {% endif %}
+
+            {% if app.user.civilite is not null %}
+            {% set pourcentage = pourcentage + pourcentage_salarie %}
+            {% endif %}
+
+            {% if app.user.birthdate is not null %}
+            {% set pourcentage = pourcentage + pourcentage_salarie %}
+            {% endif %}
+
+            {% if app.user.description is not null %}
+            {% set pourcentage = pourcentage + pourcentage_salarie %}
+            {% endif %}
+
+            {# ******************************** #}
+
+            {% if app.user.currentJob is not null %}
+            {% set pourcentage = pourcentage + pourcentage_salarie %}
+            {% endif %}
+
+            {% if app.user.companyName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_salarie %}
+            {% endif %}
+
+
+            <h3 class="text-center py-5">Informations relatives à votre statut de salarié</h3>
+            <div class="row">
+                <div class="col">
+                    {{ form_label(form.currentJob, 'Emploi actuel') }}
+                    {{ form_widget(form.currentJob, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+                    my-2'}})
+                    }}
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.companyName, 'Nom de l\'entreprise') }}
+                    {{ form_widget(form.companyName, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+                    my-2'}})
+                    }}
+                </div>
+            </div>
+
+            {% elseif type == 'Etudiant'%}
+
+            {% if app.user.imgUserAvatar is not null %}
+            {% set pourcentage =  pourcentage + pourcentage_etudiant %}
+            {% endif %}
+
+            {% if app.user.firstName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_etudiant %}
+            {% endif %}
+
+            {% if app.user.lastName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_etudiant %}
+            {% endif %}
+
+            {% if app.user.email is not null %}
+            {% set pourcentage = pourcentage + pourcentage_etudiant %}
+            {% endif %}
+
+            {% if app.user.telephone is not null %}
+            {% set pourcentage = pourcentage + pourcentage_etudiant %}
+            {% endif %}
+
+            {% if app.user.civilite is not null %}
+            {% set pourcentage = pourcentage + pourcentage_etudiant %}
+            {% endif %}
+
+            {% if app.user.birthdate is not null %}
+            {% set pourcentage = pourcentage + pourcentage_etudiant %}
+            {% endif %}
+
+            {% if app.user.description is not null %}
+            {% set pourcentage = pourcentage + pourcentage_etudiant %}
+            {% endif %}
+
+            {# ******************************** #}
+
+            {% if app.user.schoolName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_etudiant %}
+            {% endif %}
+
+            {% if app.user.lvlOfStudies is not null %}
+            {% set pourcentage = pourcentage + pourcentage_etudiant %}
+            {% endif %}
+
+            {% if app.user.domainStudies is not null %}
+            {% set pourcentage = pourcentage + pourcentage_etudiant %}
+            {% endif %}
+
+
+            <h3 class="text-center py-5">Informations relatives au statut d'étudiant</h3>
+
+            <div class="form-group">
+                {{ form_label(form.schoolName, 'Nom de l\'etablissement') }}
+                {{ form_widget(form.schoolName, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+                my-2'}})
+                }}
+            </div>
+
+            <div class="row form-group">
+                <div class="col">
+                    {{ form_label(form.lvlOfStudies, 'Niveau d\'etude') }}
+                    {{ form_widget(form.lvlOfStudies, {'attr': {'class': 'shadow inputBorder form-control-plaintext
+                    w-100 my-2'}})
+                    }}
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.domainStudies, 'Domaine d\'etude') }}
+                    {{ form_widget(form.domainStudies, {'attr': {'class': 'shadow inputBorder form-control-plaintext
+                    w-100 my-2'}})
+                    }}
+                </div>
+            </div>
+
+            {% elseif type == 'Entrepreneur'%}
+
+            {% if app.user.imgUserAvatar is not null %}
+            {% set pourcentage =  pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.firstName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.lastName is not null %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.email is not null %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.telephone is not null %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.civilite is not null %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.birthdate is not null %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.description is not null %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+
+            {# ******************************** #}
+
+            {% if app.user.company is null %}
+
+            {% else %}
+
+            {% if app.user.company.nom is not empty  %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.company.activite is not empty  %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.company.adresse.numeroRue is not empty  %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.company.adresse.nomRue is not empty  %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.company.adresse.codePostal is not empty %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.company.adresse.ville is not empty %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% if app.user.company.adresse.region is not empty %}
+            {% set pourcentage = pourcentage + pourcentage_entrepreneur %}
+            {% endif %}
+
+            {% endif %}
+
+
+            <h3 class="text-center py-5">Informations relatives à votre statut d'entrepreneur</h3>
+            {{ form_label(form.company.nom , 'Nom de votre entreprise') }}
+            {{ form_widget(form.company.nom, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100 my-2
+            px-3'}})
+            }}
+
+            {{ form_label(form.company.activite, 'Activite de votre entreprise') }}
+            {{ form_widget(form.company.activite, {'attr': {'class': 'shadow inputBorder form-control-plaintext w-100
+            my-2 px-3'}})
+            }}
+
+            <h3 class="text-center py-5">Adresse de l'entreprise</h3>
+            <div class="row">
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.numeroRue , 'Numero de rue') }}
+                    {{ form_widget(form.company.adresse.numeroRue, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}})
+                    }}
+                </div>
+
+                <div class="col">
+                    {{ form_label(form.company.adresse.nomRue , 'Nom de rue') }}
+                    {{ form_widget(form.company.adresse.nomRue, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}})
+                    }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.codePostal , 'Code postal') }}
+                    {{ form_widget(form.company.adresse.codePostal, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}})
+                    }}
+                </div>
+                <div class="col">
+                    {{ form_label(form.company.adresse.ville , 'Ville') }}
+                    {{ form_widget(form.company.adresse.ville, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}})
+                    }}
+                </div>
+                <div class="col-3">
+                    {{ form_label(form.company.adresse.region , 'Region') }}
+                    {{ form_widget(form.company.adresse.region, {'attr': {'class': 'shadow inputBorder
+                    form-control-plaintext w-100 my-2'}})
+                    }}
+                </div>
+            </div>
+
+            {% endif %}
+
+
+            <div class="position-absolute fixed-top d-flex justify-content-center align-items-center pourcentage-profil">
+                <div> Votre profil est complété à </div>
+                <div class="progress-pie cor-z-donuts" data-value="{{ pourcentage|round }}"></div>
+                <div>%</div>
+            </div>
+
+
+
+
+            
+
+
+            <div class="my-5 text-center">
+                <button type="submit" class="btn btnRed">{{ button_label|default('Sauvegarder les modifications')
+                    }}</button>
+            </div>
+        </div>
+    </div>
+    {{form_end(form)}}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    /*function showPreview(event) {
+        if (event.target.files.length > 0) {
+            var src = URL.createObjectURL(event.target.files[0])
+            var preview = document.getElementById("file-ip-1-preview");
+            preview.innerHt = "<img src=''>"
+            preview.src = src;
+            console.log(preview)
+            preview.style.display = "block";
+        }
+    }*/
+</script>
+{% endblock %}

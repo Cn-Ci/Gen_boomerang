@@ -1,0 +1,164 @@
+{% extends 'base_no_pole_button.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/articles_userShow.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/account_index.css')}}">
+{% endblock %}
+
+{% block title %}L'auteur {{user.fullName}}{% endblock %}
+
+{% block body %}
+<div class="container profilAuteur">
+    <h2 class="text-center mb-5">Profil de {{ user.firstName }} {{ user.lastName }}</h2>
+
+    <hr class="hrProfil">
+
+    {% if app.user %}
+    <div class="row align-items-center">
+        {# Photo profil #}
+        <div class="col-12 col-lg-3 text-center">
+            <div class="my-2">
+                {% if app.user.imgUserAvatar %}
+                <img src="/uploads/userAvatar/{{ app.user.imgUserAvatar.userAvatar }}" alt="experience" width="100px"
+                    class="img-fluid mb-3" style="border-radius:5px">
+                {% else %}
+                <img src="{{ asset('uploads/userAvatar/avatarVide.jpg')}}" alt="experience" width="100px"
+                    class="img-fluid mb-3" style="border-radius:5px">
+                {% endif %}
+            </div>
+        </div>
+
+        {# Detail profil #}
+        <div class="col-12 col-lg-6 text-center">
+            <a class="nomUser" href="{{ path('user_show', {id:user.id}) }}">
+                <h4><i class="fas fa-user"></i> {{ user.firstname }} <br> {{ user.lastname }}</h4>
+            </a>
+            <p>
+                {% if type == 'SansEmploi' and user.searchedJob %}
+                <i class="fas fa-briefcase"></i> A la recherche d'un emploi <br>
+                Emploi recherché : {{ user.searchedJob }}
+                {% elseif type == 'Entrepreneur' and user.company %}
+                <i class="fas fa-briefcase"></i> Entrepreneur <br>
+                Activité : {{ user.company.nom }}
+                {% elseif type == 'Etudiant' and user.domainStudies %}
+                <i class="fas fa-briefcase"></i> Etudiant <br>
+                Domaine étudié : {{ user.domainStudies }}
+                {% elseif type == 'Salarie' and user.currentJob %}
+                <i class="fas fa-briefcase"></i> Salarié <br>
+                Emploi actuel : {{ user.currentJob }}
+                {% elseif type == 'Retraite' and user.PrecedentJobs %}
+                <i class="fas fa-briefcase"></i> Retraité <br>
+                Emploi précedent : {{ user.PrecedentJobs}}
+                {% elseif type == 'ProfessionLiberale' and user.currentJob %}
+                <i class="fas fa-briefcase"></i> Profession Libérale <br>
+                Emploi actuel : {{ user.currentJob}}
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="col-12 col-lg-3 mx-auto text-center">
+            <a type="submit" class="btn btnRed" href="{# {{ path('message') }} #}"><i class="fas fa-envelope"></i>
+                Contacter</a>
+        </div>
+    </div>
+
+    <hr>
+
+    <p class="text-center w-50 mx-auto">{{ user.description }}</p>
+
+    {% else %}
+    <div class="anonyme row">
+        <div class="col-12 col-lg-3 my-2">
+            <img class="pb-1 mt-2 mx-auto" src="{{ asset('img/navbar/avatarVide.jpg')}}" alt="image d'illustration"
+                style="width: 100%; display: block;">
+        </div>
+        <div class="col-12 col-lg-9">
+            <p class="h4 text-center"><i class="fas fa-user"></i> Utilisateur anonyme</p>
+        </div>
+    </div>
+    {% endif %}
+
+
+    <hr class="hrProfil my-5">
+
+    {# articles et publications #}
+    <div class="container artPub pb-5">
+        <h3 class="text-center my-5">Voir les publications et articles de {{ user.fullName }}</h3>
+
+        <div class="row text-center">
+            <div class="col-12 col-lg-6 my-2">
+                <a onclick="openMenu('articles')" href="javascript:void(0)" data-toggle="tab"
+                    class="p-3 lienMenuCompte btnRed">
+                    <img src="{{ asset('uploads/articles/newspaper.png')}}" alt="experience" width="150px"
+                        class="img-fluid " style="border-radius:5px">Articles
+                </a>
+            </div>
+            <div class="col-12 col-lg-6 my-2">
+                <a onclick="openMenu('publications')" href="javascript:void(0)" data-toggle="tab"
+                    class="p-3 lienMenuCompte btnRed">
+                    Retours d'experiences <img src="{{ asset('uploads/articles/newspaper.png')}}" alt="experience"
+                        width="150px" class="img-fluid " style="border-radius:5px">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <hr class="hrProfil my-5">
+
+    <div class="container mt-5">
+        {# tab-content pour ouvrir une page sous le menu a l'aide des tab-pane #}
+        <div class="tab-content">
+            {# Articles #}
+            <div class="tab-pane active menuTab" id="articles" style="display:none">
+                <h3 class="text-center"><img src="{{ asset('uploads/articles/newspaper.png')}}" alt="experience"
+                        width="30px"> Les articles de {{user.fullName}}</h3>
+                {% if user.articles | length > 0 %}
+                <div class="row">
+                    {% for art in user.articles %}
+                    {% include "articles/_articles.html.twig" %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="alert alert-warning text-center">
+                    <p>
+                        <strong>{{ user.fullName}}</strong> n'a pas encore d'articles !
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+
+            {# Retour Expérience #}
+            <div class="tab-pane menuTab" id="publications" style="display:none">
+                <h3 class="text-center"><img src="{{ asset('uploads/articles/newspaper.png')}}" alt="experience"
+                        width="30px"> Les retours d'experiences de {{user.fullName}}</h3>
+                {% if user.retourExps | length > 0 %}
+                <div class="row">
+                    {% for pub in user.retourExps %}
+                    {% include "retour_exp/_publications.html.twig" %}
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="alert alert-warning text-center">
+                    <p>
+                        <strong>{{ user.fullName}}</strong> n'a pas encore de retour d'expérience !
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    function openMenu(menuName) {
+        var i, x;
+        x = document.getElementsByClassName("menuTab");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(menuName).style.display = "block";
+    }
+</script>
+{% endblock %}

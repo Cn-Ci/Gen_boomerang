@@ -1,0 +1,83 @@
+{# MENU DE DROITE #}
+<div class="row" id="encadreDroite">
+
+    {# LOADER #}
+    <div class="loader mx-auto my-auto"></div>
+
+	{# TEXTE DE GAUCHE #}
+	<div class="col-6 my-auto loading">
+		<div class="h4 txtRed">
+			Pack Séléctionné
+		</div>
+
+		<div class="txtBlue weight titleD">
+			{% if abonnement %}
+                {{ abonnement.title }}
+            {% else %}
+                -
+            {% endif %}
+		</div>
+
+		<hr class="my-4 w-50">
+
+		<div class="h4 txtRed">
+			Date de début
+		</div>
+		<div class="txtBlue weight dateDebutD">
+			{% if abonnement.createdAt %}
+                {{ abonnement.createdAt | date('d/m/Y') }}
+            {% else %}
+                -
+            {% endif %}
+		</div>
+
+		<hr class="my-4 w-50">
+	</div>
+
+	{# TEXTE DE DROITE #}
+	<div class="col-6 my-auto loading">
+		<div class="h4 txtRed">
+			Tarif annuel
+		</div>
+		<div class="txtBlue weight priceD">
+			{% if abonnement.price %}
+                {{ abonnement.price }}€
+            {% else %}
+                0€
+            {% endif %}
+		</div>
+
+		<hr class="my-4 w-50">
+
+		<div class="h4 txtRed date2">
+			Date de fin
+		</div>
+		<div class="txtBlue weight dateFinD">
+			{% if abonnement.status %}
+                {{ abonnement.status | date('d/m/Y') }}
+            {% else %}
+                -
+            {% endif %}
+		</div>
+
+		<hr class="my-4 w-50">
+	</div>
+
+	{# POURQUOI S'ABONNER #}
+	<div class="col-12 loading">
+		<div class="txtRed h3 text-uppercase">Pourquoi s'abonner ?</div>
+		<div class="txtBlue ">
+			<p class="description">
+				{% if abonnement.description %}
+                    {{ abonnement.description }}
+                {% else %}
+                    -
+                {% endif %}
+			</p>
+		</div>
+	</div>
+
+	<div class="loading mx-auto ">
+		<button type="button" class="btn btn-primary my-5 bouton">Payer maintenant</button>
+	</div>
+</div>

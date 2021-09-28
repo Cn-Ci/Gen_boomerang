@@ -1,0 +1,65 @@
+/***** Evolution des savoirs **************************************************************************/
+/****** couleur du pole */
+.colorSavoirs {
+    color: var(--couleurRougePole);
+}
+
+/****** bouton pole */
+.btnPole {
+    background-color: var(--couleurRougePole);
+    color: var(--couleurBlanc);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/****** bouton pole passage souris */
+.btnPole:hover {
+    background-color: var(--couleurBlanc);
+    color: var(--couleurRougePole);
+}
+
+/****** bouton suivant precedent */
+span.carousel-control-prev-icon, span.carousel-control-next-icon{
+    background-color: var(--couleurRougePole);
+    border-radius: 5px;
+    padding: 20px;
+    border:10px solid var(--couleurRougePole);
+}
+
+/****** btn fiche contact */
+.btnContact{
+    background-color: var(--couleurRougePole);
+    color: var(--couleurBlanc);
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+/****** btn fiche contact passage de souris */
+.btnContact:hover{
+    background-color: var(--couleurBlanc);
+    color: var(--couleurRougePole);
+}
+
+/************************************************************************************************/
+/***** Contact immobilier **************************************************************************/
+/****** titre "fiche contact" */
+.title{
+    text-align: center;
+    color: var(--couleurRougePole);
+    text-shadow:2px 0px 5px var(--couleurNoir);
+}
+
+/****** ombrage lettrage */
+.ombre{
+    text-shadow: 1px 1px 4px black;
+}
+
+/****** taille des icones sociaux sur la barre grise */
+.mw7{
+    max-width: 7em;
+}
+

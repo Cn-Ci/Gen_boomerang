@@ -1,0 +1,72 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css");
+/***** Articles index **************************************************************************/
+
+/****** lire la suite bordure */
+.lireSuiteAbo {
+    border : 5px solid var(--couleurBleu);
+}
+
+/****** lien auteur */
+.nomUser:hover {
+    text-decoration: none!important;
+    color: var(--couleurBleu);
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+/****** bordure commentaires */
+.commentaire{
+    border: 1px solid var(--couleurGris);
+    border-radius:5px;
+}
+
+#counter{
+    filter:blur(32px);
+}
+
+.comments {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 2% 0% 2% 0%;
+}
+
+#showMoreComments:hover {
+    font-size: large;
+    cursor: pointer;
+}
+
+.options{
+    border: none !important;
+}
+.options:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    border: none !important;
+}
+.options:focus {
+    border: none !important;
+}
+
+/****** bouton suivant precedent */
+span.carousel-control-prev-icon, span.carousel-control-next-icon{
+    background-color: var(--couleurBleu);
+    border-radius: 5px;
+    padding: 20px;
+    border: 10px solid var(--couleurBleu);
+
+}
+
+/** bouton like */
+#thumbs:hover {
+    color: #4169E1;
+    cursor: pointer;
+}
+
+
+/****** bordure input */
+.inputBorder{
+    border: 1px solid var(--couleurBleu);
+    border-radius: 5px;  
+    padding: 5px 5px 10px 5px;
+}

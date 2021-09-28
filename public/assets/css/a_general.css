@@ -1,0 +1,215 @@
+/************************************************************************  CODE COMMUN */
+/***** variable couleur */
+body{
+    /****** Fond blanc pour eviter le thème dark & light du navigateur */
+    background-color : white !important;
+    --couleurGrisFond: rgb(228, 228, 228);
+
+    /** Portail */
+    --couleurCyan : #00e8cf;
+    --couleurHome : #2e3b4bee;
+
+    /** --couleurRouge: #D13916; */
+    --couleurBleu : /*#023e7d*//*#0f7788*/#0faeb2;
+    --couleurGrisPale : #eff1f1;
+    --couleurGrisTransparent: #cbedee46;
+    --couleurRouge: #FE6E00;
+    --couleurGris : #575756;
+    --couleurNoir : #181918;
+    --couleurBlanc: #fff;
+    --couleurMenuPoles: rgb(27, 9, 9);
+    --couleurHomePole:rgba(44, 60, 77, 0.828);
+    --couleurPoleMetier:rgba(15, 55, 98, 0.828);
+    /** Pole */ 
+    --couleurJaune    : #fecc38;
+    --couleurRougePole: #ff5356;
+    --couleurOrange   : #fe8d25;
+    --couleurViolet   : #7E5DA4;
+    --couleurBleuPole : #2172B3;
+    --couleurVert     : #61c855;
+
+     /** Cube */
+     --couleurBleuCube:#61CCCC;
+     --couleurRougeCube:#EA7E73;
+     --couleurJauneCube:#EFC062;
+
+     font-family:Tahoma, sans-serif;
+
+     overflow-x:hidden;
+}
+
+#bg{
+    font-family:Tahoma, sans-serif;
+}
+
+/****** marge pour les alert messages */
+.messageError{
+    margin-top: 150px;
+}
+
+/****** lien */
+a:hover{
+    text-decoration:none;
+}
+
+/****** couleur titre */
+h1, h2, h3, h4 {
+    color         : var(--couleurRouge);
+    text-transform: uppercase;
+    font-weight   : bold;
+}
+
+/****** taille titre */
+h1 {
+    font-size: 4em;
+}
+h2 {
+    font-size: 3em;
+}
+
+/****** Couleur button */
+.btnRed{
+    background-color: var(--couleurRouge);
+    color           : var(--couleurBlanc);
+    text-transform  : uppercase;
+    font-weight     : bold;
+    border-radius   : 5px;
+    transition:all 0.3s;
+}
+
+/****** Couleur button passage de la souris */
+.btnRed:hover{
+    background-color: var(--couleurBlanc);
+    color           : var(--couleurRouge);
+}
+
+/****** couleur label */
+label {
+    color         : var(--couleurBleu);
+    font-weight   : bold;
+    text-transform: uppercase;
+}
+
+/***** bordure input */
+.formBorder{
+    border       : 1px solid var(--couleurBleu);
+    border-radius: 5px;  
+    margin       : 10px 150px 10px 150px;
+}
+
+/****** Fond de l'input */
+input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white inset; 
+}
+
+/***** bouton recherche retour expérience et articles */
+#button-addon5{
+    padding: 0;
+    height : 38px;
+    width  : 42px;
+}
+
+/****** correction petit bug de boutons de carrousel inutiles qui apparaissent sur la navbar accessibilité quand on scroll */
+.carousel-indicators{
+    opacity:0;
+}
+
+/****** conteneur des vidéos */
+iframe{
+    border-radius:10px;
+}
+
+.page-item.active .page-link, .page-link {
+    background-color: var(--couleurGris);
+    color: var(--couleurBlanc);
+    border-color: var(--couleurGris);
+}
+
+/***** HR */
+hr{
+    border: 4px solid var(--couleurBleu);
+    border-radius:4px;
+}
+
+/****** Bouton Voir pole */
+.btnPole{
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/****** Bouton Voir pole passage souris*/
+.btnPole:hover{ 
+    background-color : var(--couleurBlanc);
+}
+
+/****** Couleur Bouton Voir pole */
+.btnCom{
+    background-color: var(--couleurOrange);
+    
+}
+.btnCom:hover{
+    color: var(--couleurOrange);
+}
+
+.btnIno{
+    background-color: var(--couleurJaune);
+}
+.btnIno:hover{
+    color: var(--couleurJaune);
+}
+
+.btnSavoir{
+    background-color: var(--couleurRougePole);
+}
+.btnSavoir:hover{
+    color: var(--couleurRougePole);
+}
+
+.btnImmo{
+    background-color: var(--couleurVert);
+}
+.btnImmo:hover{
+    color: var(--couleurVert);
+}
+
+.btnDesign{
+    background-color: var(--couleurViolet);
+}
+.btnDesign:hover{
+    color: var(--couleurViolet);
+}
+
+.btnMetier{
+    background-color: var(--couleurBleuPole);
+}
+.btnMetier:hover{
+    color: var(--couleurBleuPole);
+}
+
+/********************************************************************************************* */
+/********************************************************************************************* */
+/********************************************************************************************* */
+/****** responsive */  
+@media (max-width: 992px) {
+    /****** taille titre */
+    h1 {
+        font-size  : 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+}
+ 
+@media (max-width: 767px) {
+    /****** taille titre */
+    h1 {
+        font-size  : 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+}

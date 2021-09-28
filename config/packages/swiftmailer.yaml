@@ -1,0 +1,7 @@
+swiftmailer:
+    # url: 'gmail://generation.boomerang2020:kjzmcgytgbhsutgy@localhost'
+    # password: 'kjzmcgytgbhsutgy'
+    # username: 'generation.boomerang2020@gmail.com'
+    url: '%env(MAILER_DSN)%'
+    spool: { type: 'memory' }
+    

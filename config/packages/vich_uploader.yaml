@@ -1,0 +1,30 @@
+vich_uploader:
+    db_driver: orm
+
+    # mappings:
+    #     article_image:
+    #         uri_prefix: /uploads/articles
+    #         upload_destination: '%kernel.project_dir%/public/uploads/articles'
+    #         namer: Vich\UploaderBundle\Naming\UniqidNamer
+    #         inject_on_load: false
+    #         delete_on_update: true
+    #         delete_on_remove: true
+            
+    #     retour_experience:
+    #         uri_prefix: /uploads/retourExp
+    #         upload_destination: '%kernel.project_dir%/public/uploads/retourExp'
+    #         namer: Vich\UploaderBundle\Naming\Base64Namer
+        
+    #     user_avatar:
+    #         uri_prefix: /uploads/userAvatar
+    #         upload_destination: '%kernel.project_dir%/public/uploads/userAvatar'
+    #         namer: Vich\UploaderBundle\Naming\OrignameNamer
+            
+    #     document:
+    #         uri_prefix: /uploads/document
+    #         upload_destination: '%kernel.project_dir%/public/uploads/document'
+    #         namer: Vich\UploaderBundle\Naming\OrignameNamer
+    #         inject_on_load: false
+    #         delete_on_update: true
+    #         delete_on_remove: true
+          

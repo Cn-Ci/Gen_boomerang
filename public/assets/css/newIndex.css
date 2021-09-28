@@ -1,0 +1,345 @@
+@media screen and (max-width: 504px) {
+
+    .logo-home-page{
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 991px){
+    .section-pole{
+        margin-top: 30em;
+    }
+
+    .wave{
+        margin-top: 30em;
+    }
+}
+
+
+/*@media (max-width: 1690px) {
+    .wave {
+        top: 95vh !important;
+    }
+}*/
+
+/****** marge pour éviter les soucis d'affichage, si on garde la navbar complète sur la homepage */
+.docSlider{
+    margin-top:40px !important;
+}
+
+/** Couleur orange */
+.colorBlueGB {
+    color:var(--couleurRouge);
+}
+/** Couleur cyan */
+.colorBlueGB {
+    color: var(--couleurCyan);
+}
+
+/** background contain section */
+.presentation1, .presentation2, .presentation3, .presentation4, .presentation5, .presentation6 {
+    background-size  : cover;
+    background-repeat: repeat-y;
+}
+
+/** début effet boutton float*/
+.float {
+    -webkit-transition-duration       : 0.3s;
+    transition-duration               : 0.3s;
+    vertical-align                    : middle;
+    -webkit-backface-visibility       : hidden;
+    backface-visibility               : hidden;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function        : ease-out;
+    -moz-osx-font-smoothing           : grayscale;
+    -webkit-transition-property       : transform;
+    transition-property               : transform;
+    display                           : inline-block;
+    -webkit-transform                 : translateZ(0);
+    transform                         : translateZ(0);
+    box-shadow                        : 0 0 1px rgba(0, 0, 0, 0);
+}
+.float:hover, .float:focus, .float:active {
+    -webkit-transform: translateY(-8px);
+    transform        : translateY(-8px);
+    box-shadow       : 0px 10px 15px 2px rgba(0, 0, 0, 0.18);
+}
+/** fin effet boutton float */
+
+/*! -------------------------------------*/
+  
+/** HIDE THE FOOTER */
+#bg {
+    display: none;
+}
+
+/** Background color section height */
+.colorBgs {
+    height: 35%;
+}
+/** entete de description gb page zéro */
+#boomerangHeader {
+    font-size  : 5.5vw;
+    font-family: 'Caviar Dreams', sans-serif;
+}
+/** description gb page zéro */
+#desc {
+    font-size   : 0.9em;
+    color       : var(--couleurHome);
+}
+/** style boutton page zéro */
+#discoverSiteButton {
+    border-radius     : 10px;
+    font-size         : 1.4em;
+    font-weight       : bolder;
+    background-color: #FF6E00;
+    color             : white;
+    border: none;
+    outline: none;
+}
+#discoverSiteButton:hover
+{
+    background-color: #01e8cf;
+}
+/** filtre d'opacité sur les background */
+.opacity {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.z-index {
+    z-index           : 999;
+    -webkit-box-shadow: 6px 0px 13px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow   : 6px 0px 13px 0px rgba(0,0,0,0.75);
+    box-shadow        : 6px 0px 13px 0px rgba(0,0,0,0.75);
+}
+/** début effet boutton bounce */
+.hvr-bounce-to-bottom {
+    -webkit-transition-duration: 0.5s;
+    transition-duration        : 0.5s;
+    -webkit-transition-property: color;
+    transition-property        : color;
+    vertical-align             : middle;
+    position                   : relative;
+    display                    : inline-block;
+    box-shadow                 : 0 0 1px transparent;
+    -webkit-transform          : perspective(1px) translateZ(0);
+    transform                  : perspective(1px) translateZ(0);
+}
+.hvr-bounce-to-bottom:before {
+    top                               : 0;
+    left                              : 0;
+    right                             : 0;
+    bottom                            : 0;
+    content                           : "";
+    z-index                           : -1;
+    -webkit-transition-duration       : 0.5s;
+    transition-duration               : 0.5s;
+    -webkit-transform-origin          : 50% 0;
+    transform-origin                  : 50% 0;
+    transition-timing-function        : ease-out;
+    -webkit-transition-timing-function: ease-out;
+    position                          : absolute;
+    -webkit-transform                 : scaleY(0);
+    transform                         : scaleY(0);
+    transition-property               : transform;
+    -webkit-transition-property       : transform;
+}
+.hvr-bounce-to-bottom:hover, .hvr-bounce-to-bottom:focus, .hvr-bounce-to-bottom:active {
+    color          : var(--couleurBlanc);
+    font-family    : 'COCOGOOSE', sans-serif;
+    text-decoration: none !important;
+}
+.hvr-bounce-to-bottom:hover:before, .hvr-bounce-to-bottom:focus:before, .hvr-bounce-to-bottom:active:before {
+    -webkit-transform                 : scaleY(1);
+    transform                         : scaleY(1);
+    -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    transition-timing-function        : cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+/** fin effet boutton bounce */
+
+/*! -------------------------------------*/
+
+/** header des présentation */
+.header {
+    font-size         : 2vw;
+    border-radius     : 15px;
+    top               : -70px;
+    display           : inline;
+    color             : var(--couleurBlack);  
+    position          : relative;
+    background-color  : #f5f5f5;
+    font-family       : 'COCOGOOSE', sans-serif;
+    border            : 1px solid rgba(0,0,0,0.1);      
+    -webkit-box-shadow: 4px 4px 17px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow   : 4px 4px 17px 0px rgba(0,0,0,0.75);
+    box-shadow        : 4px 4px 17px 0px rgba(0,0,0,0.75);
+}
+/** description des poles */
+.content {
+    opacity        : 1;
+    font-weight    : 900;
+    top            : -25px;
+    font-size      : 1.20em;
+    text-align-last: center;
+    text-align     : justify;
+    position       : relative;
+    padding        : 0% 20% 0% 20%;
+}
+
+/** disable overflow */
+.mediaQueries {
+    overflow-y: hidden;
+    height    : 100%;
+}
+
+/** style du logo lié au header */
+#headerLogo {
+    z-index  : 999;
+    width    : 17vh;
+    height   : 17vh;
+    opacity  : 1!important;
+}
+
+
+/*! -------------------------------------*/
+
+.margeHome{
+    margin-top      : 0%;
+    position:relative;
+    z-index:10;
+}
+
+
+.logo-home-page{
+    content:url(../../img/logo/LOGO-GENERATION-BOOMERANG-PNG3.png);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1%;
+    margin-bottom: 1% !important;
+    
+}
+
+.hrHome {
+    background-image: linear-gradient(90deg, var(--couleurRouge), transparent);
+    border: 0;
+    height: 3px;
+}
+
+/** wave effect */ 
+#container-wave {
+    bottom           : 0px;
+    width            : 100%;
+    height           : 100vh;
+    /* overflow-y       : hidden; */
+    overflow-y       : auto;
+    justify-content  : center;
+    align-items      : center;
+    background-size  : contain;
+    margin-left      : 10px;
+    background-repeat: no-repeat;
+    /*background-color : rgb(245,245,245);*/
+    background-color: var(--couleurBlanc);
+}
+.wave {
+    left             : 0;
+    padding-top      : 10%;
+    width            : 100%;
+    background-size  : 100%;
+    top              : 85.6vh;
+    position         : absolute;
+    background-repeat: repeat-x;
+    animation        : wave 8s linear infinite;
+    background-image : url("../../images/folderHomePage/wave.png");
+}
+.wave::before {
+    left             : 0;
+    content          : '';
+    opacity          : .2;
+    padding-top      : 10%;
+    width            : 100%;
+    top              : 0px;
+    background-size  : 100%;
+    background-repeat: repeat-x;
+    position         : absolute;
+    animation        : wave-reverse 8s linear infinite;
+    background-image : url("../../images/folderHomePage/wave.png");
+}
+.wave::after {
+    left             : 0;
+    content          : '';
+    opacity          : .8;
+    animation-delay  : -4s;
+    padding-top      : 10%;
+    top              : 20px;
+    width            : 100%;
+    background-size  : 100%;
+    position         : absolute;
+    background-repeat: repeat-x;
+    animation        : wave 16s linear infinite;
+    background-image : url("../../images/folderHomePage/wave.png");
+}
+
+#zeroContainer {
+    background-color: #f5f5f5;
+    height          : 100%;
+}
+@keyframes wave {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 100vw;
+    }
+}
+@keyframes wave-reverse {
+    0% {
+        background-position: 100vw;
+    }
+    100% {
+        background-position: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    .mediaQueries {
+        overflow-y: visible;
+    }
+    .colorBgs {
+        height: 40%;
+    }
+    /** entete de description gb page zéro */
+    #boomerangHeader {
+        font-size  : 11vw;
+        font-family: 'Caviar Dreams', sans-serif;
+    }
+    .margeHome{
+        margin-bottom:200px;
+    }
+}
+
+@media (min-width: 1500px) {
+    #boomerangHeader {
+        font-size:82.5px;
+    }
+}
+
+
+
+
+/****** lien vers le google docs de retours beta */
+.lienBeta{
+    font-weight:bold;
+    font-size:1.5em;
+    color:var(--couleurBleu);
+}
+.lienBeta:hover{
+    color:var(--couleurRouge);
+}
+
+.desc-beta{
+    /* font-family: ; */
+    font-family: Tahoma;
+    font-style: normal;
+    font-size: 1.3em !important;
+}

@@ -1,0 +1,91 @@
+<div id="cardDiv" class="col-10 col-md-6 col-lg-4 mx-auto px-0 ">
+    <div class="card m-3">
+        <div class="card-header text-center">
+
+            {# Icone + titre #}
+            {% if medias != NULL %}
+            <div class="row align-items-center">
+                <div class="col-2">
+                    {% if medias %} {#si une image#}
+                    <img src="{{asset ('images/folderHomePage/kit_icones2/Evo_Savoirs.svg')}}" {#******** {% if
+                        medias.type==" livre" %} {{ asset ('images/folderHomePage/kit_icones2/Innovation.svg')}} {%
+                        elseif medias.type===="video" %} {{ asset
+                        ('images/folderHomePage/kit_icones2/Com_Rech_Dev.svg')}} {% elseif medias.type=="vocal" %} {{
+                        asset ('images/folderHomePage/kit_icones2/Evo_Savoirs.svg')}} class="pt-1 pl-1" ****************
+                        a remplir avec la bdd des medias************************************** #} style=" width:30px"
+                        alt="icone média">
+                    {% else %}
+                    <img src="{{asset ('images/folderHomePage/kit_icones2/Evo_Savoirs.svg')}}" style=" width:30px"
+                        alt="icone média">
+                    {% endif %}
+                </div>
+                <div class="col-10">
+                    <a href="{{path('design') }}">
+                        <p class="h6 lienPole">type de média</p>
+                    </a>
+                </div>
+
+            </div>
+            {% endif %}
+
+        </div>
+
+        <div class="card-bodyPub text-center">
+            <a class="title_art" href="">
+                <p class="text-center">Titre article livre ou vidéo</p>
+            </a>
+
+            <a class="lienSlug" href="#">
+                {#
+                *******************remplir avec bdd medias***************************
+                {% if medias.imgMedia %}
+                <img src="/uploads/articles/{{ art.imgArticle.imageArt }}" alt="experience" width="165px"
+                    class="imgArticle img-fluid my-3" style="border-radius:5px">
+                {% else %}
+                <img src="{{ asset('uploads/retourExp/retourExpDefault.jpg')}}" alt="experience" width="300px"
+                    class="img-fluid my-3" style="border-radius:5px">
+                {% endif %}
+                *******************chargement immage ou icone defaut ***************************
+                #}
+                <img src="/uploads/medias/generic_livre.jpg" alt="experience" width="165px"
+                    class="imgArticle img-fluid my-3" style="border-radius:5px">
+            </a>
+            <div>
+                <a class="lienSlug" href="">
+                    <small><i class="fas fa-user"></i> prénom auteur nom auteur</small>
+                </a>
+            </div>
+
+
+            <hr class="hrArticles">
+
+
+
+            <div class="hauteurText mb-1">
+                <p class="text-center px-3">
+                    présentation rapide du contenu du média <br> présentation rapide du contenu du média <br>
+                    présentation rapide du contenu du média
+                </p>
+            </div>
+
+
+            {#
+
+            <div class="mb-3 editSuppr">
+                {% if app.user and app.user.roles[0] == "ROLE_ADMIN" or app.user and app.user == art.author %}
+                <div class="self-align-center">
+                    <a type="submit" class="btn btnRed edit" href="{{ path('article_edit', {'slug':art.slug}) }}"><i
+                            class="fas fa-edit"></i> Editer</a>
+                    <a type="submit" class="btn btnRed suppr" href="{{ path('article_delete', {'slug':art.slug}) }}"><i
+                            class="fas fa-trash-alt"></i> Supprimer</a>
+                </div>
+                {% endif %}
+            </div>
+            #}
+        </div>
+    </div>
+</div>
+
+{% block javascripts %}
+<script src="{{ asset('assets/js/art_retourExp.js')}}"></script>
+{% endblock %}

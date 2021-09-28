@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Newsletter {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/newsletter_type.css')}}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center mt-7">Choix de Newsletter</h1>
+
+        <div class="row">
+            <div class="col-12 col-lg-4 mt-5 text-center">
+                <img id="myImg" src="{{ asset('img/newsletter/newsletter_1.png') }}" alt="Patern newsletter 1" width="300px" height="700px" class="choice">
+                <br>
+                <a href="/newsletter/new/1" target="_blank" rel="noopener noreferrer" class="bounce-out mt-5 px-5 py-2">Choisir</a>
+            </div>
+
+            <div class="col-12 col-lg-4 mt-5 text-center">
+                <img src="{{ asset('img/newsletter/newsletter_2.png') }}" alt="Patern newsletter 2" width="300px" height="700px" class="choice">
+                <br>
+                <a href="/newsletter/new/2" target="_blank" rel="noopener noreferrer" class="bounce-out mt-5 px-5 py-2">Choisir</a>
+            </div>
+
+            <div class="col-12 col-lg-4 mt-5 text-center">
+                <img src="{{ asset('img/newsletter/newsletter_3.png') }}" alt="Patern newsletter 3" width="300px" height="700px" class="choice">
+                <br>
+                <a href="/newsletter/new/3" target="_blank" rel="noopener noreferrer" class="bounce-out mt-5 px-5 py-2">Choisir</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        var modal       = document.getElementById("myModal");
+        var img         = document.getElementById("myImg");
+        var modalImg    = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+
+        img.onclick = function(){
+            modal.style.display   = "block";
+            modalImg.src          = this.src;
+            captionText.innerHTML = this.alt;
+        }
+
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    </script>
+{% endblock %}

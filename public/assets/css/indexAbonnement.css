@@ -1,0 +1,33 @@
+/***** Abonnement Newsletter **************************************************************************/
+/****** petite police grise */
+    .greyTxt{
+        color: var(--couleurGris);
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+/****** tintitulés des rubriques */
+    .titleGrey{
+        color: var(--couleurGris);
+    }
+
+/****** hr bleu */
+    .hrNewsletter{
+        margin-top: -1.5em;
+    }
+
+/****** encadré bleu des box */
+    .box{
+        border: 4px solid var(--couleurBleu);
+        min-height: 300px;
+    }
+
+/****** petits hr des box */
+    .hrBox{
+        width: 50%;
+    }
+
+/****** hauteur de l'intitulé des cartes */
+    .titleCard{
+        min-height: 80px;
+    }
